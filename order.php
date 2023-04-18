@@ -9,6 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+
     <title>Order List</title>
 
     <!-- Custom fonts for this template -->
@@ -22,6 +23,9 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <!-- Button Style -->
+    <link href="css/button.css" rel="stylesheet">
 
 </head>
 
@@ -361,15 +365,31 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid" style="background-color: #E2E5FF;">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Order</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
+                    <h1 class="h3 mb-3 text-gray-800" style="margin-bottom: 1rem;">Order</h1>
+                    <div class="button-container" style="margin-bottom: 1rem;">
+                                <button class="button-16" role="button">Order List</button>
+                                <button class="button-16" role="button">Return List</button>    
+                    </div>
 
-                    <!-- DataTales Example -->
+                    
+                    <!-- Order -->   
+                    <!-- Filter & Search -->    
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <div class="button-container">
+                                <button class="button-16" role="button">Button 1</button>
+                                <button class="button-16" role="button">Button 2</button>
+                                <button class="button-16" role="button">Button 3</button>
+                                <button class="button-16" role="button">Button 4</button>
+                                <button class="button-16" role="button">Button 5</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order List -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
