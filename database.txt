@@ -1,0 +1,113 @@
+CREATE SCHEMA IF NOT EXISTS `pract`;
+
+USE `pract`;
+
+CREATE TABLE IF NOT EXISTS `user` (
+  user_id INT PRIMARY KEY AUTO_INCREMENT,
+  user_email VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  profile_image VARBINARY(65535),
+  first_name VARCHAR(255) NOT NULL,
+  last_name VARCHAR(255) NOT NULL,
+  phone_number VARCHAR(15) NOT NULL,
+  created_at TIMESTAMP,
+  is_admin BOOLEAN DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS `Payment_method` (
+  payment_method_id INT PRIMARY KEY AUTO_INCREMENT,
+  user_id INT,
+  card_number VARCHAR(255) NOT NULL,
+  card_type VARCHAR(255) NOT NULL,
+  expired_at TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS `Shipping_address` (
+  shipping_address_id INT PRIMARY KEY AUTO_INCREMENT,
+  user_id INT,
+  address_line1 VARCHAR(255) NOT NULL,
+  address_line2 VARCHAR(255),
+  postal_code VARCHAR(255) NOT NULL,
+  city VARCHAR(255) NOT NULL,
+  state VARCHAR(255) NOT NULL,
+  country VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `Category` (
+  category_id INT PRIMARY KEY AUTO_INCREMENT,
+  category_name VARCHAR(255) NOT NULL,
+  description VARCHAR(255),
+  created_at TIMESTAMP,
+  is_deleted BOOLEAN DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS `Product` (
+  product_id INT PRIMARY KEY AUTO_INCREMENT,
+  product_name VARCHAR(255) NOT NULL,
+  product_image VARBINARY(65535),
+  description VARCHAR(255),
+  price DECIMAL(10, 2) NOT NULL,
+  stock_quantity INT DEFAULT 0,
+  category_id INT,
+  created_at TIMESTAMP,
+  is_deleted BOOLEAN DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS `Order` (
+  order_id INT PRIMARY KEY AUTO_INCREMENT,
+  user_id INT,
+  ordered_at TIMESTAMP,
+  payment_method_id INT,
+  shipping_address_id INT,
+  total_price DECIMAL(10, 2),
+  coupon_id INT,
+  payment_status INT DEFAULT 0,
+  paid_at TIMESTAMP,
+  fulfillment_status ENUM('Awaits fulfillment', 'In Delivery', 'Shipped', 'Delivered'),
+  is_cancelled BOOLEAN DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS `Refund_order` (
+  refund_order_id INT PRIMARY KEY AUTO_INCREMENT,
+  order_id INT,
+  refund_at TIMESTAMP,
+  refund_status INT DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS `Order_item` (
+  order_item_id INT PRIMARY KEY AUTO_INCREMENT,
+  order_id INT,
+  product_id INT,
+  quantity INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `Coupon` (
+  coupon_id INT PRIMARY KEY AUTO_INCREMENT,
+  coupon_name VARCHAR(255) NOT NULL,
+  discount INT NOT NULL,
+  min_purchase DECIMAL(10, 2) NOT NULL,
+  created_at TIMESTAMP,
+  expired_at TIMESTAMP,
+  is_active BOOLEAN DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS `User_Coupon` (
+  user_coupon_id INT PRIMARY KEY AUTO_INCREMENT,
+  coupon_id INT,
+  user_id INT,
+  is_used BOOLEAN DEFAULT 0,
+  obtained_at TIMESTAMP
+);
+
+ALTER TABLE Product ADD FOREIGN KEY (category_id) REFERENCES Category (category_id);
+ALTER TABLE Payment_method ADD FOREIGN KEY (user_id) REFERENCES `User` (user_id);
+ALTER TABLE Shipping_address ADD FOREIGN KEY (user_id) REFERENCES `User`  (user_id);
+ALTER TABLE `Order` ADD FOREIGN KEY (user_id) REFERENCES `User` (user_id);
+ALTER TABLE Order_item ADD FOREIGN KEY (order_id) REFERENCES `Order` (order_id);
+ALTER TABLE Order_item ADD FOREIGN KEY (product_id) REFERENCES Product (product_id);
+ALTER TABLE User_Coupon ADD FOREIGN KEY (coupon_id) REFERENCES Coupon (coupon_id);
+ALTER TABLE User_Coupon ADD FOREIGN KEY (user_id) REFERENCES User (user_id);
+ALTER TABLE `Order` ADD FOREIGN KEY (payment_method_id) REFERENCES Payment_method (payment_method_id);
+ALTER TABLE `Order` ADD FOREIGN KEY (shipping_address_id) REFERENCES Shipping_address (shipping_address_id);
+ALTER TABLE Refund_order ADD FOREIGN KEY (order_id) REFERENCES `Order` (order_id);
+ALTER TABLE `Order` ADD FOREIGN KEY (coupon_id) REFERENCES Coupon (coupon_id);
