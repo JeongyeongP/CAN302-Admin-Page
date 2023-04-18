@@ -1,0 +1,59 @@
+INSERT INTO `user` (user_email, password, profile_image, first_name, last_name, phone_number, created_at, is_admin)
+VALUES ('john.doe@example.com', 'password123', NULL, 'John', 'Doe', '1234567890', NOW(), 1),
+       ('jane.doe@example.com', 'password456', NULL, 'Jane', 'Doe', '9876543210', NOW(), 0),
+       ('mark.smith@example.com', 'password789', NULL, 'Mark', 'Smith', '5678901234', NOW(), 0),
+       ('susan.johnson@example.com', 'passwordabc', NULL, 'Susan', 'Johnson', '3456789012', NOW(), 0);
+
+INSERT INTO `Payment_method` (user_id, card_number, card_type, expired_at)
+VALUES (1, '1234567812345678', 'Visa', '2024-06-30'),
+       (2, '2345678923456789', 'Mastercard', '2023-09-30'),
+       (3, '3456789034567890', 'Visa', '2025-12-31'),
+       (4, '4567890145678901', 'Mastercard', '2023-07-31');
+
+INSERT INTO `Shipping_address` (user_id, address_line1, address_line2, postal_code, city, state, country)
+VALUES (1, '1234 Elm St', 'Apt 567', '12345', 'New York', 'NY', 'USA'),
+       (2, '5678 Oak St', 'Apt 890', '67890', 'Los Angeles', 'CA', 'USA'),
+       (3, '7890 Maple St', NULL, '45678', 'Chicago', 'IL', 'USA'),
+       (4, '2345 Cedar St', 'Apt 123', '78901', 'Houston', 'TX', 'USA');
+
+INSERT INTO `Category` (category_name, description, created_at, is_deleted)
+VALUES ('Fruits', 'Description Fresh Fruits', NOW(), 0),
+       ('Vegetables', 'Description Organic', NOW(), 0),
+       ('Snacks', 'Description Delicious', NOW(), 0),
+       ('Dairy', 'Description Milk', NOW(), 0),
+       ('Drinks', 'Description Soda soft drinks', NOW(), 0);
+
+INSERT INTO `Product` (product_name, product_image, description, price, stock_quantity, category_id, created_at, is_deleted)
+VALUES ('Grapes', NULL, 'From farm Green', 1000.00, 50, 1, NOW(), 0),
+       ('Apple', NULL, 'Organic farm', 800.00, 100, 1, NOW(), 0),
+       ('Grapefruit', NULL, 'Sour Sweet', 25.00, 200, 1, NOW(), 0),
+       ('Lays', NULL, 'chips', 25.00, 200, 1, NOW(), 0),
+       ('Mango', NULL, 'Sweet from tropical country', 50.00, 100, 1, NOW(), 0);
+
+INSERT INTO `Coupon` (coupon_name, discount, min_purchase, created_at, expired_at, is_active)
+VALUES ('SPRING20', 20, 50.00, NOW(), '2023-05-31', 1),
+       ('SUMMER15', 15, 100.00, NOW(), '2023-08-31', 1),
+       ('FALL10', 10, 0.00, NOW(), '2023-11-30', 1),
+       ('WINTER25', 25, 200.00, NOW(), '2024-02-28', 0);
+
+INSERT INTO `User_Coupon` (coupon_id, user_id, is_used, obtained_at)
+VALUES (1, 1, 0, NOW()),
+       (2, 2, 0, NOW()),
+       (3, 3, 1, NOW()),
+       (4, 4, 0, NOW());
+
+INSERT INTO `Order` (user_id, ordered_at, payment_method_id, shipping_address_id, total_price, coupon_id, payment_status, paid_at, fulfillment_status, is_cancelled)
+VALUES (1, NOW(), 1, 1, 1000.00, 1, 1, NOW(), 'Shipped', 0),
+       (2, NOW(), 2, 2, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
+       (3, NOW(), 3, 3, 50.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
+       (4, NOW(), 4, 4, 150.00, NULL, 0, NULL, 'In Delivery', 0);
+
+INSERT INTO `Order_item` (order_id, product_id, quantity)
+VALUES (1, 1, 2),
+       (1, 2, 1),
+       (2, 3, 3),
+       (3, 4, 2);
+
+INSERT INTO `Refund_order` (order_id, refund_at, refund_status)
+VALUES (1, NOW(), 0),
+       (2, NOW(), 1);
