@@ -1,0 +1,340 @@
+/*
+	@name frame_1
+*/
+/* Only edit this if you know what you are doing! */
+body { margin: 0px; padding: 0px; font-family:"Arial"; overflow-x:hidden; }
+
+/* Only edit this if you know what you are doing! */
+img { position: absolute; display: block; margin: 0px; border: none; padding: 0px; }
+
+/* Only edit this if you know what you are doing! */
+div { position: absolute; }
+
+#content-container { display: block; position: relative; width: 283px; width: 283px; height: 1073px; overflow: hidden; display: block;  margin-left: 0;   }
+
+#_bg__frame_1 {
+	top: 0px;
+	left: 0px;
+	width: 283px;
+	height: 1073px;
+	background:rgba(255,255,255,1);
+}
+
+#menu {
+	top: 187px;
+	left: 19px;
+	width: 179px;
+	height: 837px;
+}
+#ic_user {
+	top: 167px;
+	left: 31px;
+	width: 24px;
+	height: 24px;
+}
+
+#icon {
+	top: 2px;
+	left: 2px;
+	width: 20px;
+	height: 20px;
+}
+
+#menu_name {
+	top: 0px;
+	left: 0px;
+	width: 179px;
+	height: 837px;
+}
+#profile_photo {
+	top: 787px;
+	left: 22px;
+	width: 50px;
+	height: 50px;
+}
+
+#rectangle_113 {
+	top: 0px;
+	left: 0px;
+	width: 50px;
+	height: 50px;
+	-ms-border-radius: 12px;
+	-o-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	background:rgba(247,247,248,1);
+}
+
+
+#rectangle_114 {
+	top: 0px;
+	left: 0px;
+	width: 50px;
+	height: 50px;
+	-ms-border-radius: 12px;
+	-o-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	background:rgba(241,244,250,1);
+}
+
+
+#rectangle_115 {
+	top: 0px;
+	left: 0px;
+	width: 50px;
+	height: 50px;
+}
+
+#text {
+	top: 787px;
+	left: 79px;
+	width: 100px;
+	height: 50px;
+}
+
+#jeongyeong_park_admin {
+	top: 0px;
+	left: 0px;
+	width: 118.32000017166px;
+	height: 59.320000171661px;
+	overflow: hidden;
+	font-family: DM Sans;
+	font-size: 12.64px;
+	text-align: left;
+	color:#06152B;
+}
+
+
+#rectangle_289 {
+	top: 42px;
+	left: 0px;
+	width: 58px;
+	height: 55.84px;
+}
+
+#notification {
+	top: 371px;
+	left: 28px;
+	width: 24px;
+	height: 27.92px;
+}
+#iconly_bold_notification {
+	top: 0px;
+	left: 0px;
+	width: 24px;
+	height: 27.92px;
+}
+#calendar {
+	top: 167px;
+	left: 73px;
+	width: 69px;
+	height: 24.43px;
+}
+
+#user {
+	opacity:0.5;
+	top: 0px;
+	left: 0px;
+	width: 90px;
+	height: 35.43px;
+	overflow: hidden;
+	font-family: DM Sans;
+	font-size: 16px;
+	text-align: left;
+	color:#06152B;
+}
+
+#calendar_ek1 {
+	top: 218px;
+	left: 73px;
+	width: 69px;
+	height: 24.43px;
+}
+
+#coupon {
+	opacity:0.5;
+	top: 0px;
+	left: 0px;
+	width: 90px;
+	height: 35.43px;
+	overflow: hidden;
+	font-family: DM Sans;
+	font-size: 16px;
+	text-align: left;
+	color:#06152B;
+}
+
+#invoice {
+	top: 116px;
+	left: 28px;
+	width: 143px;
+	height: 27.92px;
+}
+
+#order {
+	opacity:0.5;
+	top: 1px;
+	left: 45px;
+	width: 119.46px;
+	height: 35.43px;
+	overflow: hidden;
+	font-family: DM Sans;
+	font-size: 16px;
+	text-align: left;
+	color:#06152B;
+}
+
+#iconly_bold_ticket {
+	top: 0px;
+	left: 0px;
+	width: 28.13px;
+	height: 27.92px;
+}
+#ic_order {
+	top: 6.17px;
+	left: 3px;
+	width: 22.71px;
+	height: 16px;
+}
+
+#vector {
+	top: 0.88px;
+	left: 1.72px;
+	width: 9.33px;
+	height: 15.12px;
+}
+
+
+#vector_ek1 {
+	top: 0px;
+	left: 11.78px;
+	width: 10.92px;
+	height: 5.55px;
+}
+
+
+#vector_ek2 {
+	top: 0.88px;
+	left: 11.66px;
+	width: 9.33px;
+	height: 15.12px;
+}
+
+
+#vector_ek3 {
+	top: 0px;
+	left: 0px;
+	width: 10.92px;
+	height: 5.55px;
+}
+
+#analytics {
+	top: 58px;
+	left: 66px;
+	width: 105px;
+	height: 25px;
+}
+
+#product {
+	opacity:0.5;
+	top: 0px;
+	left: 0px;
+	width: 126px;
+	height: 36px;
+	overflow: hidden;
+	font-family: DM Sans;
+	font-size: 16px;
+	text-align: left;
+	color:#000000;
+}
+
+#dashboard {
+	top: 0px;
+	left: 30px;
+	width: 119px;
+	height: 26.43px;
+}
+
+#dashboard_ek1 {
+	opacity:0.5;
+	top: 2px;
+	left: 36px;
+	width: 104px;
+	height: 35.43px;
+	overflow: hidden;
+	font-family: DM Sans;
+	font-size: 16px;
+	text-align: left;
+	color:#06152B;
+}
+
+#category {
+	top: 0px;
+	left: 0px;
+	width: 23px;
+	height: 23px;
+}
+
+#category_ek1 {
+	top: 0px;
+	left: 0px;
+	width: 23px;
+	height: 23px;
+}
+
+#ic_ticket {
+	top: 218px;
+	left: 31px;
+	width: 24px;
+	height: 24px;
+}
+
+#icon_ek1 {
+	top: 4px;
+	left: 2px;
+	width: 20px;
+	height: 16px;
+}
+
+#iconly_bold_buy {
+	top: 58px;
+	left: 28px;
+	width: 24px;
+	height: 24px;
+}
+#buy {
+	top: 2px;
+	left: 2px;
+	width: 20px;
+	height: 20px;
+}
+
+#buy_ek1 {
+	top: 0px;
+	left: 0px;
+	width: 20px;
+	height: 20px;
+}
+
+
+#logo {
+	top: 42px;
+	left: 62px;
+	width: 195px;
+	height: 119px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 38px;
+	font-weight: bold;
+	text-align: left;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: #333333;
+	color:#333333;
+}
+
+
+
+/* Add your custom CSS here */
