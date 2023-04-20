@@ -1,0 +1,9 @@
+=====================Order Pages=====================
+
+*********Order List Page*********
+http://localhost/CAN302-Admin-Page/order.php
+
+*********Order Details Page*********
+http://localhost/CAN302-Admin-Page/order-details.php
+
+=====================================================

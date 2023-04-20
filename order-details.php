@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
 
-    <title>Order List</title>
+    <title>Order Details</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -160,17 +160,11 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid" style="background-color: #E2E5FF;">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-3 text-gray-800 mt-4" style="margin-bottom: 1rem;">Order</h1>
-                    <div class="button-container" style="margin-bottom: 1rem;">
-                                <button class="button-16" role="button">Order List</button>
-                                <button class="button-16" role="button">Return List</button>    
-                    </div>
-
-                    
                     <!-- Order -->   
-                    <!-- Filter & Search -->    
-                    <div class="card shadow mb-4">
+                    <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary" style="color: black;">Order</h6>
+                        </div>
                         <div class="card-body">
                             <div class="button-container mb-3">
                                 <button class="button-16" role="button">All</button>
@@ -189,49 +183,46 @@
                         </div>
                     </div>
 
-                    <!-- Order List -->
-                    <div class="card shadow mb-4">
-                        <!-- <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                        </div> -->
+                    <!-- Order Summary -->   
+                    <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
+                
+                            <h6 class="m-0 font-weight-bold text-primary" style="color: black;">Summary</h6>
+                     
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <!-- <th></th> -->
-                                            <th>Order Number</th>
-                                            <th>Date</th>
-                                            <th>User ID</th>
-                                            <th>Payment Status</th>
-                                            <th>Fulfillment Status</th>
-                                            <th>Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            include("orderData.php");
-                                            while($row = $query->fetch_array()){
-                                            // echo "<tr>";
-                                            echo "<td>".'#'.$row['order_id']."</td>";
-                                            echo "<td>".$row['ordered_at']."</td>";
-                                            echo "<td>".'#'.$row['user_id']."</td>";
-                                            if($row['payment_status'] == 1) echo "<td>"."Paid"."</td>"; else echo "<td>"."Unpaid"."</td>";
-                                            echo "<td>".$row['fulfillment_status']."</td>";
-                                            echo "<td>".'$'.$row['total_price']."</td>";
-                                            echo "</tr>";
-                                        }
-                                        mysqli_close($con);
-                                        ?>
-                                    </tbody>
-                                </table>
-                             
-                            </div>
+                            
                         </div>
                     </div>
 
-                </div>
-                <!-- /.container-fluid -->
+                    <!-- Order Payments -->   
+                    <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
+                
+                            <h6 class="m-0 font-weight-bold text-primary" style="color: black;">Payments</h6>
+                     
+                        <div class="card-body">
+                            
+                        </div>
+                    </div>
+
+                    <!-- Order Shipping Address -->   
+                    <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
+                
+                            <h6 class="m-0 font-weight-bold text-primary" style="color: black;">Shipping Address</h6>
+                     
+                        <div class="card-body">
+                            
+                        </div>
+                    </div>
+
+                    <!-- Order Customer Information -->   
+                    <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
+                
+                            <h6 class="m-0 font-weight-bold text-primary" style="color: black;">Customer Information</h6>
+                     
+                        <div class="card-body">
+                            
+                        </div>
+                    </div>
+
 
             </div>
             <!-- End of Main Content -->

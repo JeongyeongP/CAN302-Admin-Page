@@ -1,47 +1,50 @@
+/* CSS for style button 16*/
 .button-16 {
-    background-color: #f8f9fa;
-    border: 1px solid #f8f9fa;
-    border-radius: 4px;
-    color: #3c4043;
-    cursor: pointer;
-    font-family: arial,sans-serif;
-    font-size: 14px;
-    height: 36px;
-    line-height: 27px;
-    min-width: 54px;
-    padding: 0 16px;
-    text-align: center;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: pre;
-  }
-  
-  .button-16:hover {
-    border-color: #dadce0;
-    box-shadow: rgba(0, 0, 0, .1) 0 1px 1px;
-    color: #202124;
-  }
-  
-  .button-16:focus {
-    border-color: #4285f4;
-    outline: none;
-  }
+  background-color: #f8f9fa;
+  border: 1px solid #f8f9fa;
+  border-radius: 4px;
+  color: #3c4043;
+  cursor: pointer;
+  font-family: arial, sans-serif;
+  font-size: 14px;
+  height: 36px;
+  line-height: 27px;
+  min-width: 54px;
+  padding: 0 16px;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: pre;
+}
 
-/* CSS */
+.button-16:hover {
+  border-color: #dadce0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 1px 1px;
+  color: #202124;
+}
+
+.button-16:focus {
+  border-color: #4285f4;
+  outline: none;
+}
+
+/* CSS for style button 38*/
 .button-38 {
-  background-color: #FFFFFF;
+  background-color: #333333;
   border: 0;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   box-sizing: border-box;
   color: #111827;
-  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  font-size: .875rem;
+  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.25rem;
-  padding: .75rem 1rem;
+  padding: 0.75rem 1rem;
   text-align: center;
-  text-decoration: none #D1D5DB solid;
+  text-decoration: none #d1d5db solid;
   text-decoration-thickness: auto;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   cursor: pointer;
@@ -51,7 +54,7 @@
 }
 
 .button-38:hover {
-  background-color: rgb(249,250,251);
+  background-color: r#333333;
 }
 
 .button-38:focus {
@@ -62,4 +65,3 @@
 .button-38:focus-visible {
   box-shadow: none;
 }
-  

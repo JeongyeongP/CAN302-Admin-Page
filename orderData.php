@@ -32,11 +32,15 @@ if (isset($_POST['add'])) {
 
 //query the data from database
 if (isset($_POST['search'])) {
-    $sql = "SELECT * FROM `Order` WHERE `user_id` = '$user_id'";
+    $sql = "SELECT * FROM `Order` WHERE `order_id` = '$_id'";
     $query = mysqli_query($con,$sql);
 }
 else {
     $sql = "SELECT * FROM `Order`";
     $query = mysqli_query($con,$sql);
 }
+
 ?>
+
+
+
