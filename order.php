@@ -180,12 +180,21 @@
                                 <button class="button-16" role="button">Delivered</button>
                             </div>
                             <!-- HTML form for search bar -->
-                            <form class="form-inline mb-1" action="orderData.php" method="get">
+                            <!-- <form class="form-inline mb-1" action="orderData.php" method="get">
                                 <label class="form-control" for="order number" style="background-color: #E0E0E0;"> Order Number </label>
                                 <input type="text" class="form-control" id="search" placeholder="Search for..." name="order number">
                                 <button class="button-12" type="submit" name="search">Search</button>
                                 <button class="button-12" type="submit" name="reset">Reset</button>
-                            </form>
+                            </form> -->
+                            <form action="" method="GET">
+                            <div class="input-group mb-3">
+                            <input type="text" name="search" class="form-control" placeholder="Search Data" aria-label="Search data" >
+                            <div class="input-group-append">
+                            <button type="submit" class="input-group-text" id="basic-addon2">Search</button>
+                            </div>
+                         </div>
+                        </form>
+
                         </div>
                     </div>
 
