@@ -30,68 +30,74 @@
                 <h2 style="font-family: DM Sans; color:#06152B;"> <b>Product </h2>
                 <br/>
       
-                <button class="button-16" style='width:15%; height: 36px; font-family: DM Sans; color:#06152B;' role="button"><a href="lab2.php">Product List</a></button>
-                <button class="button-16" style='width:15%; height: 36px; font-family: DM Sans; color:#06152B;' role="button"><a href="add-product.php">Add Product</a></button>
-                <button class="button-16" style='width:15%; height: 36px; font-family: DM Sans; color:#06152B; background-color:#d9d9d9' role="button">Edit Category</button>
+                <button style='width: 10%; height: 44px; border-radius: 10px; border: 0px; font-family: DM Sans; font-weight: normal' role="button"><a href="product.php" style="color: #06152B">Product List</button>
+                <button style='width: 10%; height: 44px; border-radius: 10px; border: 0px; font-family: DM Sans; font-weight: normal' role="button"><a href="add-product.php" style="color: #06152B">Add Product</a></button>
+                <button style='width: 10%; height: 44px; border-radius: 10px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal' role="button">Edit Category</button>
 
                 <br/>
                 <br/>
                 <br/>
             
 
-                <div class="container">
-                    <div class="container" style="background-color:#d9d9d9;border-radius:10px">
+          
+                <div class = "container" style="background-color:white; border-radius:10px">
                         <form class="form-inline" role="form" action="" method="post">
                             <h3 style="font-family: DM Sans; color:#06152B;"><b>Add New Category</h3>
                             
-                            <label for="category" style="font-family: DM Sans; color:#06152B;"> Category Name </label>
-                            <input class="text-box.css" style='width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="category" placeholder="Enter category name here..." name="category">
+                            <label for="category" style="width: 150px; font-family: DM Sans; color:#06152B;"> Category Name </label>
+                            <input class="text-box.css" style='width:80%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="category" name="category">
                             </br></br>
                         
-                            <label for="description" style="font-family: DM Sans; color:#06152B;"> Category Description </label>
-                            <input class="text-box.css" style='width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" placeholder="Enter description here..." name="description">         
+                            <label for="description" style="width: 150px; font-family: DM Sans; color:#06152B;"> Category Description </label>
+                            <input class="text-box.css" style='width:80%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" name="description">         
                             </br></br>
-                            <button type="submit" style="font-family: DM Sans; color:#06152B;" class="btn btn-primary" id="add-category" name="add-category" value="add-category"> Add Category</button>
-                            <button type="submit" style="font-family: DM Sans; color:#06152B;" class="btn btn-primary" id="search-category" name="search-category" value="search-category"> Search Category</button>
+                            <button type="submit" style="border: 0px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="add-category" name="add-category" value="add-category"> Add </button>
+                            <button type="submit" style="border: 0px; background-color:#E0E0E0; font-family: DM Sans; color: #333333; font-weight: normal" class="btn btn-primary" id="search-category" name="search-category" value="search-category"> Search</button>
                             </br></br>
                         </form>
-                    </div>        
-                    </br></br> </br></br> </br></br> </br></br> </br></br> </br></br> </br></br>   </br>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th style="font-family: DM Sans; color:#06152B;"><b>Category ID</th>
-                            <th style="font-family: DM Sans; color:#06152B;"><b>Category</th>
-                            <th style="font-family: DM Sans; color:#06152B;"><b>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                          
-                        $style = '<tr style="height:30px;">';
-                        $textStyle = '<td style="font-family: DM Sans; color:#06152B;">';
-                        include("index-category.php");
-                        while($row = $query->fetch_array()){
+                </div> 
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-                            $category_id = $row['category_id'];
-                            $edit='<img src="edit.png" width="15" height="15" id="edit" name="edit"/>';
-                            $delete='<a href="index-category.php?id='.urlencode($category_id).'" name="id" id="id" value="id"> <img src="delete.png" width="15" height="15"/> </a>';
-                            echo $style;
-                            echo "<td>";
-                            echo $textStyle.'#  '.$row['category_id']."</td>";
-                            echo $textStyle.$row['category_name']."</td>";
-                            echo $textStyle.$row['description']."</td>";
-                            echo $textStyle.$edit."</td>";
-                            echo "<td>".$delete."</td>";
-                       
-                      
-                         
-                        }
-                        mysqli_close($con);
-                        ?>
-                    </tbody>
-                </table>
+                <div class = "container" style="background-color:white; border-radius:10px">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th style="font-family: DM Sans; color:#06152B;"><b>Category ID</th>
+                                <th style="font-family: DM Sans; color:#06152B;"><b>Category</th>
+                                <th style="font-family: DM Sans; color:#06152B;"><b>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            
+                            $style = '<tr style="height:30px;">';
+                            $textStyle = '<td style="font-family: DM Sans; color:#06152B;">';
+                            include("index-category.php");
+                            while($row = $query->fetch_array()){
+
+                                $category_id = $row['category_id'];
+                                $edit='<img src="edit.png" width="15" height="15" id="edit" name="edit"/>';
+                                $delete='<a href="index-category.php?id='.urlencode($category_id).'" name="id" id="id" value="id"> <img src="delete.png" width="15" height="15"/> </a>';
+                                echo $style;
+                                echo "<td>";
+                                echo $textStyle.'#  '.$row['category_id']."</td>";
+                                echo $textStyle.$row['category_name']."</td>";
+                                echo $textStyle.$row['description']."</td>";
+                                echo $textStyle.$edit."</td>";
+                                echo "<td>".$delete."</td>";
+                        
+                        
+                            
+                            }
+                            mysqli_close($con);
+                            ?>
+                        </tbody>
+                    </table>
+
+
+                </div>
+                
              
         
 

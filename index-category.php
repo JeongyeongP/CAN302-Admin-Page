@@ -1,7 +1,7 @@
 <?php
 
 //open database by mysqli
-$con = mysqli_connect("localhost", "root", "", "lab2");
+$con = mysqli_connect("localhost", "root", "", "can302");
 
 //a safe method to receive post data
 function mypost($str) {

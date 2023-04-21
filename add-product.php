@@ -26,38 +26,39 @@
                 <h2 style="font-family: DM Sans; color:#06152B;"> <b>Product </h2>
                 <br/>
 
-                <button class="button-16" style='width:15%; height: 36px; font-family: DM Sans; color:#06152B;' role="button"><a href="lab2.php">Product List</a></button>
-                <button class="button-16" style='width:15%; height: 36px; font-family: DM Sans; color:#06152B; background-color:#d9d9d9' role="button">Add Product</button>
-                <button class="button-16" style='width:15%; height: 36px; font-family: DM Sans; color:#06152B;' role="button"><a href="edit-category.php">Edit Category</a></button>
-                <br/>
+                <button style='width: 10%; height: 44px; border-radius: 10px; border: 0px; font-family: DM Sans; font-weight: normal' role="button"><a href="product.php" style="color: #06152B">Product List</button>
+                <button style='width: 10%; height: 44px; border-radius: 10px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal' role="button">Add Product</button>
+                <button style='width: 10%; height: 44px; border-radius: 10px; border: 0px; font-family: DM Sans; font-weight: normal' role="button"><a href="edit-category.php" style="color: #06152B">Edit Category</a></button>
                 <br/>
                 <br/>
 
-                <div class="container">
-                    <div class="container" style="background-color:#d9d9d9;border-radius:10px">
-                        <form class="form-inline" role="form" action="lab2.php" method="post">
-                            <h3 style="font-family: DM Sans; color:#06152B;"><b>Add New Product</h3>
-                            
-                            <label for="category" style="font-family: DM Sans; color:#06152B;"> Product Name </label>
-                            <input class="text-box.css" style='width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="name" placeholder="Enter product name here..." name="name">
-                            </br></br>
+                <div class = "container" style="background-color:white; border-radius:10px">
+                    <form class="form-inline" role="form" action="product.php" method="post">
+                        <h3 style="font-family: DM Sans; color:#06152B;"><b>Add New Product</h3>
                         
-                            <label for="description" style="font-family: DM Sans; color:#06152B;"> Price ($)</label>
-                            <input class="text-box.css" style='width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="price" placeholder="Enter price here..." name="price">         
-                            </br></br>
+                        <label for="category" style="width: 120px; font-family: DM Sans; color:#06152B;"> Product Name </label>
+                        <input class="text-box.css" style='width:80%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="name"  name="name">
+                        </br></br>
+                    
+                        <label for="description" style="width: 120px; font-family: DM Sans; color:#06152B;"> Price ($)</label>
+                        <input class="text-box.css" style='width:80%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="price" name="price">         
+                        </br></br>
 
-                            <label for="stock" style="font-family: DM Sans; color:#06152B;"> Stock </label>
-                            <input class="text-box.css" style='width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="stock" placeholder="Enter stock here..." name="stock">         
-                            </br></br>
-                            <button type="submit" style="font-family: DM Sans; color:#06152B;" class="btn btn-primary" id="add" name="add" value="add"> Add Product</button>
-                            </br></br>
-                        </form>
-                </div>
+                        <label for="stock" style="width: 120px; font-family: DM Sans; color:#06152B;"> Stock </label>
+                        <input class="text-box.css" style='width:80%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="stock" name="stock">         
+                        </br></br>
+                        <button type="submit" style="border: 0px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="add" name="add" value="add"> Add </button>
+                        </br></br>
+                    </form>
+                 </div>
+
+                 
+
 
 
             </div>
                 
-            </div>
+        </div>
 
             
         
