@@ -23,16 +23,10 @@ $paid_at = mypost('paid_at');
 $fulfillment_status = mypost('fulfillment_status');
 $is_cancelled = mypost('is_cancelled');
 
-//add the received data to database
-if (isset($_POST['add'])) {
-    $sql = "INSERT INTO `Order` (`user_id`, `ordered_at`, `payment_method_id`, `shipping_address_id`, `total_price`, `coupon_id`, `payment_status`, `paid_at`, `fulfillment_status`, `is_cancelled`) 
-            VALUES ('$user_id', '$ordered_at', '$payment_method_id', '$shipping_address_id', '$total_price', '$coupon_id', '$payment_status', '$paid_at', '$fulfillment_status', '$is_cancelled')";
-    $query = mysqli_query($con,$sql);
-}
-
-//query the data from database
+// query the data from database
 if (isset($_POST['search'])) {
-    $sql = "SELECT * FROM `Order` WHERE `order_id` = `$order_id`";
+    $order_id = $_POST['data'];
+    $sql = "SELECT * FROM `Order` WHERE `order_id` = $order_id";
     $query = mysqli_query($con,$sql);
 }
 else {

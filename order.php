@@ -186,11 +186,11 @@
                                 <button class="button-12" type="submit" name="search">Search</button>
                                 <button class="button-12" type="submit" name="reset">Reset</button>
                             </form> -->
-                            <form action="" method="GET">
+                            <form action="" method="post">
                             <div class="input-group mb-3">
-                            <input type="text" name="search" class="form-control" placeholder="Search Data" aria-label="Search data" >
+                            <input type="text" name="data" id='data' class="form-control" placeholder="Search Data" aria-label="Search data" >
                             <div class="input-group-append">
-                            <button type="submit" class="input-group-text" id="basic-addon2">Search</button>
+                            <button type="submit" class="btn btn-primary" id="search" name="search" value="search">Search</button>
                             </div>
                          </div>
                         </form>
@@ -220,6 +220,7 @@
                                     <tbody>
                                         <?php
                                             include("orderData.php");
+                                            
                                             while($row = $query->fetch_array()){
                                             // echo "<tr>";
                                             echo "<td>".'#'.$row['order_id']."</td>";
