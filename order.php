@@ -216,7 +216,8 @@
                                             include("orderData.php");
                                             
                                             while($row = $query->fetch_array()){
-                                            echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '\';">';
+                                            // echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '\';">';
+                                            echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '&user_id=' . $row['user_id'] . '\';">';
                                             // echo "<tr>";
                                             echo "<td>".'#'.$row['order_id']."</td>";
                                             echo "<td>".$row['ordered_at']."</td>";

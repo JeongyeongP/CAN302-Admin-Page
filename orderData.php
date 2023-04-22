@@ -78,8 +78,38 @@ if (isset($_GET['order_id'])){
             INNER JOIN `Payment_Method` pm ON o.payment_method_id = pm.payment_method_id
             INNER JOIN `Shipping_Address` sa ON o.shipping_address_id = sa.shipping_address_id
             WHERE o.`order_id` = $order_id";
-    $query = mysqli_query($con,$sql);
+    $query = mysqli_query($con,$sql); 
 }
+
+// if (isset($_GET['user_id'])){
+//     $user_id = $_GET['user_id'];
+//     $sql = "SELECT * FROM Shipping_address WHERE user_id = $user_id";
+//     $query = mysqli_query($con,$sql); 
+// }
+
+// if (isset($_GET['order_id'])){
+//     $order_id = $_GET['order_id'];
+//     $sql = "SELECT * FROM `Order` WHERE `order_id` = $order_id";
+//     $query = mysqli_query($con,$sql); 
+//     $order_row = mysqli_fetch_assoc($query);
+//     $user_id = $order_row['user_id'];
+//     $payment_method_id = $order_row['payment_method_id'];
+//     $shipping_address_id = $order_row['shipping_address_id'];
+// }
+
+// if ($user_id){
+//     $sql = "SELECT * FROM `User` WHERE `user_id` = $user_id";
+//     $query = mysqli_query($con,$sql); 
+// }
+
+// if ($payment_method_id){
+//     $sql = "SELECT * FROM `Payment_method` WHERE `payment_method_id` = $payment_method_id";
+//     $query = mysqli_query($con,$sql); 
+// }
+
+
+
+
 
 
 
