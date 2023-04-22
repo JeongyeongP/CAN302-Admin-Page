@@ -22,7 +22,7 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <!-- <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
 
     <!-- Button Style -->
     <link href="css/buttonStyle.css" rel="stylesheet">
@@ -172,13 +172,15 @@
                     <!-- Filter & Search -->    
                     <div class="card shadow mb-4">
                         <div class="card-body">
+                            <form action="" method="post">
                             <div class="button-container mb-3">
-                                <button class="button-16" role="button">All</button>
-                                <button class="button-16" role="button">Unpaid</button>
-                                <button class="button-16" role="button">Shipped</button>
-                                <button class="button-16" role="button">In Delivery</button>
-                                <button class="button-16" role="button">Delivered</button>
+                                <button class="button-16" type="submit" id="all" name="all" value="all">All</button>
+                                <button class="button-16" type="submit" id="unpaid" name="unpaid" value="unpaid">Unpaid</button>
+                                <button class="button-16" type="submit" id="shipped" name="shipped" value="shipped">Shipped</button>
+                                <button class="button-16" type="submit" id="indelivery" name="indelivery" value="indelivery">In Delivery</button>
+                                <button class="button-16" type="submit" id="delivered" name="delivered" value="delivered">Delivered</button>
                             </div>
+                            </form>
                             <!-- HTML form for search bar -->
                             <!-- <form class="form-inline mb-1" action="orderData.php" method="get">
                                 <label class="form-control" for="order number" style="background-color: #E0E0E0;"> Order Number </label>
@@ -190,7 +192,7 @@
                             <div class="input-group mb-3">
                             <input type="text" name="data" id='data' class="form-control" placeholder="Search Data" aria-label="Search data" >
                             <div class="input-group-append">
-                            <button type="submit" class="btn btn-primary" id="search" name="search" value="search">Search</button>
+                            <button type="submit" class="button-16" id="search_order" name="search_order" value="search_order">Search</button>
                             </div>
                          </div>
                         </form>
@@ -298,8 +300,8 @@
     <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script> -->
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
