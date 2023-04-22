@@ -13,7 +13,7 @@
     <title>Order List</title>
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -25,7 +25,7 @@
     <!-- <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
 
     <!-- Button Style -->
-    <link href="css/buttonStyle.css" rel="stylesheet">
+    <link href="css/button.css" rel="stylesheet">
 
 </head>
 
@@ -181,13 +181,7 @@
                                 <button class="button-16" type="submit" id="delivered" name="delivered" value="delivered">Delivered</button>
                             </div>
                             </form>
-                            <!-- HTML form for search bar -->
-                            <!-- <form class="form-inline mb-1" action="orderData.php" method="get">
-                                <label class="form-control" for="order number" style="background-color: #E0E0E0;"> Order Number </label>
-                                <input type="text" class="form-control" id="search" placeholder="Search for..." name="order number">
-                                <button class="button-12" type="submit" name="search">Search</button>
-                                <button class="button-12" type="submit" name="reset">Reset</button>
-                            </form> -->
+    
                             <form action="" method="post">
                             <div class="input-group mb-3">
                             <input type="text" name="data" id='data' class="form-control" placeholder="Search Data" aria-label="Search data" >
@@ -202,9 +196,7 @@
 
                     <!-- Order List -->
                     <div class="card shadow mb-4">
-                        <!-- <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                        </div> -->
+
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -224,6 +216,7 @@
                                             include("orderData.php");
                                             
                                             while($row = $query->fetch_array()){
+                                            echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '\';">';
                                             // echo "<tr>";
                                             echo "<td>".'#'.$row['order_id']."</td>";
                                             echo "<td>".$row['ordered_at']."</td>";
@@ -290,21 +283,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
+    <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <!-- <script src="js/sb-admin-2.min.js"></script> -->
 
     <!-- Page level plugins -->
     <!-- <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script> -->
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+    <!-- <script src="js/demo/datatables-demo.js"></script> -->
 
 </body>
 

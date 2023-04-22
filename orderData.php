@@ -60,6 +60,29 @@ if (isset($_POST['delivered'])){
     $query = mysqli_query($con,$sql);
 }
 
+// // Get the order ID from the URL parameter
+// if (isset($_GET['order_id'])){
+//     $order_id = $_GET['order_id'];
+//     $sql = "SELECT * FROM `Order` WHERE `order_id` = $order_id";
+//     $query = mysqli_query($con,$sql);
+// }
+
+// Get the post ID from the URL parameter
+if (isset($_GET['order_id'])){
+    $order_id = $_GET['order_id'];
+    $sql = "SELECT o.*, u.*, oi.*, p.*, pm.*, sa.*
+            FROM `Order` o
+            INNER JOIN `User` u ON o.user_id = u.user_id
+            INNER JOIN `Order_Item` oi ON o.order_id = oi.order_id
+            INNER JOIN `Product` p ON oi.product_id = p.product_id
+            INNER JOIN `Payment_Method` pm ON o.payment_method_id = pm.payment_method_id
+            INNER JOIN `Shipping_Address` sa ON o.shipping_address_id = sa.shipping_address_id
+            WHERE o.`order_id` = $order_id";
+    $query = mysqli_query($con,$sql);
+}
+
+
+
 ?>
 
 
