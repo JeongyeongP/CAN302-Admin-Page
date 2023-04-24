@@ -19,6 +19,7 @@
       <link href="css/sb-admin-2.min.css" rel="stylesheet">
       <!-- Button Style -->
       <link href="css/buttonStyle.css" rel="stylesheet">
+
    </head>
    <body id="page-top">
       <!-- Page Wrapper -->
@@ -137,57 +138,85 @@
                         <h6 class="m-0" style="margin-top: 2rem; margin-left: 1rem; margin-right: 1rem; color: black; font-size: 20px;">Order #
                            <?php
                               include("orderData.php"); 
+                              $displayOrderInfo = array();
                               while($row = $query->fetch_array()){
-                                  echo "<td>".$row['order_id']."</td>"; 
+                                 $order_id = $row['order_id'];
+                                 if (!in_array($order_id, $displayOrderInfo)){
+                                       echo "<td>".$row['order_id']."</td>"; 
+                                       $displayOrderInfo[] = $order_id;
+                                 }  
                               }
                               $query->data_seek(0);
                               ?>
                         </h6>
-                        <div style="display: flex; align-items: center; margin-top: 10px;">
+                        <div style="display: flex; align-items: center; margin-top: 3px;">
                            <!-- Order Date -->
-                           <div class="order date" style="margin-right: 100px;">
+                           <div class="order date" style="margin-right: 50px;">
                               <?php
-                                 while($row = $query->fetch_array()){
-                                     echo "<span style='margin-right: 10px;'>".$row['ordered_at']."</span>"; 
-                                 }
-                                 $query->data_seek(0); 
-                                 ?>
+                              $displayOrderInfo = array();
+                              while($row = $query->fetch_array()){
+                                 $ordered_at = $row['ordered_at'];
+                                 if (!in_array($ordered_at, $displayOrderInfo)){
+                                       echo "<span style='margin-right: 150px; font-size: 12px;'>".$row['ordered_at']."</span>";
+                                       $displayOrderInfo[] = $ordered_at;
+                                 }  
+                              }
+                              $query->data_seek(0);
+                              ?>
                            </div>
                            <!-- Payment Status -->
-                           <div class="status" style="margin-right: 10px;">
+                           <div class="status" style="margin-right: 10px; text-align: center;">
                               <?php
-                                 while($row = $query->fetch_array()){
-                                     if($row['payment_status'] == 1) echo "<span style='margin-right: 10px;'>Paid</span>"; else echo "<span style='margin-right: 10px;'>Unpaid</span>"; // Display payment status
-                                 }
-                                 $query->data_seek(0); // Reset the internal pointer of the result set
+                              $displayOrderInfo = array();
+                              while($row = $query->fetch_array()){
+                                 $payment_status = $row['payment_status'];
+                                 if (!in_array($payment_status, $displayOrderInfo)){
+                                       if($row['payment_status'] == 1) echo "<span style='margin-right: 10px;'>Paid</span>"; else echo "<span style='margin-right: 10px;'>Unpaid</span>";
+                                       $displayOrderInfo[] = $payment_status;
+                                 }  
+                              }
+                              $query->data_seek(0);
                                  ?>
                            </div>
                            <!-- Fulfillment Status -->
                            <div class="status" style="margin-right: 10px;">
                               <?php
-                                 while($row = $query->fetch_array()){
-                                     echo "<span style='margin-right: 10px;'>".$row['fulfillment_status']."</span>"; // Display fulfillment status
-                                 }
-                                 $query->data_seek(0); // Reset the internal pointer of the result set
+                              $displayOrderInfo = array();
+                              while($row = $query->fetch_array()){
+                                 $fulfillment_status = $row['fulfillment_status'];
+                                 if (!in_array($fulfillment_status, $displayOrderInfo)){
+                                       echo "<span style='margin-right: 10px;'>".$row['fulfillment_status']."</span>";
+                                       $displayOrderInfo[] = $fulfillment_status;
+                                 }  
+                              }
+                              $query->data_seek(0);
                                  ?>
                            </div>
                            <!-- Delete Button -->
-                           <button class="button-17" style="margin-right: 10px;" type="submit" id="delete" name="delete" value="delted">Cancel Order</button>
+                           <button class="button-17" style="margin-right: 10px;" type="submit" id="delete" name="delete" value="delted"><span class="button-icon"></span>   Cancel Order</button>
                         </div>
                      </div>
                      <div class="card-body">
                         <div class="container">
                            <div class="image-container"></div>
                            <?php
+                           // Create an array to keep track of usernames
+                              $displayedUserInfo = array();
                               while($row = $query->fetch_array()){
-                                  echo "<table>";
-                                  echo "<tr>";
-                                  echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
-                                  echo "</tr>";
-                                  echo "<tr>";
-                                  echo "<td>" . $row['user_email'] . "</td>";
-                                  echo "</tr>";
-                                  echo "</table>";
+                                  // Check if the username has already been displayed
+                                 $username = $row['first_name'] . " " . $row['last_name'];
+                                 if (!in_array($username, $displayedUserInfo)) {
+                                    echo "<table>";
+                                    echo "<tr>";
+                                    echo "<td>" . $username . "</td>";
+                                    echo "</tr>";
+                                    echo "<tr>";
+                                    echo "<td>" . $row['user_email'] . "</td>";
+                                    echo "</tr>";
+                                    echo "</table>";
+                                    // Add the displayed username to the array
+                                    $displayedUserInfo[] = $username;
+                                 }
                               }
                               $query->data_seek(0); // Reset the internal pointer of the result set
                               ?>    
@@ -226,50 +255,81 @@
                         <!-- Payment Status -->
                         <div class="status" style="margin-left: auto; margin-right: 10px;">
                            <?php
+                              $displayOrderInfo = array();
                               while($row = $query->fetch_array()){
-                                  if($row['payment_status'] == 1) echo "<span style='margin-right: 10px;'>Paid</span>"; else echo "<span style='margin-right: 10px;'>Unpaid</span>"; // Display payment status
+                                 $payment_status = $row['payment_status'];
+                                 if (!in_array($payment_status, $displayOrderInfo)){
+                                       if($row['payment_status'] == 1) echo "<span style='margin-right: 10px;'>Paid</span>"; else echo "<span style='margin-right: 10px;'>Unpaid</span>";
+                                       $displayOrderInfo[] = $payment_status;
+                                 }  
                               }
-                              $query->data_seek(0); // Reset the internal pointer of the result set
-                              ?>
+                              $query->data_seek(0);
+                                 ?>
                         </div>
+                   <button class="button-18" style="margin-right: 10px;" type="submit" id="delete" name="delete" value="delted"> <span class="button-icon"></span>   Edit</button>
+                        
                      </div>
                      <div class="card-body">
                         <table>
                            <tr>
                               <td>
                                  <?php
-                                    while($row = $query->fetch_array()){
-                                        echo "<span style='margin-right: 10px;'>".$row['payment_method_id']."</span>";     
-                                    }
-                                    $query->data_seek(0); 
-                                    ?>
+                              $displayPaymentInfo = array();
+                              while($row = $query->fetch_array()){
+                                 $payment_method_id = $row['payment_method_id'];
+                                 if (!in_array($payment_method_id , $displayPaymentInfo)){
+                                        echo "<span style='margin-right: 10px;'>".$row['payment_method_id']."</span>";   
+                                       $displayPaymentInfo[] = $payment_method_id;
+                                 }  
+                              }
+                              $query->data_seek(0);
+                              ?>
                               </td>
                               <td>
                                  <?php
-                                    while($row = $query->fetch_array()){
-                                        echo "<span style='margin-right: 10px;'>".$row['card_type'] . "[ " . $row['card_number'] . " ]" ."</span>";     
-                                    }
-                                    $query->data_seek(0); 
-                                    ?>
+                              $displayPaymentInfo = array();
+                              while($row = $query->fetch_array()){
+                                 $card_type= $row['card_type'];
+                                 if (!in_array($card_type , $displayPaymentInfo)){
+                                        echo "<span style='margin-right: 10px;'>".$row['card_type'] . "[ " . $row['card_number'] . " ]" ."</span>";   
+                                       $displayPaymentInfo[] = $card_type;
+                                 }  
+                              }
+                              $query->data_seek(0);
+                              ?>
                               </td>
                               <td>
                                  <?php
-                                    while($row = $query->fetch_array()){
-                                        echo "<span style='margin-right: 10px;'>$" . number_format($row['total_price'], 3) . "</span>";
-                                    }
-                                    $query->data_seek(0); 
-                                    ?>
+                              $displayPaymentInfo = array();
+                              while($row = $query->fetch_array()){
+                                 $total_price= $row['total_price'];
+                                 if (!in_array($total_price , $displayPaymentInfo)){
+                                       echo "<span style='margin-right: 10px;'>$" . number_format($row['total_price'], 3) . "</span>";   
+                                       $displayPaymentInfo[] = $total_price;
+                                 }  
+                              }
+                              $query->data_seek(0);
+                              ?>
                               </td>
                            </tr>
                            <tr>
                               <td>
-                                 <?php
-                                    while($row = $query->fetch_array()){
-                                        echo "<span style='margin-right: 10px;'>".$row['paid_at']."</span>";     
-                                    }
-                                    $query->data_seek(0); 
-                                    ?>
+                              <?php
+                              $displayPaymentInfo = array();
+                              while($row = $query->fetch_array()){
+                                 $paid_at= $row['paid_at'];
+                                 if (!in_array($paid_at , $displayPaymentInfo)){
+                                        echo "<span style='margin-right: 10px;'>".$row['paid_at']."</span>";  
+                                       $displayPaymentInfo[] = $paid_at;
+                                 }  
+                              }
+                              $query->data_seek(0);
+                              ?>
                               </td>
+                           </tr>
+                           <td> 
+                              Total paid by customer
+                           </td>
                         </table>
                      </div>
                   </div>

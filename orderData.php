@@ -60,14 +60,7 @@ if (isset($_POST['delivered'])){
     $query = mysqli_query($con,$sql);
 }
 
-// // Get the order ID from the URL parameter
-// if (isset($_GET['order_id'])){
-//     $order_id = $_GET['order_id'];
-//     $sql = "SELECT * FROM `Order` WHERE `order_id` = $order_id";
-//     $query = mysqli_query($con,$sql);
-// }
-
-// Get the post ID from the URL parameter
+//Get the post ID from the URL parameter
 if (isset($_GET['order_id'])){
     $order_id = $_GET['order_id'];
     $sql = "SELECT o.*, u.*, oi.*, p.*, pm.*, sa.*
@@ -81,37 +74,19 @@ if (isset($_GET['order_id'])){
     $query = mysqli_query($con,$sql); 
 }
 
-// if (isset($_GET['user_id'])){
-//     $user_id = $_GET['user_id'];
-//     $sql = "SELECT * FROM Shipping_address WHERE user_id = $user_id";
-//     $query = mysqli_query($con,$sql); 
-// }
-
 // if (isset($_GET['order_id'])){
 //     $order_id = $_GET['order_id'];
-//     $sql = "SELECT * FROM `Order` WHERE `order_id` = $order_id";
-//     $query = mysqli_query($con,$sql); 
-//     $order_row = mysqli_fetch_assoc($query);
-//     $user_id = $order_row['user_id'];
-//     $payment_method_id = $order_row['payment_method_id'];
-//     $shipping_address_id = $order_row['shipping_address_id'];
-// }
-
-// if ($user_id){
-//     $sql = "SELECT * FROM `User` WHERE `user_id` = $user_id";
-//     $query = mysqli_query($con,$sql); 
-// }
-
-// if ($payment_method_id){
-//     $sql = "SELECT * FROM `Payment_method` WHERE `payment_method_id` = $payment_method_id";
+//     $sql = "SELECT DISTINCT o.*, u.*, oi.*, p.*, pm.*, sa.*
+//                                FROM `Order` o
+//                                JOIN `user` u ON o.user_id = u.user_id
+//                                JOIN Order_item oi ON o.order_id = oi.order_id
+//                                JOIN Product p ON oi.product_id = p.product_id
+//                                JOIN `Payment_Method` pm ON o.payment_method_id = pm.payment_method_id
+//                                JOIN `Shipping_Address` sa ON o.shipping_address_id = sa.shipping_address_id
+//             WHERE o.`order_id` = $order_id
+//             ";
 //     $query = mysqli_query($con,$sql); 
 // }
-
-
-
-
-
-
 
 ?>
 
