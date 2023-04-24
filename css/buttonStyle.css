@@ -82,7 +82,6 @@
   transform: translateY(-50%);
   width: 12px;
   height: 12px;
-  /* Replace the background URL with the edit.jpg image URL */
   background: url("delete.png") center center no-repeat;
   background-size: cover;
 }
@@ -107,7 +106,7 @@
   cursor: pointer;
   font-family: arial, sans-serif;
   font-size: 14px;
-  height: 36px;
+  height: 30px;
   line-height: 27px;
   min-width: 54px;
   padding: 0 16px;

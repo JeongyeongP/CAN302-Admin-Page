@@ -25,7 +25,7 @@
     <!-- <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
 
     <!-- Button Style -->
-    <link href="css/button.css" rel="stylesheet">
+    <link href="css/buttonStyle.css" rel="stylesheet">
 
 </head>
 

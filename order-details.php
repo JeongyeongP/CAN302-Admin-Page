@@ -19,7 +19,6 @@
       <link href="css/sb-admin-2.min.css" rel="stylesheet">
       <!-- Button Style -->
       <link href="css/buttonStyle.css" rel="stylesheet">
-
    </head>
    <body id="page-top">
       <!-- Page Wrapper -->
@@ -138,88 +137,69 @@
                         <h6 class="m-0" style="margin-top: 2rem; margin-left: 1rem; margin-right: 1rem; color: black; font-size: 20px;">Order #
                            <?php
                               include("orderData.php"); 
-                              $displayOrderInfo = array();
-                              while($row = $query->fetch_array()){
+                              while($row = $query1->fetch_array()){
+                                 echo "<td>".$row['order_id']."</td>"; 
                                  $order_id = $row['order_id'];
-                                 if (!in_array($order_id, $displayOrderInfo)){
-                                       echo "<td>".$row['order_id']."</td>"; 
-                                       $displayOrderInfo[] = $order_id;
-                                 }  
                               }
-                              $query->data_seek(0);
+                              $query1->data_seek(0);
                               ?>
                         </h6>
                         <div style="display: flex; align-items: center; margin-top: 3px;">
                            <!-- Order Date -->
                            <div class="order date" style="margin-right: 50px;">
                               <?php
-                              $displayOrderInfo = array();
-                              while($row = $query->fetch_array()){
-                                 $ordered_at = $row['ordered_at'];
-                                 if (!in_array($ordered_at, $displayOrderInfo)){
-                                       echo "<span style='margin-right: 150px; font-size: 12px;'>".$row['ordered_at']."</span>";
-                                       $displayOrderInfo[] = $ordered_at;
-                                 }  
-                              }
-                              $query->data_seek(0);
-                              ?>
+                                 while($row = $query1->fetch_array()){
+                                    echo "<span style='margin-right: 150px; font-size: 12px;'>".$row['ordered_at']."</span>";
+                                 
+                                 }
+                                 $query1->data_seek(0);
+                                 ?>
                            </div>
                            <!-- Payment Status -->
                            <div class="status" style="margin-right: 10px; text-align: center;">
                               <?php
-                              $displayOrderInfo = array();
-                              while($row = $query->fetch_array()){
-                                 $payment_status = $row['payment_status'];
-                                 if (!in_array($payment_status, $displayOrderInfo)){
-                                       if($row['payment_status'] == 1) echo "<span style='margin-right: 10px;'>Paid</span>"; else echo "<span style='margin-right: 10px;'>Unpaid</span>";
-                                       $displayOrderInfo[] = $payment_status;
-                                 }  
-                              }
-                              $query->data_seek(0);
-                                 ?>
+                                 while($row = $query1->fetch_array()){
+                                    if($row['payment_status'] == 1) echo "<span style='margin-right: 10px;'>Paid</span>"; else echo "<span style='margin-right: 10px;'>Unpaid</span>";
+                                 
+                                 }
+                                 $query1->data_seek(0);
+                                    ?>
                            </div>
                            <!-- Fulfillment Status -->
                            <div class="status" style="margin-right: 10px;">
                               <?php
-                              $displayOrderInfo = array();
-                              while($row = $query->fetch_array()){
-                                 $fulfillment_status = $row['fulfillment_status'];
-                                 if (!in_array($fulfillment_status, $displayOrderInfo)){
-                                       echo "<span style='margin-right: 10px;'>".$row['fulfillment_status']."</span>";
-                                       $displayOrderInfo[] = $fulfillment_status;
-                                 }  
-                              }
-                              $query->data_seek(0);
-                                 ?>
+                                 while($row = $query1->fetch_array()){
+                                    echo "<span style='margin-right: 10px;'>".$row['fulfillment_status']."</span>";
+                                 }
+                                 $query1->data_seek(0);
+                                    ?>
                            </div>
                            <!-- Delete Button -->
-                           <button class="button-17" style="margin-right: 10px;" type="submit" id="delete" name="delete" value="delted"><span class="button-icon"></span>   Cancel Order</button>
+                           <form action="" method="post" id="cancelOrderForm">
+                           <button class="button-17" style="margin-right: 10px;" type="submit" id="cancel" name="cancel" value="cancel"><span class="button-icon"></span>  Cancel Order</button>
+                           </form>
+                        
                         </div>
                      </div>
                      <div class="card-body">
                         <div class="container">
                            <div class="image-container"></div>
                            <?php
-                           // Create an array to keep track of usernames
-                              $displayedUserInfo = array();
-                              while($row = $query->fetch_array()){
-                                  // Check if the username has already been displayed
-                                 $username = $row['first_name'] . " " . $row['last_name'];
-                                 if (!in_array($username, $displayedUserInfo)) {
+                              // Create an array to keep track of usernames
+                                 $displayedUserInfo = array();
+                                 while($row = $query3->fetch_array()){
+                                    $username = $row['first_name'] . " " . $row['last_name'];
                                     echo "<table>";
-                                    echo "<tr>";
-                                    echo "<td>" . $username . "</td>";
-                                    echo "</tr>";
-                                    echo "<tr>";
-                                    echo "<td>" . $row['user_email'] . "</td>";
-                                    echo "</tr>";
-                                    echo "</table>";
-                                    // Add the displayed username to the array
-                                    $displayedUserInfo[] = $username;
+                                       echo "<tr>";
+                                       echo "<td>" . $username . "</td>";
+                                       echo "</tr>";
+                                       echo "<tr>";
+                                       echo "<td>" . $row['user_email'] . "</td>";
+                                       echo "</tr>";
+                                       echo "</table>";
                                  }
-                              }
-                              $query->data_seek(0); // Reset the internal pointer of the result set
-                              ?>    
+                                 $query3->data_seek(0); // Reset the internal pointer of the result set
+                                 ?>    
                         </div>
                      </div>
                   </div>
@@ -232,7 +212,7 @@
                         <table class="table">
                            <tbody>
                               <?php
-                                 while($row = $query->fetch_array()){
+                                 while($row = $query2->fetch_array()){
                                  echo "<tr>";
                                  echo "<td>".$row['product_name']."</td>";
                                  echo "<td>".$row['price']."</td>";
@@ -242,7 +222,7 @@
                                  echo '<td>$' . number_format($totalPrice, 2, '.', ',') . '</td>';
                                  echo "</tr>";
                                  }
-                                 $query->data_seek(0);
+                                 $query2->data_seek(0);
                                  ?>
                            </tbody>
                         </table>
@@ -255,76 +235,53 @@
                         <!-- Payment Status -->
                         <div class="status" style="margin-left: auto; margin-right: 10px;">
                            <?php
-                              $displayOrderInfo = array();
-                              while($row = $query->fetch_array()){
-                                 $payment_status = $row['payment_status'];
-                                 if (!in_array($payment_status, $displayOrderInfo)){
-                                       if($row['payment_status'] == 1) echo "<span style='margin-right: 10px;'>Paid</span>"; else echo "<span style='margin-right: 10px;'>Unpaid</span>";
-                                       $displayOrderInfo[] = $payment_status;
-                                 }  
+                              while($row = $query1->fetch_array()){
+                                 if($row['payment_status'] == 1) echo "<span style='margin-right: 10px;'>Paid</span>"; else echo "<span style='margin-right: 10px;'>Unpaid</span>";
                               }
-                              $query->data_seek(0);
+                              $query1->data_seek(0);
                                  ?>
                         </div>
-                   <button class="button-18" style="margin-right: 10px;" type="submit" id="delete" name="delete" value="delted"> <span class="button-icon"></span>   Edit</button>
-                        
+                        <button class="button-18" style="margin-right: 10px;" type="submit" id="delete" name="delete" value="delted"> <span class="button-icon"></span>   Edit</button>
                      </div>
                      <div class="card-body">
                         <table>
                            <tr>
                               <td>
                                  <?php
-                              $displayPaymentInfo = array();
-                              while($row = $query->fetch_array()){
-                                 $payment_method_id = $row['payment_method_id'];
-                                 if (!in_array($payment_method_id , $displayPaymentInfo)){
-                                        echo "<span style='margin-right: 10px;'>".$row['payment_method_id']."</span>";   
-                                       $displayPaymentInfo[] = $payment_method_id;
-                                 }  
-                              }
-                              $query->data_seek(0);
-                              ?>
+                                    while($row = $query1->fetch_array()){
+                                       echo "<span style='margin-right: 10px;'>".$row['payment_method_id']."</span>";   
+                                       
+                                    }
+                                    $query1->data_seek(0);
+                                    ?>
                               </td>
                               <td>
                                  <?php
-                              $displayPaymentInfo = array();
-                              while($row = $query->fetch_array()){
-                                 $card_type= $row['card_type'];
-                                 if (!in_array($card_type , $displayPaymentInfo)){
-                                        echo "<span style='margin-right: 10px;'>".$row['card_type'] . "[ " . $row['card_number'] . " ]" ."</span>";   
-                                       $displayPaymentInfo[] = $card_type;
-                                 }  
-                              }
-                              $query->data_seek(0);
-                              ?>
+                                    while($row = $query1->fetch_array()){
+                                       echo "<span style='margin-right: 10px;'>".$row['card_type'] . "[ " . $row['card_number'] . " ]" ."</span>";   
+                                       
+                                    }
+                                    $query1->data_seek(0);
+                                    ?>
                               </td>
                               <td>
                                  <?php
-                              $displayPaymentInfo = array();
-                              while($row = $query->fetch_array()){
-                                 $total_price= $row['total_price'];
-                                 if (!in_array($total_price , $displayPaymentInfo)){
-                                       echo "<span style='margin-right: 10px;'>$" . number_format($row['total_price'], 3) . "</span>";   
-                                       $displayPaymentInfo[] = $total_price;
-                                 }  
-                              }
-                              $query->data_seek(0);
-                              ?>
+                                    while($row = $query1->fetch_array()){
+                                       echo "<span style='margin-right: 10px;'>$" . number_format($row['total_price'], 3) . "</span>";  
+                                    }
+                                    $query1->data_seek(0);
+                                    ?>
                               </td>
                            </tr>
                            <tr>
                               <td>
-                              <?php
-                              $displayPaymentInfo = array();
-                              while($row = $query->fetch_array()){
-                                 $paid_at= $row['paid_at'];
-                                 if (!in_array($paid_at , $displayPaymentInfo)){
-                                        echo "<span style='margin-right: 10px;'>".$row['paid_at']."</span>";  
-                                       $displayPaymentInfo[] = $paid_at;
-                                 }  
-                              }
-                              $query->data_seek(0);
-                              ?>
+                                 <?php
+                                    while($row = $query1->fetch_array()){
+                                       echo "<span style='margin-right: 10px;'>".$row['paid_at']."</span>"; 
+                                         
+                                    }
+                                    $query1->data_seek(0);
+                                    ?>
                               </td>
                            </tr>
                            <td> 
@@ -345,10 +302,10 @@
                                  Address Line 1
                                  <div class="textcontainer" style="margin-right: 10px;">
                                     <?php
-                                       while($row = $query->fetch_array()){
+                                       while($row = $query1->fetch_array()){
                                            echo "<span style='margin-right: 10px;'>".$row['address_line1']."</span>";
                                        }
-                                       $query->data_seek(0); 
+                                       $query1->data_seek(0); 
                                        ?>
                                  </div>
                               </td>
@@ -356,10 +313,10 @@
                                  Address Line 2
                                  <div class="textcontainer" style="margin-right: 10px;">
                                     <?php
-                                       while($row = $query->fetch_array()){
+                                       while($row = $query1->fetch_array()){
                                            echo "<span style='margin-right: 10px;'>".$row['address_line2']."</span>";
                                        }
-                                       $query->data_seek(0); 
+                                       $query1->data_seek(0); 
                                        ?>
                                  </div>
                               </td>
@@ -369,10 +326,10 @@
                                  Postal Code
                                  <div class="textcontainer" style="margin-right: 10px;">
                                     <?php
-                                       while($row = $query->fetch_array()){
+                                       while($row = $query1->fetch_array()){
                                            echo "<span style='margin-right: 10px;'>".$row['postal_code']."</span>";
                                        }
-                                       $query->data_seek(0); 
+                                       $query1->data_seek(0); 
                                        ?>
                                  </div>
                               </td>
@@ -381,10 +338,10 @@
                      City<div>
                      <div class="textcontainer" style="margin-right: 10px;">
                      <?php
-                        while($row = $query->fetch_array()){
+                        while($row = $query1->fetch_array()){
                             echo "<span style='margin-right: 10px;'>".$row['city']."</span>";
                         }
-                        $query->data_seek(0); 
+                        $query1->data_seek(0); 
                         ?>
                      </div>
                      </td>
@@ -394,10 +351,10 @@
                      Province
                      <div class="textcontainer" style="margin-right: 10px;">
                      <?php
-                        while($row = $query->fetch_array()){
+                        while($row = $query1->fetch_array()){
                             echo "<span style='margin-right: 10px;'>".$row['state']."</span>";
                         }
-                        $query->data_seek(0);
+                        $query1->data_seek(0);
                         ?>
                      </div>
                      </td>
@@ -405,10 +362,10 @@
                      Country
                      <div class="textcontainer" style="margin-right: 10px;">
                      <?php
-                        while($row = $query->fetch_array()){
+                        while($row = $query1->fetch_array()){
                             echo "<span style='margin-right: 10px;'>".$row['country']."</span>";
                         }
-                        $query->data_seek(0); 
+                        $query1->data_seek(0); 
                         ?>
                      </div>
                      </td>
@@ -425,7 +382,7 @@
                         <div class="container">
                            <div class="image-container"></div>
                            <?php
-                              while($row = $query->fetch_array()){
+                              while($row = $query3->fetch_array()){
                                   echo "<table>";
                                   echo "<tr>";
                                   echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
@@ -435,7 +392,7 @@
                                   echo "</tr>";
                                   echo "</table>";
                               }
-                              $query->data_seek(0); // Reset the internal pointer of the result set
+                              $query3->data_seek(0); // Reset the internal pointer of the result set
                               ?>    
                         </div>
                      </div>
@@ -446,26 +403,26 @@
                            </tr>
                            <tr>
                               <td style="border-left: 1px solid #E5E7EB; padding: 5px;"><?php
-                                 while($row = $query->fetch_array()){
+                                 while($row = $query3->fetch_array()){
                                      echo "<span style='margin-right: 10px;'>".$row['first_name'] . " " . $row['last_name'] ."</span>";
                                  }
-                                 $query->data_seek(0); 
+                                 $query3->data_seek(0); 
                                  ?></td>
                            </tr>
                            <tr>
                               <td style="border-left: 1px solid #E5E7EB; padding: 5px;"><?php
-                                 while($row = $query->fetch_array()){
+                                 while($row = $query3->fetch_array()){
                                      echo "<span style='margin-right: 10px;'>". $row['user_email'] ."</span>";
                                  }
-                                 $query->data_seek(0); 
+                                 $query3->data_seek(0); 
                                  ?></td>
                            </tr>
                            <tr>
                               <td style="border-left: 1px solid #E5E7EB; padding: 5px;"><?php
-                                 while($row = $query->fetch_array()){
+                                 while($row = $query3->fetch_array()){
                                      echo "<span style='margin-right: 10px;'>". '+' .$row['phone_number'] ."</span>";
                                  }
-                                 $query->data_seek(0); 
+                                 $query3->data_seek(0); 
                                  ?>
                               </td>
                            </tr>
@@ -476,26 +433,26 @@
                            </tr>
                            <tr>
                               <td style="border-left: 1px solid #E5E7EB; padding: 5px;"><?php
-                                 while($row = $query->fetch_array()){
+                                 while($row = $query4->fetch_array()){
                                      echo "<span style='margin-right: 10px;'>".$row['address_line1'] . " " . $row['address_line2'] ."</span>";
                                  }
-                                 $query->data_seek(0); 
+                                 $query4->data_seek(0); 
                                  ?></td>
                            </tr>
                            <tr>
                               <td style="border-left: 1px solid #E5E7EB; padding: 5px;"><?php
-                                 while($row = $query->fetch_array()){
+                                 while($row = $query4->fetch_array()){
                                      echo "<span style='margin-right: 10px;'>".$row['city'] . " " . $row['state'] ."</span>";
                                  }
-                                 $query->data_seek(0); 
+                                 $query4->data_seek(0); 
                                  ?></td>
                            </tr>
                            <tr>
                               <td style="border-left: 1px solid #E5E7EB; padding: 5px;"><?php
-                                 while($row = $query->fetch_array()){
+                                 while($row = $query4->fetch_array()){
                                      echo "<span style='margin-right: 10px;'>".$row['postal_code'] . " " . $row['country'] ."</span>";
                                  }
-                                 $query->data_seek(0); 
+                                 $query4->data_seek(0); 
                                  ?>
                               </td>
                            </tr>
