@@ -34,9 +34,27 @@ if (isset($_GET['id'])) {
     
     if (mysqli_query($con, $deleteQuery)) {
         mysqli_close($con);
-        header('Location: edit-category.php'); 
+        header('Location: category.php'); 
         exit;
     } 
+}
+
+
+if (isset($_POST['edit-category'])) {
+
+    $category_id=$_POST['category_id'];
+    $category=$_POST['category'];
+    $description=$_POST['description'];
+
+    $sql = "update category set category_name='$category', description='$description' where category_id=$category_id";
+    $query = mysqli_query($con,$sql);
+
+    if ($query){
+        mysqli_close($con);
+        header('Location: category.php'); 
+        exit;
+    }
+    
 }
 
 
