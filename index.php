@@ -11,23 +11,68 @@ function mypost($str) {
 
 //receive query parameters
 $name = mypost('name');
+$description = mypost('description');
 $price =  mypost('price');
 $stock = mypost('stock');
-$category = mypost('category');
+$category = mypost('category'); 
 $price2 = mypost('price2');
 $stock2 = mypost('stock2');
 
 
 //add the received data to database
-if (isset($_POST['add'])) {
-    $sql = "INSERT INTO `product` (`product_id`, `product_name`, `price`, `stock_quantity`, 'category_id') VALUES ('0', '$name', '$price', '$stock', '$category')";
+if (isset($_POST['upload'])) {
+    
+    $filename = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "./images/" . $filename;
+
+    $sql = "INSERT INTO `product` (`product_id`, `product_name`, `product_image`, `description`, `price`, `stock_quantity`, `category_id`) VALUES ('0', '$name', '$filename', '$description', '$price', '$stock', '$category')";
     $query = mysqli_query($con,$sql);
+    move_uploaded_file($tempname, $folder);
+
+    // $sql = "INSERT INTO `product` (`product_id`, `product_name`, `description`, `price`, `stock_quantity`, `category_id`) VALUES ('0', '$name', '$description', '$price', '$stock', '$category')";
+    // $query = mysqli_query($con,$sql);
+    
 }
+
 
 //query the data from database
 if (isset($_POST['search'])) {
-    $sql = "select * from product where product_name LIKE '%".$name."%' and category_id LIKE '%".$category."%' 
-    and stock_quantity >= $stock and stock_quantity <= $stock2 and price >= $price and price <= $price2";
+
+    $sql = "";
+    if (!empty($category) && empty($stock) && empty($price)){
+        $sql = "select * from product where product_name LIKE '%".$name."%' and category_id = $category";
+    } 
+
+    if (empty($category) && !empty($stock) && empty($price)){
+        $sql = "select * from product where stock_quantity >= $stock and stock_quantity <= $stock2";
+    } 
+    
+    if (empty($category) && empty($stock) && !empty($price)){
+        $sql = "select * from product where product_name LIKE '%".$name."%' and (price >= $price and price <= $price2)";
+    } 
+
+    if (empty($category) && empty($stock) && empty($price)){
+        $sql = "select * from product where product_name LIKE '%".$name."%'";
+    } 
+
+    if (!empty($category) && !empty($stock) && empty($price)){
+        $sql = "select * from product where product_name LIKE '%".$name."%' and category_id = $category and (stock_quantity >= $stock and stock_quantity <= $stock2)";
+    } 
+
+    if (!empty($category) && empty($stock) && !empty($price)){
+        $sql = "select * from product where product_name LIKE '%".$name."%' and category_id = $category and (price >= $price and price <= $price2)";
+    } 
+
+    if (empty($category) && !empty($stock) && !empty($price)){
+        $sql = "select * from product where product_name LIKE '%".$name."%' and (stock_quantity >= $stock and stock_quantity <= $stock2) and (price >= $price and price <= $price2)";
+    } 
+
+    if (!empty($category) && !empty($stock) && !empty($price)){
+        $sql = "select * from product where product_name LIKE '%".$name."%' and category_id LIKE '%".$category."%' 
+        and (stock_quantity >= $stock and stock_quantity <= $stock2) and (price >= $price and price <= $price2)";       
+    } 
+    
     $query = mysqli_query($con,$sql);
     if (!$query){
         $sql = "select * from product";
@@ -52,5 +97,34 @@ if (isset($_GET['id'])) {
     } 
 }
 
+if (isset($_POST['edit'])) {
+    
+    $filename = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "./images/" . $filename;
+
+    $product_id=$_POST['product_id'];
+    $name=$_POST['name'];
+    $description=$_POST['description'];
+    $price=$_POST['price'];
+    $stock=$_POST['stock'];
+    $category=$_POST['category'];
+
+    if (empty($filename)){
+        $sql = "update product set product_name='$name', description='$description', price='$price', stock_quantity='$stock', category_id='$category' where product_id=$product_id";
+    } else {
+        $sql = "update product set product_name='$name', product_image='$filename', description='$description', price='$price', stock_quantity='$stock', category_id='$category' where product_id=$product_id";
+    }
+
+    $query = mysqli_query($con,$sql);
+    move_uploaded_file($tempname, $folder);
+
+    if ($query){
+        mysqli_close($con);
+        header('Location: product.php'); 
+        exit;
+    }
+    
+}
 
 ?>

@@ -1,3 +1,8 @@
+<?php
+ob_start();
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +21,7 @@
 
     </head>
 
-    <body style="background-color:#E2E5FF">
+    <body style="background-color:#E2E5FF; overflow-x: scroll; overflow-y: scrolll;">
 
     <div class="container" style="width: 100%; height:100%;">
         <div class="sidebar" style="width: 200px; float: left; height:auto;">
@@ -29,81 +34,46 @@
             <div class="container" style="border-radius:15px">
                 <h2 style="font-family: DM Sans; color:#06152B;"> <b>Product </h2>
                 <br/>
-      
-                <button style='width: 10%; height: 44px; border-radius: 10px; border: 0px; font-family: DM Sans; font-weight: normal' role="button"><a href="product.php" style="color: #06152B">Product List</button>
-                <button style='width: 10%; height: 44px; border-radius: 10px; border: 0px; font-family: DM Sans; font-weight: normal' role="button"><a href="add-product.php" style="color: #06152B">Add Product</a></button>
-                <button style='width: 10%; height: 44px; border-radius: 10px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal' role="button">Edit Category</button>
 
+                <a href="category.php" style="font-family: DM Sans; color: #06152B; font-weight:normal"> 🡨 Back to Category List</a>
                 <br/>
                 <br/>
-                <br/>
-            
 
-          
+                <?php
+                    include('index-category.php');
+                    $id=$_GET['category_id'];
+    
+                    $query=mysqli_query($con,"select * from category where category_id = $id");
+                    $row=mysqli_fetch_array($query);
+
+                    $category_id = $row['category_id'];
+                    $category = $row['category_name'];
+                    $description = $row['description'];
+                   
+                ?>
+              
                 <div class = "container" style="background-color:white; border-radius:10px">
                         <form class="form-inline" role="form" action="" method="post">
-                            <h3 style="font-family: DM Sans; color:#06152B;"><b>Add New Category</h3>
+                            <h3 style="font-family: DM Sans; color:#06152B; padding-left:10px"><b>Edit Category</h3>
+
+                            <label for="category_id" style="width: 170px; font-family: DM Sans; color:#06152B; padding-left:10px"> Category ID </label>
+                            <input readonly class='text-box.css' style='width:80%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type='number' id='pcategory_id' name='category_id' value="<?= $category_id ?>">
+                            </br></br>
                             
-                            <label for="category" style="width: 150px; font-family: DM Sans; color:#06152B;"> Category Name </label>
-                            <input class="text-box.css" style='width:80%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="category" name="category">
+                            <label for="category" style="width: 170px; font-family: DM Sans; color:#06152B; padding-left:10px"> Category Name </label>
+                            <input class="text-box.css" style='width:80%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="category" name="category" value="<?= $category ?>">
                             </br></br>
                         
-                            <label for="description" style="width: 150px; font-family: DM Sans; color:#06152B;"> Category Description </label>
-                            <input class="text-box.css" style='width:80%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" name="description">         
+                            <label for="description" style="width: 170px; font-family: DM Sans; color:#06152B; padding-left:10px"> Category Description </label>
+                            <input class="text-box.css" style='width:80%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" name="description" value="<?= $description ?>">         
                             </br></br>
-                            <button type="submit" style="border: 0px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="add-category" name="add-category" value="add-category"> Add </button>
-                            <button type="submit" style="border: 0px; background-color:#E0E0E0; font-family: DM Sans; color: #333333; font-weight: normal" class="btn btn-primary" id="search-category" name="search-category" value="search-category"> Search</button>
+                            <button type="submit" style="width:160px; margin-left:10px; border: 0px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="edit-category" name="edit-category" value="edit-category"> Save Changes </button>
                             </br></br>
                         </form>
                 </div> 
-                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+     
 
-                <div class = "container" style="background-color:white; border-radius:10px">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th style="font-family: DM Sans; color:#06152B;"><b>Category ID</th>
-                                <th style="font-family: DM Sans; color:#06152B;"><b>Category</th>
-                                <th style="font-family: DM Sans; color:#06152B;"><b>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            
-                            $style = '<tr style="height:30px;">';
-                            $textStyle = '<td style="font-family: DM Sans; color:#06152B;">';
-                            include("index-category.php");
-                            while($row = $query->fetch_array()){
-
-                                $category_id = $row['category_id'];
-                                $edit='<img src="edit.png" width="15" height="15" id="edit" name="edit"/>';
-                                $delete='<a href="index-category.php?id='.urlencode($category_id).'" name="id" id="id" value="id"> <img src="delete.png" width="15" height="15"/> </a>';
-                                echo $style;
-                                echo "<td>";
-                                echo $textStyle.'#  '.$row['category_id']."</td>";
-                                echo $textStyle.$row['category_name']."</td>";
-                                echo $textStyle.$row['description']."</td>";
-                                echo $textStyle.$edit."</td>";
-                                echo "<td>".$delete."</td>";
                         
-                        
-                            
-                            }
-                            mysqli_close($con);
-                            ?>
-                        </tbody>
-                    </table>
-
-
-                </div>
-                
-             
-        
-
-                
-
-                
             </div>
 
 
