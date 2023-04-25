@@ -226,7 +226,9 @@
                         <table class="table table-borderless">
                            <tbody>
                               <?php
+                                 $finalPrice = 0;
                                  while($row = $query2->fetch_array()){
+                                 
                                  echo "<tr>";
                                  $imageBlob = $row['product_image'];
                                  
@@ -247,6 +249,7 @@
                                  echo "<td>".$row['quantity'].'x'."</td>";
                                  // Calculate total price
                                  $totalPrice = $row['price'] * $row['quantity'];
+                                 $finalPrice = $finalPrice+$totalPrice;
                                  echo '<td>$ ' . number_format($totalPrice, 2, '.', ',') . '</td>';
                                  echo "</tr>";
                                  }
@@ -266,7 +269,7 @@
                                     echo "<td>";
                                     echo"</td>";
                                     echo "<td>";
-                                    echo "<td>".'$ '.$row['total_price']."</td>";
+                                    echo "<td>".'$ '.number_format($finalPrice, 2, '.', ',')."</td>";
                                     }
                                     $query1->data_seek(0);
                                     ?>
@@ -305,14 +308,14 @@
                                     <?php 
                                        if (mysqli_num_rows($query5) > 0) {
                                           while($row = $query5->fetch_array()){
-                                             $discount_amount = $row['discount']*0.01*$row['total_price'];
-                                          echo "<span style='margin-right: 10px;'>".'-$ '.$discount_amount."</span>";
+                                             $discount_amount = $row['discount']*0.01*$finalPrice;
+                                          echo "<span style='margin-right: 10px;'>".'-$ '.number_format($discount_amount, 2)."</span>";
                                           }
                                           $query5->data_seek(0);
                                        }else{
                                           while($row = $query1->fetch_array()){
                                              $discount_amount = 0;
-                                             echo "<span style='margin-right: 10px;'>".'-$ '.$discount_amount."</span>";
+                                             echo "<span style='margin-right: 10px;'>".'-$ '.number_format($discount_amount,2)."</span>";
                                           }
                                        $query1->data_seek(0);
                                        }
