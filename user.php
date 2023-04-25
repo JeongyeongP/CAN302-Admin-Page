@@ -205,7 +205,7 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>User ID</th>
+                                    <th>User Number</th>
                                     <th>Profile</th>
                                     <th>Name</th>
                                     <th>User ID</th>
@@ -216,8 +216,8 @@
                                 <?php
                                     include("userData.php");
                                         while($row = $result->fetch_array()){
-                                        echo "<tr>";
-                                        echo "<td>".$row['user_id']."</td>";
+                                        echo '<tr onclick="window.location=\'user-details.php?user_id=' . $row['user_id'] . '&user_id=' . $row['user_id'] . '\';">';
+                                        echo "<td>"."#".$row['user_id']."</td>";
                                         echo "<td>".$row['profile']."</td>";
                                         echo "<td>".$row['first_name'].' '.$row['last_name']."</td>";
                                         echo "<td>".$row['user_email']."</td>";

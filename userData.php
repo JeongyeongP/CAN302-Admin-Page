@@ -1,7 +1,7 @@
 <?php
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 //open database by mysqli
-$con = mysqli_connect("localhost", "root", "", "supermarket");
+$con = mysqli_connect("localhost", "root", "", "can302");
 
 //a safe method to receive post data
 function mypost($str) {
@@ -21,35 +21,17 @@ $phone_number = mypost('phone_number');
 $created_at = mypost('created_at');
 $is_admin = mypost('is_admin');
 $created_at = mypost('created_at');
+$order_id = mypost('order_id');
+$payment_method_id = mypost('payment_method_id');
+$shipping_address_id = mypost('shipping_address_id');
+$ordered_at = mypost('ordered_at');
+$total_price = mypost('total_price');
+$coupon_id = mypost('coupon_id');
+$payment_status = mypost('payment_status');
+$paid_at = mypost('paid_at');
+$fulfillment_status = mypost('fulfillment_status');
+$is_cancelled = mypost('is_cancelled');
 
-// query the data from database
-/*if (!isset($_POST['submit_search'])) {
-
-    $sql = 'SELECT * FROM `user` WHERE ';
-    
-    if(!empty($_POST['user_id'])) {
-        $sql .= ' user_id = ? AND ';
-        $params[] = $_POST['user_id'];
-    }
-
-    if(!empty($_POST['user_email'])) {
-        $sql .= ' user_email = ? AND ';
-        $params[] = $_POST['user_email'];
-    }
-
-    if(!empty($_POST['created_at'])) {
-        $sql .= ' created_at = ? AND ';
-        $params[] = $_POST['created_at'];
-    }
-
-    $sql = rtrim($sql, 'AND ');
-    $query = mysqli_query($con,$sql);
-}
-
-else {
-    $sql = "SELECT * FROM `user`";
-    $query = mysqli_query($con,$sql);
-}*/
 
 if(isset($_POST['submit_search'])) {
     // define the list of fields
@@ -79,4 +61,37 @@ if(isset($_POST['submit_search'])) {
     $result = mysqli_query($con,$sql);
 }
 
+if (isset($_GET['user_id'])){
+    $user_id = $_GET['user_id'];
+    $sql1 = "SELECT * FROM `user` 
+    WHERE `user_id` = $user_id";
+    $query1 = mysqli_query($con,$sql1); 
+}
+
+if (isset($_GET['user_id'])){
+    $user_id = $_GET['user_id'];
+    $sql2 = "SELECT u.*, o.*
+            FROM user u
+            INNER JOIN `order` o ON u.user_id = o.user_id
+            WHERE u.`user_id` = $user_id";
+    $query2 = mysqli_query($con,$sql2); 
+}
+
+if (isset($_GET['user_id'])){
+    $user_id = $_GET['user_id'];
+    $sql3 = "SELECT u.*, sa.*
+            FROM user u
+            INNER JOIN `shipping_address` sa ON u.user_id = sa.user_id
+            WHERE u.`user_id` = $user_id";
+    $query3 = mysqli_query($con,$sql3); 
+}
+
+if (isset($_GET['user_id'])){
+    $user_id = $_GET['user_id'];
+    $sql4 = "SELECT u.*, pm.*
+            FROM user u
+            INNER JOIN `payment_method` pm ON u.user_id = pm.user_id
+            WHERE u.`user_id` = $user_id";
+    $query4 = mysqli_query($con,$sql4); 
+}
 ?>
