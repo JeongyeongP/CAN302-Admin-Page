@@ -86,7 +86,7 @@ if (isset($_POST['cancel'])){
 
 if (isset($_GET['order_id'])){
     $order_id = $_GET['order_id'];
-    $sql = "SELECT o.*, pm.*, sa.* 
+    $sql = "SELECT o.*, pm.*, sa.*
             FROM `Order` o
             INNER JOIN `Payment_Method` pm ON o.payment_method_id = pm.payment_method_id
             INNER JOIN `Shipping_Address` sa ON o.shipping_address_id = sa.shipping_address_id  
@@ -108,6 +108,15 @@ if (isset($_GET['order_id'])){
     $query2 = mysqli_query($con,$sql); 
 }
 
+if (isset($_GET['order_id'])){
+    $order_id = $_GET['order_id'];
+    $sql = "SELECT o.*, c.*
+            FROM `Order` o 
+            INNER JOIN `Coupon` c ON o.coupon_id = c.coupon_id
+            WHERE o.order_id = $order_id AND o.coupon_id IS NOT NULL";
+    $query5 = mysqli_query($con,$sql); 
+}
+
 $user_id = mypost('user_id');
 
 if (isset($_GET['user_id'])){
@@ -121,6 +130,8 @@ if (isset($_GET['user_id'])){
     $sql = "SELECT * FROM Shipping_Address WHERE user_id = $user_id";
     $query4 = mysqli_query($con,$sql); 
 }
+
+
 
 // if (isset($_GET['order_id'])){
 //     $order_id = $_GET['order_id'];

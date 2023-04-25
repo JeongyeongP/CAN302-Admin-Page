@@ -176,9 +176,8 @@
                            </div>
                            <!-- Delete Button -->
                            <form action="" method="post" id="cancelOrderForm">
-                           <button class="button-17" style="margin-right: 10px;" type="submit" id="cancel" name="cancel" value="cancel"><span class="button-icon"></span>  Cancel Order</button>
+                              <button class="button-17" style="margin-right: 10px;" type="submit" id="cancel" name="cancel" value="cancel"><span class="button-icon"></span>  Cancel Order</button>
                            </form>
-                        
                         </div>
                      </div>
                      <div class="card-body">
@@ -209,21 +208,114 @@
                         <h6 class="m-0" style="color: black; font-size: 20px;">Summary</h6>
                      </div>
                      <div class="card-body">
-                        <table class="table">
+                        <table class="table table-borderless">
                            <tbody>
                               <?php
                                  while($row = $query2->fetch_array()){
                                  echo "<tr>";
                                  echo "<td>".$row['product_name']."</td>";
-                                 echo "<td>".$row['price']."</td>";
+                                 echo"</td>";
+                                 echo "<td width=200>";
+                                 echo "<td>$ ".$row['price']."</td>";
                                  echo "<td>".$row['quantity'].'x'."</td>";
                                  // Calculate total price
                                  $totalPrice = $row['price'] * $row['quantity'];
-                                 echo '<td>$' . number_format($totalPrice, 2, '.', ',') . '</td>';
+                                 echo '<td>$ ' . number_format($totalPrice, 2, '.', ',') . '</td>';
                                  echo "</tr>";
                                  }
                                  $query2->data_seek(0);
                                  ?>
+                              <tr>
+                                 <td>
+                                    Subtotal
+                                 </td>
+                                 <?php
+                                    while($row = $query1->fetch_array()){
+                                    echo"</td>";
+                                    echo "<td width=200>";
+                                    echo"</td>";
+                                    echo "<td>";
+                                    echo"</td>";
+                                    echo "<td>";
+                                    echo "<td>".'$ '.$row['total_price']."</td>";
+                                    }
+                                    $query1->data_seek(0);
+                                    ?>
+                              </tr>
+                              <tr>
+                                 <td>
+                                    Discount
+                                 </td>
+                                 <td>
+                                    <div class="textcontainer" style="width: 100px; height: 30px;">
+                                       <?php
+                                          while($row = $query5->fetch_array()){
+                                              if($row['coupon_id'] === NULL || $row['coupon_id'] === ''){
+                                                  $coupon_name = "None";
+                                                  echo "<span style='margin-right: 10px;'>".$coupon_name."</span>";
+                                              } else {
+                                                  echo "<span style='margin-right: 10px; font-size: 12px;'>".$row['coupon_name']."</span>";
+                                          
+                                              }
+                                          }
+                                          
+                                          $query5->data_seek(0);
+                                          ?>
+                                    </div>
+                                 </td>
+                                 <td>
+                                 </td>
+                                 <td>
+                                 </td>
+                                 <td>
+                                    <?php
+                                       while($row = $query5->fetch_array()){
+                                          $discount_amount = $row['discount']*0.01*$row['total_price'];
+                                          echo "<span style='margin-right: 10px;'>".'-$ '.$discount_amount."</span>";
+                                       
+                                       }
+                                       
+                                       $query5->data_seek(0);
+                                       ?>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>
+                                    Total
+                                 </td>
+                                 <td>
+                                 </td>
+                                 <td>
+                                 </td>
+                                 <td>
+                                 </td>
+                                 <td>
+                                    <?php 
+                                       if (mysqli_num_rows($query5) > 0) {
+                                          while($row = $query5->fetch_array()){
+                                             
+                                             $discount_amount = $row['discount']*0.01*$row['total_price'];
+                                             $totalAmount = $row['total_price']-$discount_amount;
+                                             echo "<span style='margin-right: 10px; font-size: 20px; color: black;'>".'$ '.$totalAmount."</span>";
+                                          }
+                                          $query5->data_seek(0);
+                                       }else{
+                                          while($row = $query1->fetch_array()){
+                                             
+                                       
+                                             echo "<span style='margin-right: 10px; font-size: 20px; color: black;'>".'$ '.$row['total_price']."</span>";
+                                          }
+                                       $query1->data_seek(0);
+                                       }
+                                          
+                                          
+                                          ?>
+                                 </td>
+                              </tr>
                            </tbody>
                         </table>
                      </div>
@@ -249,8 +341,7 @@
                               <td>
                                  <?php
                                     while($row = $query1->fetch_array()){
-                                       echo "<span style='margin-right: 10px;'>".$row['payment_method_id']."</span>";   
-                                       
+                                       echo "<span style='margin-right: 450px;'>".$row['payment_method_id']."</span>";   
                                     }
                                     $query1->data_seek(0);
                                     ?>
@@ -258,7 +349,7 @@
                               <td>
                                  <?php
                                     while($row = $query1->fetch_array()){
-                                       echo "<span style='margin-right: 10px;'>".$row['card_type'] . "[ " . $row['card_number'] . " ]" ."</span>";   
+                                       echo "<span style='margin-right: 10px;'>".$row['card_type'] . "[ **" . substr($row['card_number'], -4)  . " ]" ."</span>";   
                                        
                                     }
                                     $query1->data_seek(0);
@@ -277,16 +368,27 @@
                               <td>
                                  <?php
                                     while($row = $query1->fetch_array()){
-                                       echo "<span style='margin-right: 10px;'>".$row['paid_at']."</span>"; 
-                                         
+                                       echo "<span style='margin-right: 10px; font-size: 12px'>".$row['paid_at']."</span>"; 
                                     }
                                     $query1->data_seek(0);
                                     ?>
                               </td>
                            </tr>
-                           <td> 
-                              Total paid by customer
-                           </td>
+                           <tr>
+                              <td height=20>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="color: black;"> 
+                                 Total paid by customer
+                              </td>
+                              <td>
+                                 <!-- Empty --> 
+                              </td>
+                              <td>
+                                 <!-- Total Payment--> 
+                              </td>
+                           </tr>
                         </table>
                      </div>
                   </div>
@@ -427,36 +529,32 @@
                               </td>
                            </tr>
                         </table>
+                        <?php
+                           $count = 1; // initialize count variable
+                           while($row = $query4->fetch_array()):
+                           ?>
                         <table style="border-collapse: collapse; border-left: 1px solid black; margin-right: 20px;">
                            <tr>
-                              <th style="border-left: 1px solid #E5E7EB; padding: 10px;">Shipping Address</th>
+                              <th style="border-left: 1px solid #E5E7EB; padding: 10px;">Shipping Address <?= $count ?></th>
                            </tr>
                            <tr>
-                              <td style="border-left: 1px solid #E5E7EB; padding: 5px;"><?php
-                                 while($row = $query4->fetch_array()){
-                                     echo "<span style='margin-right: 10px;'>".$row['address_line1'] . " " . $row['address_line2'] ."</span>";
-                                 }
-                                 $query4->data_seek(0); 
-                                 ?></td>
+                              <td style="border-left: 1px solid #E5E7EB; padding: 5px;">
+                                 <span style='margin-right: 10px;'><?= $row['address_line1'] . " " . $row['address_line2'] ?></span>
+                              </td>
                            </tr>
                            <tr>
-                              <td style="border-left: 1px solid #E5E7EB; padding: 5px;"><?php
-                                 while($row = $query4->fetch_array()){
-                                     echo "<span style='margin-right: 10px;'>".$row['city'] . " " . $row['state'] ."</span>";
-                                 }
-                                 $query4->data_seek(0); 
-                                 ?></td>
+                              <td style="border-left: 1px solid #E5E7EB; padding: 5px;">
+                                 <span style='margin-right: 10px;'><?= $row['city'] . " " . $row['state'] ?></span>
+                              </td>
                            </tr>
                            <tr>
-                              <td style="border-left: 1px solid #E5E7EB; padding: 5px;"><?php
-                                 while($row = $query4->fetch_array()){
-                                     echo "<span style='margin-right: 10px;'>".$row['postal_code'] . " " . $row['country'] ."</span>";
-                                 }
-                                 $query4->data_seek(0); 
-                                 ?>
+                              <td style="border-left: 1px solid #E5E7EB; padding: 5px;">
+                                 <span style='margin-right: 10px;'><?= $row['postal_code'] . " " . $row['country'] ?></span>
                               </td>
                            </tr>
                         </table>
+                        <?php $count++; // increment count variable after each iteration ?>
+                        <?php endwhile; ?>
                      </div>
                      <div style="background-color: white; padding: 10px; color: white;">EMPTY Space</div>
                   </div>
