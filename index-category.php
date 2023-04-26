@@ -18,7 +18,19 @@ if (isset($_POST['add-category'])) {
 }
 
 if (isset($_POST['search-category'])) {
-    $sql = "select * from category where category_name LIKE '%".$category."%'";
+
+    $sql = "";
+    if (!empty($category) && !empty($description)){
+        $sql = "select * from category where category_name LIKE '%".$category."%' and description LIKE '%".$description."%'";
+    } else if (!empty($category) && empty($description)){
+        $sql = "select * from category where category_name LIKE '%".$category."%'";
+    }
+    else if (empty($category) && !empty($description)){
+        $sql = "select * from category where description LIKE '%".$description."%'";
+    } else {
+        $sql = "select * from category";
+    }
+   
     $query = mysqli_query($con,$sql);
 }
 else {

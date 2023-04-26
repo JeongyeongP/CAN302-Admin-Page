@@ -1,85 +1,158 @@
 <?php
-ob_start();
-session_start();
+    ob_start();
+    session_start();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-         <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
-         <title>Super Market</title>
-         <meta name="viewport"  content="width=content-width, initial-scale=1.0">
-         <meta name="description" content="" >
-         <link rel="StyleSheet" href="frame_1.css" />
-         <link rel="stylesheet" type="text/css" href="styles/bootstrap-337.min.css">
-         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
-         <script src="https://secure.exportkit.com/cdn/js/ek_googlefonts.js?v=6"></script>
-         <script type="text/javascript" src="js/jquery-331.min.js"> </script>
-        <script type="text/javascript" src="js/bootstrap-337.min.js"> </script>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
 
-    </head>
+    <title>Super Market</title>
 
-    <body style="background-color:#E2E5FF; overflow-x: scroll; overflow-y: scrolll;">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
-    <div class="container" style="width: 100%; height:100%;">
-        <div class="sidebar" style="width: 200px; float: left; height:auto;">
-        <?php include "frame_1.html" ?>
-        </div>
+    <!-- Custom styles for this template -->
+    <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 
-        <div class="content" style="margin-left: 300px; margin-top:30px">
+</head>
 
-            <div class="container" style="border-radius:15px">
-                <h2 style="font-family: DM Sans; color:#06152B;"> <b>Product </h2>
-                <br/>
+<body id="page-top">
 
-                <a href="category.php" style="font-family: DM Sans; color: #06152B; font-weight:normal"> 🡨 Back to Category List</a>
-                <br/>
-                <br/>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-                <?php
-                    include('index-category.php');
-                    $id=$_GET['category_id'];
+        <!-- Sidebar -->
+        <ul class="navbar-nav sidebar sidebar" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" style="height:150px" href="index.html" >
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3"><img src="images/supermarket.png" width="150px" /></div>
+            </a>
+
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.php">
+                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/dashboard_icon.png" width="20px" height="20px;"></i>
+                    <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Dashboard</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="product.php" style="background-color: #ebf0f4">
+                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/product_icon.png" width="20px" height="20px"></i>
+                    <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Product</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="order.php">
+                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/order_icon.png" width="20px" height="20px"></i>
+                    <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Order</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="user.php">
+                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/user_icon.png" width="20px" height="20px"></i>
+                    <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">User</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.php">
+                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/coupon_icon.png" width="20px" height="20px"></i>
+                    <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Coupon</span></a>
+            </li>
     
-                    $query=mysqli_query($con,"select * from category where category_id = $id");
-                    $row=mysqli_fetch_array($query);
 
-                    $category_id = $row['category_id'];
-                    $category = $row['category_name'];
-                    $description = $row['description'];
-                   
-                ?>
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column" style="background-color: #E2E5FF;">
+
+            <!-- Main Content -->
+            <div id="content" style="margin-left:20px">
+                <!-- Begin Page Content -->
+                <div class="container-fluid" style="background-color: #E2E5FF;">
+
+                 <h2 style="font-family: DM Sans; color:#06152B; margin-top:30px"><b> Product </h2>
+                    <br/>
               
-                <div class = "container" style="background-color:white; border-radius:10px">
-                        <form class="form-inline" role="form" action="" method="post">
-                            <h3 style="font-family: DM Sans; color:#06152B; padding-left:10px"><b>Edit Category</h3>
+                    <a href="category.php" style="font-family: DM Sans; color: #06152B; font-weight:normal"> 🡨 Back to Category List</a>
+                    <br/>
+                    <br/>
 
-                            <label for="category_id" style="width: 170px; font-family: DM Sans; color:#06152B; padding-left:10px"> Category ID </label>
-                            <input readonly class='text-box.css' style='width:80%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type='number' id='pcategory_id' name='category_id' value="<?= $category_id ?>">
-                            </br></br>
+                    <?php
+                        include('index-category.php');
+                        $id=$_GET['category_id'];
+        
+                        $query=mysqli_query($con,"select * from category where category_id = $id");
+                        $row=mysqli_fetch_array($query);
+
+                        $category_id = $row['category_id'];
+                        $category = $row['category_name'];
+                        $description = $row['description'];
+                   
+                    ?>
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <h5 style="font-family: DM Sans; color:#06152B;"><b>Edit Category</h3>
+                            <form class="form-inline" role="form" action="" method="post">
+
+                                <label for="category_id" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Category ID </label>
+                                <input readonly class='text-box.css' style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type='number' id='pcategory_id' name='category_id' value="<?= $category_id ?>">
+                                </br></br>
+                                
+                                <label for="category" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Category Name </label>
+                                <input class="text-box.css" style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="category" name="category" value="<?= $category ?>">
+                                </br></br>
                             
-                            <label for="category" style="width: 170px; font-family: DM Sans; color:#06152B; padding-left:10px"> Category Name </label>
-                            <input class="text-box.css" style='width:80%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="category" name="category" value="<?= $category ?>">
-                            </br></br>
-                        
-                            <label for="description" style="width: 170px; font-family: DM Sans; color:#06152B; padding-left:10px"> Category Description </label>
-                            <input class="text-box.css" style='width:80%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" name="description" value="<?= $description ?>">         
-                            </br></br>
-                            <button type="submit" style="width:160px; margin-left:10px; border: 0px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="edit-category" name="edit-category" value="edit-category"> Save Changes </button>
-                            </br></br>
-                        </form>
-                </div> 
-     
+                                <label for="description" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Category Description </label>
+                                <input class="text-box.css" style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" name="description" value="<?= $description ?>">         
+                                </br></br>
+                                <button type="submit" style="width:160px; border: 0px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="edit-category" name="edit-category" value="edit-category"> Save Changes </button>
+                                </br></br>
+                            </form>
+                
 
-                        
+                        </div>
+                    </div>
+
+           
+
+                   
+
             </div>
+            <!-- End of Main Content -->
 
+      
 
-  
+        </div>
+        <!-- End of Content Wrapper -->
+
     </div>
-    </body>
+    <!-- End of Page Wrapper -->
 
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+
+</body>
 
 </html>
