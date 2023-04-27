@@ -160,33 +160,8 @@
 
                             
                             </table>
-
-
-
-                                <td colspan='3' style="width:10%;">
-                                    
-                                    </br></br>
-                                </td>
-
-                                </tr>
-                            </table>
                         </form>
-                            
-                 
-                                
-                                
-                              
-                                
 
-                                
-
-                                
-                                
-                                
-                                
-                               
-                                
-                       
                         </div>
                     </div>
 
