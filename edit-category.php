@@ -47,7 +47,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="dashboard.php">
                     <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/dashboard_icon.png" width="20px" height="20px;"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Dashboard</span></a>
             </li>
@@ -75,13 +75,7 @@
                     <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/coupon_icon.png" width="20px" height="20px"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Coupon</span></a>
             </li>
-
-            <li class="nav-item mt-auto">
-                <a class="nav-link" href="admin_profile.php">
-                    <i class="fas fa-fw fa-user" style="margin-left: 30px;"><img src="admin.jpeg" width="30px" height="30px" style="vertical-align: middle"></i>
-                    <span style="font-family: DM Sans; color: #06152B; font-weight: medium; margin-left:10px;">Admin</span>
-                </a>
-            </li>
+    
 
         </ul>
         <!-- End of Sidebar -->
