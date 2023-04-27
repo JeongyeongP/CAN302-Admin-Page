@@ -1,0 +1,148 @@
+:root{
+    font: 100%;
+    font-size: 16px;
+    list-style: 1.5;
+    --blue: #4e73df;
+    --gray: #858796;
+    --gray-dark: #5a5c69;
+}
+body{
+    padding: 0;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+h1{
+    font-size: 2.25rem;
+    font-weight: 700;
+}
+h2{
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: var(--blue);
+}
+a:hover{
+    text-decoration: underline;
+}
+.small{
+    font-size: 80%;
+    text-align: center;
+}
+.split-screen{
+    display: flex;
+    flex-direction: column;
+}
+.left{
+    height: 200px;
+}
+.left, .right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left{
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5)), url('images/background.png');
+    background-size: cover;
+    background-color: var(--blue);
+}
+.left .copy{
+    color: black;
+    text-align:center;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+}
+.left p{
+    font-weight: 400;
+}
+.right{
+    overflow: hidden;
+    border: 0 !important;
+    border-radius: 5px;
+    box-shadow: 0 0.5rem 1rem 0 rgba(red, green, blue, alpha);
+}
+.right .copy{
+    color: var(--gray);
+    text-align: center;
+}
+.right .copy p{
+    margin: 1.5em 0;
+    font-size: 0.875rem;
+}
+.right form{
+    width: 328px;
+}
+.right input[type="email"], input[type="first_name"], input[type="last_name"]{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 1em;
+    margin-bottom: 1.25rem;
+    font-size: 0.875rem;
+}
+.right input[type="password"]{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 1em;
+    margin-bottom: 1.25rem;
+    font-size: 0.875rem;
+}
+.right form select{
+    width: 100%;
+    padding: 1em;
+    display: block;
+    font-size: 0.875rem;
+    display: block;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.text-right{
+    text-align: right;
+}
+.btn{
+    display: block;
+    width: 100%;
+    background-color: var(--blue);
+    color: white; 
+    font-weight: 700;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+.text-center{
+    text-align: center;
+}
+@media screen and (min-width: 900px) {
+    .split-screen{
+        flex-direction: row;
+        height: 100vh;
+    }
+    .left,
+    .right{
+        display: flex;
+        width: 50%;
+        height: auto;
+    }
+    
+}
+
+.right form .error-msg{
+    margin: 10px 0;
+    display: block;
+    background: #4e73df;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 0.875rem;
+}
