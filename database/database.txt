@@ -88,7 +88,8 @@ CREATE TABLE IF NOT EXISTS `Coupon` (
   min_purchase DECIMAL(10, 2) NOT NULL,
   created_at TIMESTAMP,
   expired_at TIMESTAMP,
-  is_active BOOLEAN DEFAULT 0
+  is_active BOOLEAN DEFAULT 0,
+  coupon_desc TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS `User_Coupon` (
