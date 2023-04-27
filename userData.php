@@ -94,4 +94,14 @@ if (isset($_GET['user_id'])){
             WHERE u.`user_id` = $user_id";
     $query4 = mysqli_query($con,$sql4); 
 }
+
+if (isset($_GET['user_id'])){
+    $user_id = $_GET['user_id'];
+    $sql5 = "SELECT uc.*, c.*
+            FROM User_Coupon uc
+            INNER JOIN `coupon` c ON uc.coupon_id = c.coupon_id
+            WHERE uc.`user_id` = $user_id";
+    $query5 = mysqli_query($con,$sql5); 
+}
+
 ?>

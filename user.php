@@ -47,12 +47,12 @@
                <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Product</span></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="order.php" style="background-color: #ebf0f4">
+               <a class="nav-link" href="order.php">
                <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/order_icon.png" width="20px" height="20px"></i>
                <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Order</span></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="user.php">
+               <a class="nav-link" href="user.php" style="background-color: #ebf0f4">
                <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/user_icon.png" width="20px" height="20px"></i>
                <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">User</span></a>
             </li>

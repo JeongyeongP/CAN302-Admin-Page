@@ -44,12 +44,12 @@
                <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Product</span></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="order.php" style="background-color: #ebf0f4">
+               <a class="nav-link" href="order.php">
                <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/order_icon.png" width="20px" height="20px"></i>
                <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Order</span></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="user.php">
+               <a class="nav-link" href="user.php" style="background-color: #ebf0f4">
                <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/user_icon.png" width="20px" height="20px"></i>
                <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">User</span></a>
             </li>
@@ -259,22 +259,26 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Payment Method</th>
-                                    <th>Card Type</th>
-                                    <th>Card Number</th>
-                                    <th>Expired At</th>
+                                    <th>Number</th>
+                                    <th>Coupon Number</th>
+                                    <th>Coupon Name</th>
+                                    <th>Discount</th>
+                                    <th>Expiry Date</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                    while($row = $query4->fetch_array()){
-                                    echo "<td>"."#".$row['payment_method_id']."</td>";
-                                    echo "<td>".$row['card_type']."</td>";
-                                    echo "<td>".$row['card_number']."</td>";
+                                    while($row = $query5->fetch_array()){
+                                    echo "<td>".$row['user_coupon_id']."</td>";
+                                    echo "<td>"."#".$row['coupon_id']."</td>";
+                                    echo "<td>".$row['coupon_name']."</td>";
+                                    echo "<td>".$row['discount']."</td>";
                                     echo "<td>".$row['expired_at']."</td>";
+                                    if($row['is_used'] == 1) echo "<td>"."Used"."</td>"; else echo "<td>"."Available"."</td>";
                                     echo "</tr>";
                                     }
-                                    $query4->data_seek(0);
+                                    $query5->data_seek(0);
                                 ?>
                             </tbody>
                         </table>
