@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Super Market - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -96,9 +96,21 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Earnings (Monthly)
+                                        Total Sales (Monthly)
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                        <?php
+                                        $con = mysqli_connect("localhost", "root", "", "can302");
+                                        $sql = "SELECT SUM(total_price) AS total_price_sum 
+                                                FROM `Order` 
+                                                WHERE `is_cancelled` != 1";
+                                        $query_total = mysqli_query($con,$sql);
+                                        $row = $query_total->fetch_array();
+                                        $total_price_sum = $row['total_price_sum'];
+                                        echo "<td>".'$'.$total_price_sum."</td>";
+                                        mysqli_close($con);
+                                        ?>
+                                        </div>
                                     </div>
                                     <div class="col-auto">
                                     <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -113,9 +125,20 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                        Earnings (Annual)
+                                        Total Orders (Monthly)
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                        <?php
+                                        $con = mysqli_connect("localhost", "root", "", "can302");
+                                        $sql = "SELECT *
+                                                FROM `Order` 
+                                                WHERE `is_cancelled` != 1";
+                                        $query_order = mysqli_query($con,$sql);
+                                        $num_orders = mysqli_num_rows($query_order);
+                                        echo "<td>".$num_orders."</td>";
+                                        mysqli_close($con);
+                                        ?>     
+                                  </div>
                                     </div>
                                     <div class="col-auto">
                                     <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -129,17 +152,27 @@
                                 <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">New Users</div>
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                            <?php
+                                        $con = mysqli_connect("localhost", "root", "", "can302");
+                                        $sql = "SELECT *
+                                                FROM `user` 
+                                                WHERE `is_admin` != 1";
+                                        $query_user = mysqli_query($con,$sql);
+                                        $num_users = mysqli_num_rows($query_user);
+                                        echo "<td>".$num_users."</td>";
+                                        mysqli_close($con);
+                                        ?>   </div>
                                         </div>
-                                        <div class="col">
+                                        <!-- <div class="col">
                                         <div class="progress progress-sm mr-2">
                                             <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50"
                                             aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     </div>
                                     <div class="col-auto">
@@ -151,26 +184,6 @@
                             </div>
                         </div>
                         </div>
-
-
-                        <!-- Pending Requests Card Example -->
-                        <!-- <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
 
                     <!-- Content Row -->
 
@@ -263,22 +276,21 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <table class="table" id="dataTable" width="100%" cellspacing="0" style="font-size: 9px;">
                                             <thead>
                                                 <tr>
                                                     <!-- <th></th> -->
                                                     <th>Order Number</th>
                                                     <th>Date</th>
                                                     <th>User ID</th>
-                                                    <th>Payment Status</th>
-                                                    <th>Fulfillment Status</th>
+                                                    <!-- <th>Payment Status</th>
+                                                    <th>Fulfillment Status</th> -->
                                                     <th>Total</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
                                                 include("orderData.php");
-
                                                 while($row = $query->fetch_array()){
                                                     // echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '\';">';
                                                     echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '&user_id=' . $row['user_id'] . '\';">';
@@ -286,8 +298,8 @@
                                                     echo "<td>".'#'.$row['order_id']."</td>";
                                                     echo "<td>".$row['ordered_at']."</td>";
                                                     echo "<td>".'#'.$row['user_id']."</td>";
-                                                    if($row['payment_status'] == 1) echo "<td>"."Paid"."</td>"; else echo "<td>"."Unpaid"."</td>";
-                                                    echo "<td>".$row['fulfillment_status']."</td>";
+                                                    // if($row['payment_status'] == 1) echo "<td>"."Paid"."</td>"; else echo "<td>"."Unpaid"."</td>";
+                                                    // echo "<td>".$row['fulfillment_status']."</td>";
                                                     echo "<td>".'$'.$row['total_price']."</td>";
                                                     echo "</tr>";
                                                 }

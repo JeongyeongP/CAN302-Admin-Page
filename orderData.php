@@ -26,37 +26,51 @@ $is_cancelled = mypost('is_cancelled');
 // query the data from database
 if (isset($_POST['search_order'])) {
     $order_id = $_POST['data'];
-    $sql = "SELECT * FROM `Order` WHERE `order_id` = $order_id and `is_cancelled` != 1";
+    $sql = "SELECT * FROM `Order` 
+            WHERE `order_id` = $order_id and `is_cancelled` != 1
+            ORDER BY ordered_at DESC";
     $query = mysqli_query($con,$sql);
 }
 else {
-    $sql = "SELECT * FROM `Order` WHERE `is_cancelled` != 1";
+    $sql = "SELECT * FROM `Order` 
+            WHERE `is_cancelled` != 1
+            ORDER BY ordered_at DESC";
     $query = mysqli_query($con,$sql);
 }
 
 //all data
 if (isset($_POST['all'])) {
-    $sql = "SELECT * FROM `Order` WHERE `is_cancelled` != 1";
+    $sql = "SELECT * FROM `Order` 
+            WHERE `is_cancelled` != 1
+            ORDER BY ordered_at DESC";
     $query = mysqli_query($con,$sql);
 }
 //unpaid data
 if (isset($_POST['unpaid'])){
-    $sql = "SELECT * FROM `Order` WHERE `payment_status` = 0 and `is_cancelled` != 1";
+    $sql = "SELECT * FROM `Order`
+            WHERE `payment_status` = 0 and `is_cancelled` != 1
+            ORDER BY ordered_at DESC";
     $query = mysqli_query($con,$sql);
 }
 //shipped data
 if (isset($_POST['shipped'])){
-    $sql = "SELECT * FROM `Order` WHERE `fulfillment_status` = 'Shipped' and `is_cancelled` != 1";
+    $sql = "SELECT * FROM `Order` 
+            WHERE `fulfillment_status` = 'Shipped' and `is_cancelled` != 1
+            ORDER BY ordered_at DESC";
     $query = mysqli_query($con,$sql);
 }
 //In Delivery data
 if (isset($_POST['indelivery'])){
-    $sql = "SELECT * FROM `Order` WHERE `fulfillment_status` = 'In Delivery' and `is_cancelled` != 1";
+    $sql = "SELECT * FROM `Order` 
+            WHERE `fulfillment_status` = 'In Delivery' and `is_cancelled` != 1
+            ORDER BY ordered_at DESC";
     $query = mysqli_query($con,$sql);
 }
 //Delivered
 if (isset($_POST['delivered'])){
-    $sql = "SELECT * FROM `Order` WHERE `fulfillment_status` = 'Delivered' and `is_cancelled` != 1";
+    $sql = "SELECT * FROM `Order`
+            WHERE `fulfillment_status` = 'Delivered' and `is_cancelled` != 1
+            ORDER BY ordered_at DESC";
     $query = mysqli_query($con,$sql);
 }
 
@@ -116,6 +130,7 @@ if (isset($_GET['user_id'])){
     $sql = "SELECT * FROM Shipping_Address WHERE user_id = $user_id";
     $query4 = mysqli_query($con,$sql); 
 }
+
 
 ?>
 
