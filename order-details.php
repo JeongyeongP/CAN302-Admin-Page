@@ -126,18 +126,15 @@
                         <div class="container">
                            <?php
                               while($row = $query3->fetch_array()){
-                                  $imageBlob = $row['profile_image'];
-                              
-                              // Convert the binary data to base64 encoding
-                              $imageBase64 = base64_encode($imageBlob);
-                              
-                              // Create the data URI for the PNG image
-                              $imageDataURI = 'data:image/png;base64,' . $imageBase64;
-                              
-                              // Output the div element with the background image
-                              echo '<div class="image-container" style="background-image: url(' . $imageDataURI . ');"></div>';
-                                 }
-                                 $query3->data_seek(0); 
+                                 $imageBlob = $row['profile_image'];
+                                 // Convert the binary data to base64 encoding
+                                 $imageBase64 = base64_encode($imageBlob);
+                                 // Create the data URI for the PNG image
+                                 $imageDataURI = 'data:image/png;base64,' . $imageBase64;
+                                 // Output the div element with the background image
+                                 echo '<div class="image-container" style="background-image: url(' . $imageDataURI . ');"></div>';
+                              }
+                              $query3->data_seek(0); 
                               
                               ?>
                            <?php
