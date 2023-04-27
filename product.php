@@ -95,36 +95,90 @@
 
                     <div class="card shadow mb-4">
                         <div class="card-body">
-                            <h5 style="font-family: DM Sans; color:#06152B; padding-left:10px; padding-top:5px">Search Filters</h5> 
-                            <img src="search.png" width=15px; height=15px style="margin-left:150px; margin-top:-70px; overflow:hidden"/>
-                            <form class="form-inline" role="form" action="" method="post">
+                        <h5 style="font-family: DM Sans; color:#06152B; padding-top:5px">Search Filters</h5> 
+                        <img src="search.png" width=15px; height=15px style="margin-left:140px; margin-top:-70px; overflow:hidden"/>
+                        <form class="form-inline" role="form" action="" method="post">
+
+                            <table style="width:100%;" >
+                                <form class="form-inline" role="form" action="" method="post">
+
+                                    <tr>
+                                        <td style="width:45%; float:left">
+                                            <label for="name" style="font-family: DM Sans; color:#06152B;"> Product
+                                            <input class="text-box.css" style='margin-left:10px; width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="name" name="name">
+                                            </label>
+                                        </td>
+
+                                        <td style="width:45%; float:right">
+                                            <label for="category" style="font-family: DM Sans; color:#06152B;"> Category 
+                                            <input class="text-box.css" style='margin-left:10px; width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="category" name="category">
+                                            </label>
+                                        </td>
+
+                                        <td style="width:10%">
+                                            <button type="submit" style="width:120px; margin-left:30px; border: 0px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="search" name="search" value="search"> Search</button>
+                                        </td>
+
+                                   
+                                    </tr>
+
+                                    <tr>
+                                        <td style="width:45%; float:left">
+                                            <label for="stock" style="font-family: DM Sans; color:#06152B; text-align:left"> Stock 
+                                            <input class="text-box.css" style='margin-left:27px; width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="number" id="stock" name="stock">
+                                            <label for="stock2" style="font-family: DM Sans; color:#06152B; padding:10px"> - </label>
+                                            <input class="text-box.css" style='width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="number" id="stock2" name="stock2">
+                                            </label>
+                                        </td>
+
+                                        <td style="width:45%; float:right">
+                                        
+                                            <label for="price" style="font-family: DM Sans; color:#06152B; text-align:left"> Price 
+                                            <input class="text-box.css" style='margin-left:40px; width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="number" id="price" name="price">
+                                            <label for="price2" style="font-family: DM Sans; color:#06152B; padding:10px"> - </label>
+                                            <input class="text-box.css" style='width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="number" id="price2" name="price2">    
+                                            </label>
+                                            
+                                        </td>
+
+                                        <td style="width:10%">
+                                            <button type="submit" style="width:120px; margin-left:30px; border: 0px; background-color:#E0E0E0; font-family: DM Sans; color: #333333; font-weight: normal" class="btn btn-primary" id="reset" name="reset" value="reset"> Reset </button>                           
+                                        </td>
+
+                                   
+                                    </tr>
+
+                                </form>
+
+                            
+                            </table>
+
+
+
+                                <td colspan='3' style="width:10%;">
+                                    
+                                    </br></br>
+                                </td>
+
+                                </tr>
+                            </table>
+                        </form>
+                            
+                 
                                 
-                                <label for="name" style="width:150px; font-family: DM Sans; color:#06152B;"> Product Name </label>
-                                <input class="text-box.css" style='width:30%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="name" name="name">
+                                
                               
-                                <label for="category" style="width:150px; margin-left:69px; font-family: DM Sans; color:#06152B;"> Category </label>
-                                <input class="text-box.css" style='width:30%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="category" name="category">
-
-                                <button type="submit" style="width:120px; margin-left:30px; border: 0px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="search" name="search" value="search"> Search</button>
-                                </br></br>
-
-                                <label for="stock" style="width:90px; font-family: DM Sans; color:#06152B;"> Stock </label>
-                                <input class="text-box.css" style='width:14%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B; margin-left:60px' type="number" id="stock" name="stock">
                                 
-                                <label for="stock2" style="font-family: DM Sans; color:#06152B; padding:10px"> - </label>
-                                <input class="text-box.css" style='width:14%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="number" id="stock2" name="stock2">
 
-                                <label for="price" style="width:90px; font-family: DM Sans; color:#06152B; margin-left:85px;"> Price </label>
-                                <input class="text-box.css" style='width:14%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B; margin-left:45px' type="number" id="price" name="price">
                                 
-                                <label for="price2" style="font-family: DM Sans; color:#06152B; padding:10px"> - </label>
-                                <input class="text-box.css" style='width:14%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="number" id="price2" name="price2">
-                                
-                                <button type="submit" style="width:120px; margin-left:30px; border: 0px; background-color:#E0E0E0; font-family: DM Sans; color: #333333; font-weight: normal" class="btn btn-primary" id="reset" name="reset" value="reset"> Reset </button>
-                                </br></br>
-                                
-                            </form>
 
+                                
+                                
+                                
+                                
+                               
+                                
+                       
                         </div>
                     </div>
 

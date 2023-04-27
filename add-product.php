@@ -156,7 +156,7 @@
 
                             <input type="file" accept="image/*" onchange="loadFile(event)" id="uploadfile" name="uploadfile" value="<?= $uploadfile ?>" style="margin-left:100px; vertical-align:top;">
                                 
-                                <img id="output" style="width=250px; height:250px; margin-left:-300px;" src="images/add_image.png"/>
+                                <img id="output" style="width=250px; height:250px; margin-left:-300px; margin-top:50px" src="images/add_image.png"/>
                                 <script>
                                 var loadFile = function(event) {
                                     var output = document.getElementById('output');
@@ -168,7 +168,7 @@
                                 </script>
                             </input>
                     
-                            <button type="submit" style="margin-left:450px; margin-top: 300px; border: 0px; width: 15%; height: 44px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="upload" name="upload" value="upload">Add</button>
+                            <button type="submit" style="position: absolute; margin-top:250px; margin-left:450px; border: 0px; width: 5%; height: 44px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="upload" name="upload" value="upload">Add</button>
                          
                             </br></br>
                     
