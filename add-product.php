@@ -176,7 +176,7 @@
                                 </script>
                             </input>
                     
-                            <button type="submit" style="position: absolute; margin-top:250px; margin-left:450px; border: 0px; width: 5%; height: 44px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="upload" name="upload" value="upload">Add</button>
+                            <button type="submit" style="position: fixed; margin-top:250px; margin-left:450px; border: 0px; width: 5%; height: 44px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="upload" name="upload" value="upload">Add</button>
                          
                             </br></br>
                     
