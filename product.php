@@ -19,8 +19,6 @@
     <!-- Custom styles for this template -->
     <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <!-- Style -->
-    <link href="css/shape.css" rel="stylesheet">
 
 
 </head>
@@ -191,21 +189,15 @@
 
                                 include("index.php");    
                                 while($row=$query->fetch_array()){
-                                    $imageBlob = $row['product_image'];
-                                    // Convert the binary data to base64 encoding
-                                    $imageBase64 = base64_encode($imageBlob);
-                                    // Create the data URI for the PNG image
-                                    $imageDataURI = 'data:image/png;base64,' . $imageBase64;
+
+                            
                                     $product_id = $row['product_id'];
-                                    //$image= "<img width='80' height='80' src='images/".$row['product_image']."'>";     
+                                    $image= "<img width='80' height='80' src='images/".$row['product_image']."'>";         
                                     $edit='<a target="_blank" href="edit-product.php?product_id='.urlencode($product_id).'"> <img src="edit.png" width="15" height="15" id="edit" name="edit"/></a>';
                                     $delete='<a href="index.php?id='.urlencode($product_id).'" name="id" id="id" value="id"> <img src="delete.png" width="15" height="15"/> </a>';
                                     
                                     echo $style;
-                                    //echo "<td>".$image."</td>";
-                                  
-                                    echo '<td><div class="image-container" style="background-image: url(' . $imageDataURI . ');"></div></td>';
-                                 
+                                    echo "<td>".$image."</td>";
                                     echo $textStyle.'#  '.$row['product_id']."</td>";
                                     echo $textStyle.$row['product_name']."</td>";
                                     echo $textStyle.'$'.$row['price']."</td>";
