@@ -22,31 +22,36 @@ $stock2 = mypost('stock2');
 //add the received data to database
 if (isset($_POST['upload'])) {
 
-    // Get the file path and name
-    $filename = $_FILES['uploadfile']['name'];
-    $filepath = $_FILES['uploadfile']['tmp_name'];
+    // $image_name = $_FILES["uploadfile"]["name"];
+    // $image = $_FILES['uploadfile']['tmp_name'];
+    // $imgContent = addslashes(file_get_contents($image));
 
-    // Read the file contents
-    $image = file_get_contents($filepath);
+    // $category = intval($category);
 
-    // Encode the image as base64
-    $image_base64 = base64_encode($image);
-    $sql = "INSERT INTO `product` (`product_id`, `product_name`, `product_image`, `description`, `price`, `stock_quantity`, `category_id`) 
-          VALUES ('0', '$name', '$image_base64', '$description', '$price', '$stock', '$category')";
-    $query = mysqli_query($con,$sql);
+    // $sql = "INSERT INTO `product` (`product_id`, `product_name`, `product_image`, `description`, `price`, `stock_quantity`, `category_id`) 
+    //     VALUES ('0', '$name', ?, '$description', '$price', '$stock', '$category')";
+    // $stmt = mysqli_prepare($con, $sql);
+    // mysqli_stmt_bind_param($stmt, "s", $imgContent);
 
+    // if(mysqli_stmt_execute($stmt)){
+    //     echo "Image uploaded and inserted successfully.";
+    // } else {
+    //     echo "Error uploading image: " . mysqli_error($con);
+    // }
+
+    // mysqli_stmt_close($stmt);
 
     //Original Code
-    // $filename = $_FILES["uploadfile"]["name"];
-    // $tempname = $_FILES["uploadfile"]["tmp_name"];
-    // $folder = "./images/" . $filename;
+    $filename = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "./images/" . $filename;
 
-    // $sql = "INSERT INTO `product` (`product_id`, `product_name`, `product_image`, `description`, `price`, `stock_quantity`, `category_id`) VALUES ('0', '$name', '$filename', '$description', '$price', '$stock', '$category')";
-    // $query = mysqli_query($con,$sql);
-    //move_uploaded_file($tempname, $folder);
+    $sql = "INSERT INTO `product` (`product_id`, `product_name`, `product_image`, `description`, `price`, `stock_quantity`, `category_id`) VALUES ('0', '$name', '$filename', '$description', '$price', '$stock', '$category')";
+    $query = mysqli_query($con,$sql);
+    move_uploaded_file($tempname, $folder);
 
-    // $sql = "INSERT INTO `product` (`product_id`, `product_name`, `description`, `price`, `stock_quantity`, `category_id`) VALUES ('0', '$name', '$description', '$price', '$stock', '$category')";
-    // $query = mysqli_query($con,$sql);
+    $sql = "INSERT INTO `product` (`product_id`, `product_name`, `description`, `price`, `stock_quantity`, `category_id`) VALUES ('0', '$name', '$description', '$price', '$stock', '$category')";
+    $query = mysqli_query($con,$sql);
     
 }
 
