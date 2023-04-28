@@ -75,14 +75,6 @@
                     <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/coupon_icon.png" width="20px" height="20px"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Coupon</span></a>
             </li>
-
-            <!-- Admin Profile -->
-            <li class="nav-item mt-auto">
-                <a class="nav-link" href="admin_profile.php">
-                    <i class="fas fa-fw fa-user" style="margin-left: 30px;"><img src="admin.jpeg" width="30px" height="30px"></i>
-                    <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Admin Profile</span>
-                </a>
-            </li>
     
 
         </ul>
@@ -176,8 +168,8 @@
                                 </script>
                             </input>
                     
-                            <button type="submit" style="position: fixed; margin-top:250px; margin-left:450px; border: 0px; width: 5%; height: 44px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="upload" name="upload" value="upload">Add</button>
-                         
+                            
+                            <button type="submit" style="float:right; position:abosulte; margin-top:250px; width: 10%; border: 0px; height: 44px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="upload" name="upload" value="upload">Add</button>
                             </br></br>
                     
                         </div>

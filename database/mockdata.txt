@@ -24,14 +24,16 @@ VALUES ('Fruits', 'Description Fresh Fruits', NOW(), 0),
        ('Drinks', 'Description Soda soft drinks', NOW(), 0);
 
 INSERT INTO `product` (`product_id`, `product_name`, `product_image`, `description`, `price`, `stock_quantity`, `category_id`, `created_at`, `is_deleted`) VALUES
-(1, 'Pokka Green Tea', 0x706f6b6b612e706e67, 'Sweet Green Tea Drink', '2.30', 300, 5, '2023-04-27 06:56:19', 0),
-(2, 'Grapes', 0x6772617065732e706e67, 'Freshly picked', '1.50', 400, 1, '2023-04-23 13:57:36', 0),
-(3, 'Oatside Oat Milk', 0x6f6174736964652e706e67, 'Perfect mix with coffee', '6.70', 200, 4, '2023-04-23 13:57:56', 0),
-(4, 'Spinach', 0x7370696e6163682e706e67, 'Eat your greens', '1.20', 500, 2, '2023-04-23 13:58:18', 0),
-(5, 'Pringles', 0x7072696e676c65732e706e67, 'Potato chips in a tube', '1.10', 0, 3, '2023-04-23 13:58:39', 0),
-(6, 'Korean Strawberry', 0x737472617762657272792e6a706567, 'Sweeter than others', '15.00', 100, 1, '2023-04-26 10:48:17', 0),
-(8, 'Oranges', 0x6f72616e6765732e6a7067, 'Rich in vitamin C', '3.00', 300, 1, '2023-04-27 07:11:57', 0),
-(9, 'Oreo', 0x6f72656f2e706e67, 'Best dipped in milk!', '2.80', 200, 3, '2023-04-26 11:00:29', 0);
+(1, 'Pokka Green Tea', 0x706f6b6b612e706e67, 'Sweet Green Tea Drink', '2.30', 300, 5, '2023-04-26 23:56:19', 0),
+(2, 'Grapes', 0x6772617065732e706e67, 'Freshly picked', '1.50', 400, 1, '2023-04-23 06:57:36', 0),
+(3, 'Oatside Oat Milk', 0x6f6174736964652e706e67, 'Perfect mix with coffee', '6.70', 200, 4, '2023-04-23 06:57:56', 0),
+(4, 'Spinach', 0x7370696e6163682e706e67, 'Eat your greens', '1.20', 500, 2, '2023-04-23 06:58:18', 0),
+(5, 'Pringles', 0x7072696e676c65732e706e67, 'Potato chips in a tube', '1.10', 0, 3, '2023-04-23 06:58:39', 0),
+(6, 'Korean Strawberry', 0x737472617762657272792e6a706567, 'Sweeter than others', '15.00', 100, 1, '2023-04-26 03:48:17', 0),
+(7, 'Oranges', 0x6f72616e6765732e6a7067, 'Rich in vitamin C', '3.00', 300, 1, '2023-04-27 00:11:57', 0),
+(8, 'Oreo', 0x6f72656f2e706e67, 'Best dipped in milk!', '2.80', 200, 3, '2023-04-26 04:00:29', 0),
+(9, 'Haagen Dazs', 0x68616167656e64617a732e706e67, 'Vanilla Bean Ice Cream', '9.00', 200, 4, '2023-04-28 11:03:39', 0),
+(10, 'Doritos', 0x646f7269746f732e706e67, 'Nacho Cheese Flavour', '1.40', 400, 3, '2023-04-28 11:05:21', 0);
 
 INSERT INTO `Coupon` (coupon_name, discount, min_purchase, created_at, expired_at, is_active)
 VALUES ('SPRING20', 20, 50.00, NOW(), '2023-05-31', 1),
