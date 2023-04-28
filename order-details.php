@@ -168,18 +168,20 @@
                                  $finalPrice = 0;
                                  while($row = $query2->fetch_array()){
                                  
+                                 $image= "<img width='80' height='80' src='images/".$row['product_image']."'>";   
                                  echo "<tr>";
-                                 $imageBlob = $row['product_image'];
+                                 // $imageBlob = $row['product_image'];
                                  
-                                 // Convert the binary data to base64 encoding
-                                 $imageBase64 = base64_encode($imageBlob);
+                                 // // Convert the binary data to base64 encoding
+                                 // $imageBase64 = base64_encode($imageBlob);
                                  
-                                 // Create the data URI for the PNG image
-                                 $imageDataURI = 'data:image/png;base64,' . $imageBase64;
+                                 // // Create the data URI for the PNG image
+                                 // $imageDataURI = 'data:image/png;base64,' . $imageBase64;
                                  
                                  // Output the div element with the background image
                                  echo "<td>";
-                                 echo '<div class="image-container" style="background-image: url(' . $imageDataURI . ');"></div>';
+                                 // echo '<div class="image-container" style="background-image: url(' . $image . ');"></div>';
+                                 echo $image; 
                                  echo "</td>";
                                  echo "<td>".$row['product_name']."</td>";
                                  echo"</td>";

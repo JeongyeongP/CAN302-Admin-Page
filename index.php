@@ -22,16 +22,31 @@ $stock2 = mypost('stock2');
 //add the received data to database
 if (isset($_POST['upload'])) {
 
-    $filename = $_FILES["uploadfile"]["name"];
-    $tempname = $_FILES["uploadfile"]["tmp_name"];
-    $folder = "./images/" . $filename;
+    // Get the file path and name
+    $filename = $_FILES['uploadfile']['name'];
+    $filepath = $_FILES['uploadfile']['tmp_name'];
 
-    $sql = "INSERT INTO `product` (`product_id`, `product_name`, `product_image`, `description`, `price`, `stock_quantity`, `category_id`) VALUES ('0', '$name', '$filename', '$description', '$price', '$stock', '$category')";
-    $query = mysqli_query($con,$sql);
-    move_uploaded_file($tempname, $folder);
+    // Read the file contents
+    $image = file_get_contents($filepath);
 
-    $sql = "INSERT INTO `product` (`product_id`, `product_name`, `description`, `price`, `stock_quantity`, `category_id`) VALUES ('0', '$name', '$description', '$price', '$stock', '$category')";
+    // Encode the image as base64
+    $image_base64 = base64_encode($image);
+    $sql = "INSERT INTO `product` (`product_id`, `product_name`, `product_image`, `description`, `price`, `stock_quantity`, `category_id`) 
+          VALUES ('0', '$name', '$image_base64', '$description', '$price', '$stock', '$category')";
     $query = mysqli_query($con,$sql);
+
+
+    //Original Code
+    // $filename = $_FILES["uploadfile"]["name"];
+    // $tempname = $_FILES["uploadfile"]["tmp_name"];
+    // $folder = "./images/" . $filename;
+
+    // $sql = "INSERT INTO `product` (`product_id`, `product_name`, `product_image`, `description`, `price`, `stock_quantity`, `category_id`) VALUES ('0', '$name', '$filename', '$description', '$price', '$stock', '$category')";
+    // $query = mysqli_query($con,$sql);
+    //move_uploaded_file($tempname, $folder);
+
+    // $sql = "INSERT INTO `product` (`product_id`, `product_name`, `description`, `price`, `stock_quantity`, `category_id`) VALUES ('0', '$name', '$description', '$price', '$stock', '$category')";
+    // $query = mysqli_query($con,$sql);
     
 }
 
