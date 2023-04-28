@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   user_id INT PRIMARY KEY AUTO_INCREMENT,
   user_email VARCHAR(255) UNIQUE NOT NULL,
   password VARCHAR(255) NOT NULL,
-  profile_image VARBINARY(65535),
+  profile_image BLOB(65535),
   first_name VARCHAR(255) NOT NULL,
   last_name VARCHAR(255) NOT NULL,
   phone_number VARCHAR(15) NOT NULL,
