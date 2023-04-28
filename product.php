@@ -42,7 +42,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="dashboard.php">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/dashboard_icon.png" width="20px" height="20px;"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Dashboard</span></a>
             </li>
@@ -69,14 +69,6 @@
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/coupon_icon.png" width="20px" height="20px"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Coupon</span></a>
-            </li>
-
-            <!-- Admin Profile -->
-            <li class="nav-item mt-auto">
-                <a class="nav-link" href="admin_profile.php">
-                    <i class="fas fa-fw fa-user" style="margin-left: 30px;"><img src="admin.jpeg" width="30px" height="30px"></i>
-                    <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Admin Profile</span>
-                </a>
             </li>
     
 
@@ -160,8 +152,33 @@
 
                             
                             </table>
-                        </form>
 
+
+
+                                <td colspan='3' style="width:10%;">
+                                    
+                                    </br></br>
+                                </td>
+
+                                </tr>
+                            </table>
+                        </form>
+                            
+                 
+                                
+                                
+                              
+                                
+
+                                
+
+                                
+                                
+                                
+                                
+                               
+                                
+                       
                         </div>
                     </div>
 
@@ -190,6 +207,7 @@
                                 include("index.php");    
                                 while($row=$query->fetch_array()){
 
+                            
                                     $product_id = $row['product_id'];
                                     $image= "<img width='80' height='80' src='images/".$row['product_image']."'>";     
                                     $edit='<a target="_blank" href="edit-product.php?product_id='.urlencode($product_id).'"> <img src="edit.png" width="15" height="15" id="edit" name="edit"/></a>';

@@ -29,9 +29,6 @@ if (isset($_POST['upload'])) {
     $sql = "INSERT INTO `product` (`product_id`, `product_name`, `product_image`, `description`, `price`, `stock_quantity`, `category_id`) VALUES ('0', '$name', '$filename', '$description', '$price', '$stock', '$category')";
     $query = mysqli_query($con,$sql);
     move_uploaded_file($tempname, $folder);
-
-    $sql = "INSERT INTO `product` (`product_id`, `product_name`, `description`, `price`, `stock_quantity`, `category_id`) VALUES ('0', '$name', '$description', '$price', '$stock', '$category')";
-    $query = mysqli_query($con,$sql);
     
 }
 
