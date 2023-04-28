@@ -190,7 +190,6 @@
                                 include("index.php");    
                                 while($row=$query->fetch_array()){
 
-                            
                                     $product_id = $row['product_id'];
                                     $image= "<img width='80' height='80' src='images/".$row['product_image']."'>";         
                                     $edit='<a target="_blank" href="edit-product.php?product_id='.urlencode($product_id).'"> <img src="edit.png" width="15" height="15" id="edit" name="edit"/></a>';
