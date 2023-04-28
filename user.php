@@ -137,7 +137,13 @@
                                         while($row = $result->fetch_array()){
                                         echo '<tr onclick="window.location=\'user-details.php?user_id=' . $row['user_id'] . '&user_id=' . $row['user_id'] . '\';">';
                                         echo "<td>"."#".$row['user_id']."</td>";
-                                        echo "<td>".$row['profile']."</td>";
+                                        $imageBlob = $row['profile_image'];
+                                        // Convert the binary data to base64 encoding
+                                        $imageBase64 = base64_encode($imageBlob);
+                                        // Create the data URI for the PNG image
+                                        $imageDataURI = 'data:image/png;base64,' . $imageBase64;
+                                        // Output the div element with the background image
+                                        echo '<td><div class="image-container" style="background-image: url(' . $imageDataURI . ');"></div></td>';
                                         echo "<td>".$row['first_name'].' '.$row['last_name']."</td>";
                                         echo "<td>".$row['user_email']."</td>";
                                         echo "<td>".$row['created_at']."</td>";
