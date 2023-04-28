@@ -17,6 +17,7 @@
          rel="stylesheet">
       <!-- Custom styles for this template -->
       <link href="css/sb-admin-2.min.css" rel="stylesheet">
+       <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
       <!-- Button Style -->
       <link href="css/buttonStyle.css" rel="stylesheet">
    </head>
@@ -507,15 +508,15 @@
                               while($row = $query3->fetch_array()){
                                   $imageBlob = $row['profile_image'];
                               
-                              // Convert the binary data to base64 encoding
-                              $imageBase64 = base64_encode($imageBlob);
+                                 // Convert the binary data to base64 encoding
+                                 $imageBase64 = base64_encode($imageBlob);
                               
-                              // Create the data URI for the PNG image
-                              $imageDataURI = 'data:image/png;base64,' . $imageBase64;
+                                 // Create the data URI for the PNG image
+                                 $imageDataURI = 'data:image/png;base64,' . $imageBase64;
                               
-                              // Output the div element with the background image
-                              echo '<div class="image-container" style="background-image: url(' . $imageDataURI . ');"></div>';
-                                 }
+                                 // Output the div element with the background image
+                                 echo '<div class="image-container" style="background-image: url(' . $imageDataURI . ');"></div>';
+                              }
                                  $query3->data_seek(0); 
                               
                               ?>
