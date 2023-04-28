@@ -94,7 +94,7 @@
                         </form>
                         <form action="" method="post">
                            <div class="input-group mb-3">
-                              <input type="text" name="data" id='data' class="form-control" placeholder="Search with Order ID....." aria-label="Search data" >
+                              <input type="number" name="data" id='data' class="form-control" placeholder="Search with Order ID....." aria-label="Search data" >
                               <div class="input-group-append">
                                  <button type="submit" class="button-16" id="search_order" name="search_order" value="search_order">Search</button>
                               </div>
