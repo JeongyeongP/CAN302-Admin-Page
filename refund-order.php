@@ -1,48 +1,233 @@
+<?php
+
+$con = mysqli_connect("localhost", "root", "", "can302");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Order List</title>
+      <!-- Custom fonts for this template -->
+      <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+      <link
+         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+         rel="stylesheet">
+      <!-- Custom styles for this template -->
+      <link href="css/sb-admin-2.min.css" rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+      <!-- Custom styles for this page -->
+      <!-- <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
+      <!-- Button Style -->
+      <link href="css/buttonStyle.css" rel="stylesheet">
+   </head>
+   <body id="page-top">
+      <!-- Page Wrapper -->
+      <div id="wrapper">
+         <!-- Sidebar -->
+         <ul class="navbar-nav sidebar sidebar" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" style="height:150px" href="index.html" >
+               <div class="sidebar-brand-icon rotate-n-15">
+                  <i class="fas fa-laugh-wink"></i>
+               </div>
+               <div class="sidebar-brand-text mx-3"><img src="images/supermarket.png" width="150px" /></div>
+            </a>
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+               <a class="nav-link" href="dashboard.php">
+               <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/dashboard_icon.png" width="20px" height="20px;"></i>
+               <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Dashboard</span></a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="product.php">
+               <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/product_icon.png" width="20px" height="20px"></i>
+               <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Product</span></a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="refund-order.php" style="background-color: #ebf0f4">
+               <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/order_icon.png" width="20px" height="20px"></i>
+               <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Order</span></a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="user.php">
+               <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/user_icon.png" width="20px" height="20px"></i>
+               <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">User</span></a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="coupon-copy.php">
+               <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/coupon_icon.png" width="20px" height="20px"></i>
+               <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Coupon</span></a>
+            </li>
+            <!-- Admin Profile -->
+            <li class="nav-item mt-auto">
+               <a class="nav-link" href="admin_profile.php">
+               <i class="fas fa-fw fa-user" style="margin-left: 30px;"><img src="admin.jpeg" width="30px" height="30px"></i>
+               <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Admin Profile</span>
+               </a>
+            </li>
+         </ul>
+         <!-- End of Sidebar -->
+         <!-- Content Wrapper -->
+         <div id="content-wrapper" class="d-flex flex-column" style="background-color: #E2E5FF;">
+            <!-- Main Content -->
+            <div id="content">
+               <!-- Begin Page Content -->
+               <div class="container-fluid" style="background-color: #E2E5FF;">
+                  <!-- Page Heading -->
+                  <h2 style="font-family: DM Sans; color:#06152B; margin-top:30px"><b> Order</h2>
+                  <br />
+                  
+                  <button
+                        style='width: 120px; height: 44px; border-radius: 10px; background-color:white; font-family: DM Sans; color: black; font-weight: normal'
+                        role="button">Order List</button>
+                    <button
+                        style='width: 120px; height: 44px; border-radius: 10px; background-color:#333333; border: 0px; font-family: DM Sans; font-weight: normal; '
+                        role="button"><a href="index.php" style="color: white">Refund List</a></button>
+                    <br />
+                    <br />   
+                  
+                  <!-- Order -->   
+                  <!-- Filter & Search -->    
+                  <div class="card shadow mb-4">
+                     <div class="card-body">
+                        <form action="" method="post">
+                           <div class="input-group mb-3">
+                              <input type="text" name="data" id='data' class="form-control" placeholder="Search Data" aria-label="Search data" >
+                              <div class="input-group-append">
+                                 <button type="submit" class="button-16" id="search_order" name="search_order" value="search_order">Search</button>
+                              </div>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+                  <!-- Order List -->
+                  <div class="card shadow mb-4">
+                     <div class="card-body">
+                        <div class="table-responsive">
+                           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                              <thead>
+                                 <tr>
+                                    <!-- <th></th> -->
+                                    <th>Invoice Number</th>
+                                    <th>Order ID</th>
+                                    <th>Time of Refund</th>
+                                    <th>Refund Status</th>
+                                    
+                                 </tr>
+                              </thead>
+                              <tbody>
+                              <?php
+                                        $get_order = "select * from refund_order";
+                                        $run_order = mysqli_query($con, $get_order);
 
-<head>
-    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
-    <title>Super Market</title>
-    <meta name="viewport" content="width=content-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <link rel="styleSheet" href="refund-order.css" />
-    <link rel="stylesheet" type="text/css" href="styles/bootstrap-337.min.css">
-    <script src="https://secure.exportkit.com/cdn/js/ek_googlefonts.js?v=6"></script>
-    <script type="text/javascript" src="js/jquery-331.min.js"> </script>
-    <script type="text/javascript" src="js/bootstrap-337.min.js"> </script>
+                                        while ($row_order = mysqli_fetch_array($run_order)) {
 
-</head>
+                                            $refund_order_id = $row_order['refund_order_id'];
 
-<body style="background-color:#E2E5FF">
+                                            $order_id = $row_order['order_id'];
 
-    <div class="container" style="width: 100%; height:100%;">
-        <div class="sidebar" style="width: 200px; float: left; height:auto;">
-            <?php include "frame_1.html" ?>
-        </div>
+                                            $refund_at = $row_order['refund_at'];
 
-        <div class="content" style="margin-left: 300px; margin-top:30px">
+                                            $refund_status = $row_order['refund_status'];
 
-            <div class="container" style="border-radius:15px">
-                <h2 style="font-family: DM Sans; color:#06152B;"> <b> Order</h2>
-                <br />
+                                            $get_data = "select * from refund_order where refund_order_id='$refund_order_id'";
 
-                <button class="button-16" style='width:15%; height: 36px; font-family: DM Sans; color:#06152B;'
-                    role="button">Order List</button>
-                <button class="button-16" style='width:15%; height: 36px; font-family: DM Sans; color:#06152B;'
-                    role="button">Refund List</button>
+                                            $run_data = mysqli_query($con, $get_data);
 
-                <form class="search-bar">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                            aria-label="Search" aria-describedby="basic-addon2">
-                        <button class="btn btn-primary" type="button"> Search
-                            <i class="fas fa-search fa-sm"></i>
-                        </button>
-                    </div>
-                </form>
+                                            $row_data = mysqli_fetch_array($run_data);
+
+                                            $refund_order_id = $row_data['refund_order_id'];
+
+                                            ?>
+                                            <tr>
+                                               
+                                                <td>
+                                                    <?php echo $refund_order_id; ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php echo $order_id; ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php echo $refund_at ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php
+                                                    if ($row_order['refund_status']==0 ){
+                                                      echo $refund_status="Processing";
+                                                    }else{
+                                                      echo $refund_status="Completed";
+                                                    }
+                                                   
+                                                      ?>
+                                                </td>
+                                                </tr>
+                                        <?php } ?>
+                                 
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- /.container-fluid -->
             </div>
-        </div>
-    </div>
-</body>
+            <!-- End of Main Content -->
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+               <div class="container my-auto">
+                  <div class="copyright text-center my-auto">
+                     <span>Copyright &copy; Your Website 2020</span>
+                  </div>
+               </div>
+            </footer>
+            <!-- End of Footer -->
+         </div>
+         <!-- End of Content Wrapper -->
+      </div>
+      <!-- End of Page Wrapper -->
+      <!-- Scroll to Top Button-->
+      <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+      </a>
+      <!-- Logout Modal-->
+      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                  </button>
+               </div>
+               <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+               <div class="modal-footer">
+                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                  <a class="btn btn-primary" href="login.html">Logout</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Bootstrap core JavaScript-->
+      <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
+      <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+      <!-- Core plugin JavaScript-->
+      <!-- <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
+      <!-- Custom scripts for all pages-->
+      <!-- <script src="js/sb-admin-2.min.js"></script> -->
+      <!-- Page level plugins -->
+      <!-- <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+         <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script> -->
+      <!-- Page level custom scripts -->
+      <!-- <script src="js/demo/datatables-demo.js"></script> -->
+   </body>
 </html>
