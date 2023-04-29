@@ -80,7 +80,7 @@
                 <div class="container-fluid" style="background-color: #E2E5FF;">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-3 text-gray-800 mt-4" style="margin-bottom: 1rem;">Users</h1>
+                    <h2 style="font-family: DM Sans; color:#06152B; margin-top:30px"><b> Users </h2>
                     
 
                     

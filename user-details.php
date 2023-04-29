@@ -76,43 +76,31 @@
                   <!-- User -->
                   <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
                      <div class="card-header">
-                        <div class="image-container" style="display:inline-block;vertical-align:top;"></div>
-                        <h6 class="m-0" style="margin-top: 2rem; margin-left: 1rem; margin-right: 1rem; color: black; font-size: 30px;">
-                        
-                           <?php
-                              include("userData.php"); 
-                                while($row = $query1->fetch_array()){
-                                echo "<span style='margin-right: 220px; font-size: 20px;'>".$row['first_name'].' '.$row['last_name']."</span>"; 
-                                $user_id = $row['user_id'];
-                              }
-                              $query1->data_seek(0);
-                            ?>
-                        </h6>
-                        <div style="display: flex; align-items: center; margin-top: 3px;">
-                           <!-- User ID -->
-                           <div class="order date" style="margin-right: 50px;">
+                        <h6 class="m-0" style="margin-top: 2rem; margin-left: 1rem; margin-right: 1rem; color: black; font-size: 30px;"></h6>
                               <?php
-                                 while($row = $query1->fetch_array()){
-                                    echo "<span style='margin-right: 220px; font-size: 20px;'>".'User Number #'.$row['user_id']."</span>";
-                                 
+                                 include("userData.php"); 
+                                    while($row = $query1->fetch_array()){
+                                       $imageBlob = $row['profile_image'];
+                                       $profilepic = '<img style="border-radius:5px" width=160 height=160 margin=25px 10px src="data:image/jpeg;base64,'.base64_encode($imageBlob).'">';
+                                       echo "<table>";
+                                       echo "<tr>";
+                                       echo "<td rowspan=3>".$profilepic."</td>";
+                                       echo "<td>&nbsp;</td>";
+                                       echo "<td style='margin-right: 220px; font-size: 20px;'>".$row['first_name'].' '.$row['last_name']."</td>";
+                                       echo "<td>&nbsp;</td>";
+                                       echo "</tr>";
+                                       echo "<tr>";
+                                       echo "<td>&nbsp;</td>";
+                                       echo "<td style='margin-right: 220px; font-size: 20px;'>".'User Number #'.$row['user_id']."</td>";
+                                       echo "</tr>";
+                                       echo "<tr>";
+                                       echo "<td>&nbsp;</td>";
+                                       echo "<td style='margin-right: 220px; font-size: 20px;'>".'Created at '.$row['created_at']."</td>";
+                                       echo "</tr>";
+                                       echo "</table>";
                                  }
                                  $query1->data_seek(0);
-                                 ?>
-                           </div>
-                        </div>
-                       <div style="display: flex; align-items: center; margin-top: 3px;">
-                           <!-- User Account Created At -->
-                           <div class="order date" style="margin-right: 50px;">
-                              <?php
-                                 while($row = $query1->fetch_array()){
-                                    echo "<span style='margin-right: 220px; font-size: 20px;'>".'Created at '.$row['created_at']."</span>";
-                                 
-                                 }
-                                 $query1->data_seek(0);
-                                 ?>
-                           </div>
-                        </div>
-                        
+                              ?>
                      </div>
                   </div>
                   <!--Contact Information Start -->
@@ -122,23 +110,44 @@
                      </div>
                      <div class="card-body">
                         <div class="container">
-                           <div class="image-container"></div>
                            <?php
                               while($row = $query1->fetch_array()){
-                                  echo "<table>";
-                                  echo "<tr>";
-                                  echo "<td style='margin-right: 220px; font-size: 20px;'>" . 'Email: '. $row['user_email'] . "</td>";
-                                  echo "</tr>";
-                                  echo "<tr>";
-                                  echo "<td style='margin-right: 220px; font-size: 20px;'>" . 'Phone No.: ' . $row['phone_number'] . "</td>";
-                                  echo "</tr>";
-                                  echo "</table>";
+                                 echo "<table>";
+                                 echo "<tr>";
+                                 echo "<td style='margin-right: 220px; font-size: 20px;'><img src='email.png' style='border-radius:5px' width=25 height=25 margin= 100px>Email</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td style='margin-right: 220px; font-size: 20px;'>". $row['user_email'] . "</td>";
+                                 echo "</tr>";
+                                 echo "<tr>";
+                                 echo "<td style='margin-right: 220px; font-size: 20px;'><img src='phone.png' style='border-radius:5px' width=25 height=25 margin= 100px>Phone No.          </td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td>&nbsp;</td>";
+                                 echo "<td style='margin-right: 220px; font-size: 20px;'>". $row['phone_number'] . "</td>";
+                                 echo "</table>";
                               }
                               $query1->data_seek(0); // Reset the internal pointer of the result set
                               ?>    
-                        </div>
+                              </div>
+                           </div>
                      </div> <!--Contact Information End -->
-                </div>
+                     <!--Contact Information End -->
                 <!-- Order History Start -->
                 <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
                      <div class="title" style="margin-top: 1.5rem; margin-left: 1rem; margin-right: 1rem;">
@@ -146,9 +155,9 @@
                      </div>
                      <div class="card-body">
                         <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
+                           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                              <thead>
+                                 <tr>
                                     <th>Order Number</th>
                                     <th>Ordered At</th>
                                     <th>Payment Status</th>
@@ -159,6 +168,7 @@
                             <tbody>
                                 <?php
                                     while($row = $query2->fetch_array()){
+                                    echo "</tr>";
                                     echo "<td>"."#".$row['order_id']."</td>";
                                     echo "<td>".$row['ordered_at']."</td>";
                                     echo "<td>".$row['payment_status']."</td>";
@@ -172,8 +182,8 @@
                         </table>
                              
                     </div>
-                     </div> 
-                                </div>
+                  </div>
+               </div> 
                 <!--Order History End -->
                   <!-- Shipping Address Start -->
                 <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
@@ -182,9 +192,9 @@
                      </div>
                      <div class="card-body">
                         <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
+                           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                              <thead>
+                                 <tr>
                                     <th>Shipping Address No.</th>
                                     <th>Address Part 1</th>
                                     <th>Address Part 2</th>
@@ -193,10 +203,11 @@
                                     <th>State</th>
                                     <th>Country</th>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <?php
+                              </thead>
+                              <tbody>
+                                 <?php
                                     while($row = $query3->fetch_array()){
+                                    echo "<tr>";
                                     echo "<td>"."#".$row['shipping_address_id']."</td>";
                                     echo "<td>".$row['address_line1']."</td>";
                                     echo "<td>".$row['address_line2']."</td>";
@@ -207,13 +218,14 @@
                                     echo "</tr>";
                                     }
                                     $query3->data_seek(0);
-                                ?>
-                            </tbody>
-                        </table>
+                                 ?>
+                              </tbody>
+                           </table>
                              
-                    </div>
+                        </div>
                      </div> 
-                                </div>
+                  </div>
+               
                 <!-- Shipping Address End -->
                   <!-- Payment Method Start -->
                 <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
@@ -234,6 +246,7 @@
                             <tbody>
                                 <?php
                                     while($row = $query4->fetch_array()){
+                                    echo "<tr>";
                                     echo "<td>"."#".$row['payment_method_id']."</td>";
                                     echo "<td>".$row['card_type']."</td>";
                                     echo "<td>".$row['card_number']."</td>";
@@ -245,9 +258,9 @@
                             </tbody>
                         </table>
                              
-                    </div>
-                     </div> 
-                                </div>
+                  </div>
+                  </div> 
+                  </div>
                 <!-- Payment Method End -->
                  <!-- Coupon Start -->
                 <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
@@ -270,6 +283,7 @@
                             <tbody>
                                 <?php
                                     while($row = $query5->fetch_array()){
+                                    echo "<tr>";
                                     echo "<td>".$row['user_coupon_id']."</td>";
                                     echo "<td>"."#".$row['coupon_id']."</td>";
                                     echo "<td>".$row['coupon_name']."</td>";
@@ -284,10 +298,11 @@
                         </table>
                              
                     </div>
-                     </div> 
-                                </div>
+                  </div> 
+               </div>
                 <!-- Coupon End -->
             <!-- End of Main Content -->
+                                 </div>
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                <div class="container my-auto">
@@ -301,6 +316,7 @@
          <!-- End of Content Wrapper -->
       </div>
       <!-- End of Page Wrapper -->
+                                 </div>
       <!-- Scroll to Top Button-->
       <a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
@@ -323,6 +339,6 @@
                </div>
             </div>
          </div>
-      </div>
+                                 </div>
    </body>
 </html>
