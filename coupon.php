@@ -26,7 +26,8 @@ $con = mysqli_connect("localhost", "root", "", "can302");
     <!-- Custom styles for this template -->
     <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="Stylesheet" href="switch.css" />
+
+
 
 
 </head>
@@ -59,7 +60,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="product.php" style="background-color: #ebf0f4">
+                <a class="nav-link" href="product.php">
                     <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/product_icon.png"
                             width="20px" height="20px"></i>
                     <span
@@ -67,7 +68,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="order.php">
+                <a class="nav-link" href="refund-order.php">
                     <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/order_icon.png"
                             width="20px" height="20px"></i>
                     <span
@@ -83,7 +84,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="coupon.php"  style="background-color: #ebf0f4">
                     <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/coupon_icon.png"
                             width="20px" height="20px"></i>
                     <span
@@ -105,15 +106,13 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                     <h2 style="font-family: DM Sans; color:#06152B; margin-top:30px"><b> Coupon</h2>
                     <br />
 
-                    <button
-                        style='width: 120px; height: 44px; border-radius: 10px; border: 0px; font-family: DM Sans; font-weight: normal; background-color: white'
-                        role="button"><a href="product.php" style="color: #06152B">Product List</a></button>
+                   
                     <button
                         style='width: 120px; height: 44px; border-radius: 10px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal'
                         role="button">Add Coupon</button>
                     <button
                         style='width: 120px; height: 44px; border-radius: 10px; border: 0px; font-family: DM Sans; font-weight: normal; background-color: white'
-                        role="button"><a href="category.php" style="color: #06152B">Edit Category</a></button>
+                        role="button"><a href="index.php" style="color: #06152B">View Coupon</a></button>
                     <br />
                     <br />
 
@@ -137,7 +136,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                             Discount (%)</label>
                                         <input class="text-box.css"
                                             style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
-                                            type="text" id="description" name="discount">
+                                            type="text" id="discount" name="discount">
                                         </br></br>
 
                                         <label for="min_purchase"
@@ -145,7 +144,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                             Min. Purchase ($)</label>
                                         <input class="text-box.css"
                                             style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
-                                            type="text" id="price" name="min_purchase">
+                                            type="text" id="min_purchase" name="min_purchase">
                                         </br></br>
 
                                         <label for="expired_at"
@@ -153,7 +152,14 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                             Expiration Date</label>
                                         <input class="text-box.css"
                                             style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
-                                            type="date" id="stock" name="expired_at">
+                                            type="date" id="expired_at" name="expired_at">
+
+                                            <label for="coupon_desc"
+                                            style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%">
+                                            Coupon Description</label>
+                                        <input class="text-box.css"
+                                            style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
+                                            type="text" id="coupon_decsc" name="coupon_desc">
                                         </br>
                                         </br>
                                         </br>
@@ -175,14 +181,15 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                         $min_purchase = $_POST['min_purchase'];
                                         $expired_at = $_POST['expired_at'];
                                         $is_active = 0;
+                                        $coupon_desc = $_POST['coupon_desc'];
 
                                         $get_coupons = "select * from coupon where coupon_name='$coupon_name'";
 
                                         $run_coupons = mysqli_query($con, $get_coupons);
 
                                         if ($is_active == 0) {
-                                            $insert_coupon = "insert into coupon (coupon_name,discount,min_purchase,expired_at,is_active) 
-           values ('$coupon_name','$discount','$min_purchase','$expired_at','$is_active')";
+                                            $insert_coupon = "insert into coupon (coupon_name,discount,min_purchase,expired_at,is_active,coupon_desc) 
+           values ('$coupon_name','$discount','$min_purchase','$expired_at','$is_active','$coupon_desc')";
                                             echo "<script>alert('New Coupon Has Been Inserted')</script>";
                                             echo "<script>window.open('coupon.php','_self')</script>";
                                             $run_coupon = mysqli_query($con, $insert_coupon);
@@ -196,126 +203,233 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                         </div>
                     </div>
 
+
+
                     <div class="container-fluid"
                         style="background-color:white; border-radius:10px; display: inline-block">
                         <h5 style="font-family: DM Sans; color:#06152B; margin-top:20px"><b>View Coupon</h3>
-                                <table class="table table-bordered table-hover table-str" style="margin-top: 10px">
-                                    <thead><!-- thead Starts -->
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Coupon Name </th>
-                                            <th>Discount (%)</th>
-                                            <th>Minimum Purchase ($)</th>
-                                            <th>Created At</th>
-                                            <th>Expired At</th>
-                                            <th>Status</th>
-                                            <th>Options</th>
-                                            <th>Toggle</th>
 
-                                        </tr>
-                                    </thead><!-- thead Ends -->
-                                    <tbody><!-- tbody Starts -->
-                                        <?php
-                                        $i = 0;
-                                        $get_coupons = "select * from coupon";
-                                        $run_coupons = mysqli_query($con, $get_coupons);
+                                <?php
+                                $i = 0;
+                                $get_coupons = "select * from coupon";
+                                $run_coupons = mysqli_query($con, $get_coupons);
 
-                                        while ($row_coupons = mysqli_fetch_array($run_coupons)) {
+                                while ($row_coupons = mysqli_fetch_array($run_coupons)) {
 
-                                            $coupon_id = $row_coupons['coupon_id'];
+                                    $coupon_id = $row_coupons['coupon_id'];
 
-                                            $coupon_name = $row_coupons['coupon_name'];
+                                    $coupon_name = $row_coupons['coupon_name'];
 
-                                            $discount = $row_coupons['discount'];
+                                    $discount = $row_coupons['discount'];
 
-                                            $min_purchase = $row_coupons['min_purchase'];
+                                    $min_purchase = $row_coupons['min_purchase'];
 
-                                            $created_at = $row_coupons['created_at'];
+                                    $created_at = $row_coupons['created_at'];
 
-                                            $expired_at = $row_coupons['expired_at'];
+                                    $expired_at = $row_coupons['expired_at'];
 
-                                            $is_active = $row_coupons['is_active'];
+                                    $is_active = $row_coupons['is_active'];
 
-                                            $get_data = "select * from coupon where coupon_name='$coupon_name'";
+                                    $coupon_desc = $row_coupons['coupon_desc'];
 
-                                            $run_data = mysqli_query($con, $get_data);
+                                    $get_data = "select * from coupon where coupon_name='$coupon_name'";
 
-                                            $row_data = mysqli_fetch_array($run_data);
+                                    $run_data = mysqli_query($con, $get_data);
 
-                                            $coupon_name = $row_data['coupon_name'];
+                                    $row_data = mysqli_fetch_array($run_data);
 
-                                            $i++;
+                                    $coupon_name = $row_data['coupon_name'];
 
-                                            ?>
-                                            <tr>
-                                                <td>
-                                                    <?php echo $i; ?>
-                                                </td>
+                                    $i++;
 
-                                                <td>
-                                                    <?php echo $coupon_name; ?>
-                                                </td>
+                                    ?>
 
-                                                <td>
-                                                    <?php echo $discount; ?>
-                                                </td>
+                                    <style> /* Style for view Coupon */
+                                        .btn {
+                                            background-color: red;
+                                            border: none;
+                                            color: white;
+                                            padding: 10px 10px;
+                                            text-align: center;
+                                            text-decoration: none;
+                                            display: inline-block;
+                                            font-size: 20px;
+                                            margin: 4px 2px;
+                                            cursor: pointer;
+                                            border-radius: 20px;
+                                            font-size:15px;
+                                        }
 
-                                                <td>
-                                                    <?php echo "$min_purchase"; ?>
-                                                </td>
+                                        .btn-delete{
+                                            background-color: blue;
+                                            border: none;
+                                            color: white;
+                                            padding: 10px 10px;
+                                            text-align: center;
+                                            text-decoration: none;
+                                            display: inline-block;
+                                            font-size: 20px;
+                                            margin: 4px 2px;
+                                            cursor: pointer;
+                                            border-radius: 20px;
+                                            font-size:15px; 
+                                        }
 
-                                                <td>
-                                                    <?php echo $created_at; ?>
-                                                </td>
+                                        .green {
+                                            background-color: #199319;
+                                        }
 
-                                                <td>
-                                                    <?php echo $expired_at; ?>
-                                                </td>
+                                        .red {
+                                            background-color: red;
+                                        }
 
-                                                <td>
-                                                    <?php
-                                                    if ($row_coupons['is_active'] == "1") {
-                                                        echo $is_active = "Active";
-                                                    } else {
-                                                        echo $is_active = "Inactive";
-                                                    }
+                                        div.coupon-layout {
+                                            display: flex;
 
-                                                    ?>
-                                                </td>
+                                        }
 
-                                                <td>
-                                                    <a href="remove_coupon.php?coupon_id=<?php echo $coupon_id; ?>"
-                                                        onclick="return confirm('Are you sure you want to delete this coupon?');">
-                                                        <i class="fa fa-trash-o"></i> Delete
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    <?php
-                                                    if ($row_coupons['is_active'] == "1")
+                                        div.coupon-percentage {
 
-                                                        // if a course is active i.e. status is 1 
-                                                        // the toggle button must be able to deactivate 
-                                                        // we echo the hyperlink to the page "deactivate.php"
-                                                        // in order to make it look like a button
-                                                        // we use the appropriate css
-                                                        // red-deactivate
-                                                        // green- activate
-                                                        echo
-                                                            "<a href=deactivate_coupon.php?coupon_id=" . $row_coupons['coupon_id'] . " class='btn red'>Deactivate</a>";
-                                                    else
-                                                        echo
-                                                            "<a href=active_coupon.php?coupon_id=" . $row_coupons['coupon_id'] . " class='btn green'>Activate</a>";
-                                                    ?>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
-                                    </tbody><!-- tbody ends -->
-                                </table>
+                                            padding: 20px 30px;
+                                            background-color: #E7C0F0;
+                                            font-size: 20px;
+                                            color: #D233FF;
+                                            text-align: center;
+                                        }
+
+                                        
+                                        div.coupon-data{
+                                            color:black;
+                                           font-size:15px;
+                                        }
+
+                                        div.coupon-description {
+                                            margin-right: 30px;
+                                            margin-left: 30px;
+                                            font-size: 10px;
+                                            text-align: justify;
+                                         
+                                        }
+
+                                        div.view-button {
+                                            position:relative;
+                                            margin:auto;
+                    
+                                        }
+
+                                        div.coupon-delete{
+                                            margin-left:auto;
+                                        }
+
+                                        div.discount-text,hr{
+                                            font-size:20px;
+                                            color:black;
+                                           
+                                        }
+
+                                        div.coupon-text{
+                                            color:black;
+                                            font-size:15px;
+                                            margin-right: 100px;
+                                            margin-top:-10px;
+                                        }
+
+                                        div.minimum-amount{
+                                            color:black;
+                                            
+                                            font-size:12px;
+                                            padding:5px;
+                                            display: inline-block;
+                                            border:none;
+                                            border-radius: 5px;
+                                            background-color:#9AEC8E;
+                                
+                                        }
+                                      
+                                        
+                                    </style>
+
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <div class="coupon-layout" >
+
+                                                <div class="coupon-percentage">
+                                                    <text>
+                                                        <?php echo $discount; ?>%
+                                                    </text>
+                                                    <br>OFF</br>
+                                                </div>
+
+                                                <div class="coupon-description">
+
+                                                    <div class="discount-text">
+                                                        <?php echo $discount; ?> % OFF COUPON || <?php echo $coupon_name; ?>
+                                                        <hr></hr>
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="coupon-text">
+                                                        <?php echo $coupon_desc ; ?>
+                                                    </div>
+                                                    
+                                                    <div class="minimum-amount">
+                                                        <text>Minimum Purchase = <?php echo "$min_purchase"; ?></text>
+                                                    </div>
+                                                    
+                                                    
+
+                                                    <div class="coupon-data">
+
+                                                        <text>Created At: <?php echo $created_at; ?></text>
+                                                        </br>
+                                                        <text>Expired At: <?php echo $expired_at; ?></text>
+                                                    </div>
+
+                                                </div>
+
+                                                
+                                                
+                                                    <div class="view-button">
+                                                        <div class="coupon-button">
+                                                            <?php
+                                                            if ($row_coupons['is_active'] == "1")
+
+                                                                // if a course is active i.e. status is 1 
+                                                                // the toggle button must be able to deactivate 
+                                                                // we echo the hyperlink to the page "deactivate.php"
+                                                                // in order to make it look like a button
+                                                                // we use the appropriate css
+                                                                // red-deactivate
+                                                                // green- activate
+                                                                echo
+                                                                    "<a href=deactivate_coupon.php?coupon_id=" . $row_coupons['coupon_id'] . " class='btn red'>Deactivate</a>";
+                                                            else
+                                                                echo
+                                                                    "<a href=active_coupon.php?coupon_id=" . $row_coupons['coupon_id'] . " class='btn green'>Activate</a>";
+                                                            ?>
+                                                        </div>
+
+                                                        <div class ="coupon-delete">
+                                                        <a href="remove_coupon.php?coupon_id=<?php echo $coupon_id; ?>" class="btn-delete"
+                                                            onclick="return confirm('Are you sure you want to delete this coupon?');" >
+                                                            Delete
+                                                        </a>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                <?php } ?>
                     </div>
                 </div>
 
+
+
+
             </div>
             <!-- End of Main Content -->
+
 
 
         </div>
