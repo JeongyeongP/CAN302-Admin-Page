@@ -80,7 +80,7 @@
                 <div class="container-fluid" style="background-color: #E2E5FF;">
 
                     <!-- Page Heading -->
-                    <h2 style="font-family: DM Sans; color:#06152B; margin-top:30px"><b> Users </h2>
+                    <h2 style="font-family: DM Sans; color:#06152B; margin-top:30px"><b> Users </b> </h2>
                     
 
                     
@@ -191,6 +191,15 @@
             </div>
         </div>
     </div>
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white">
+               <div class="container my-auto">
+                  <div class="copyright text-center my-auto">
+                     <span>Copyright &copy; Your Website 2020</span>
+                  </div>
+               </div>
+            </footer>
+            <!-- End of Footer -->
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
