@@ -236,7 +236,7 @@
                                     while($row = $query4->fetch_array()){
                                     echo "<td>"."#".$row['payment_method_id']."</td>";
                                     echo "<td>".$row['card_type']."</td>";
-                                    echo "<td>".$row['card_number']."</td>";
+                                    echo "<td>". "[ **" . substr($row['card_number'], -4)  . " ]" ."</td>";
                                     echo "<td>".$row['expired_at']."</td>";
                                     echo "</tr>";
                                     }
@@ -288,15 +288,7 @@
                                 </div>
                 <!-- Coupon End -->
             <!-- End of Main Content -->
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-               <div class="container my-auto">
-                  <div class="copyright text-center my-auto">
-                     <span>Copyright &copy; Your Website 2020</span>
-                  </div>
-               </div>
-            </footer>
-            <!-- End of Footer -->
+            
          </div>
          <!-- End of Content Wrapper -->
       </div>
