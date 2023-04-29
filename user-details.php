@@ -249,7 +249,7 @@
                                     echo "<tr>";
                                     echo "<td>"."#".$row['payment_method_id']."</td>";
                                     echo "<td>".$row['card_type']."</td>";
-                                    echo "<td>".$row['card_number']."</td>";
+                                    echo "<td>". "[ **" . substr($row['card_number'], -4)  . " ]" ."</td>";
                                     echo "<td>".$row['expired_at']."</td>";
                                     echo "</tr>";
                                     }
@@ -302,7 +302,6 @@
                </div>
                 <!-- Coupon End -->
             <!-- End of Main Content -->
-                                 </div>
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                <div class="container my-auto">
