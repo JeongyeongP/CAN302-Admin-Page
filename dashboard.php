@@ -18,6 +18,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
+    <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
@@ -57,7 +58,7 @@
                <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">User</span></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="index.php">
+               <a class="nav-link" href="coupon.php">
                <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/coupon_icon.png" width="20px" height="20px"></i>
                <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Coupon</span></a>
             </li>
@@ -82,7 +83,8 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-3 text-gray-800 mt-4" style="margin-bottom: 1rem;">Dashboard</h1>
+                    <h2 style="font-family: DM Sans; color:#06152B; margin-top:30px"><b> Dashboard </h2>
+                    <br/>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
@@ -95,7 +97,7 @@
                                 <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <div style="font-family: DM Sans; color: #828a95;">
                                         Total Sales (Monthly)
                                     </div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
@@ -107,6 +109,9 @@
                                         $query_total = mysqli_query($con,$sql);
                                         $row = $query_total->fetch_array();
                                         $total_price_sum = $row['total_price_sum'];
+
+                                        $img = "<img width=50 height=50 style='margin-right:10px' src='images/total_sales.png'/>";
+                                        echo "<td>".$img."</td>";
                                         echo "<td>".'$'.$total_price_sum."</td>";
                                         mysqli_close($con);
                                         ?>
@@ -124,7 +129,7 @@
                                 <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    <div style="font-family: DM Sans; color: #828a95;">
                                         Total Orders (Monthly)
                                     </div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
@@ -135,6 +140,8 @@
                                                 WHERE `is_cancelled` != 1";
                                         $query_order = mysqli_query($con,$sql);
                                         $num_orders = mysqli_num_rows($query_order);
+                                        $img = "<img width=50 height=50 style='margin-right:10px' src='images/cart.png'/>";
+                                        echo "<td>".$img."</td>";
                                         echo "<td>".$num_orders."</td>";
                                         mysqli_close($con);
                                         ?>     
@@ -152,7 +159,7 @@
                                 <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">New Users</div>
+                                    <div style="font-family: DM Sans; color: #828a95;">New Users</div>
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-auto">
                                         <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
@@ -163,6 +170,8 @@
                                                 WHERE `is_admin` != 1";
                                         $query_user = mysqli_query($con,$sql);
                                         $num_users = mysqli_num_rows($query_user);
+                                        $img = "<img width=50 height=50 style='margin-right:10px' src='images/new_users.png'/>";
+                                        echo "<td>".$img."</td>";
                                         echo "<td>".$num_users."</td>";
                                         mysqli_close($con);
                                         ?>   </div>
@@ -245,17 +254,20 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
+                                        <canvas id="myPieChart" ></canvas>
                                     </div>
                                     <div class="mt-4 text-center small">
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
+                                            <i class="fas fa-circle text-primary"></i> Fruits
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
+                                            <i class="fas fa-circle text-success"></i> Vegetables
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
+                                            <i class="fas fa-circle text-info"></i> Dairy
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-info"></i> Snacks
                                         </span>
                                     </div>
                                 </div>
@@ -272,7 +284,7 @@
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Recent Orders</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary"><a href="order.php">Recent Orders</a></h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -280,28 +292,37 @@
                                             <thead>
                                                 <tr>
                                                     <!-- <th></th> -->
-                                                    <th>Order Number</th>
-                                                    <th>Date</th>
-                                                    <th>User ID</th>
+                                                    <th style='font-family: DM Sans; color:#06152B; font-size:14px'>Order Number</th>
+                                                    <th style='font-family: DM Sans; color:#06152B; font-size:14px'>Date</th>
+                                                    <th style='font-family: DM Sans; color:#06152B; font-size:14px'>User ID</th>
                                                     <!-- <th>Payment Status</th>
                                                     <th>Fulfillment Status</th> -->
-                                                    <th>Total</th>
+                                                    <th style='font-family: DM Sans; color:#06152B; font-size:14px'>Total</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
                                                 include("orderData.php");
+                                
+                                                $i = 0;
                                                 while($row = $query->fetch_array()){
-                                                    // echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '\';">';
-                                                    echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '&user_id=' . $row['user_id'] . '\';">';
-                                                    // echo "<tr>";
-                                                    echo "<td>".'#'.$row['order_id']."</td>";
-                                                    echo "<td>".$row['ordered_at']."</td>";
-                                                    echo "<td>".'#'.$row['user_id']."</td>";
-                                                    // if($row['payment_status'] == 1) echo "<td>"."Paid"."</td>"; else echo "<td>"."Unpaid"."</td>";
-                                                    // echo "<td>".$row['fulfillment_status']."</td>";
-                                                    echo "<td>".'$'.$row['total_price']."</td>";
-                                                    echo "</tr>";
+                                                    if ($i < 6){
+                                            
+                                                        // echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '\';">';
+                                                        echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '&user_id=' . $row['user_id'] . '\';">';
+                                                        // echo "<tr>";
+                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:14px'>".'#'.$row['order_id']."</td>";
+                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:14px'>".$row['ordered_at']."</td>";
+                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:14px'>".'#'.$row['user_id']."</td>";
+                                                        // if($row['payment_status'] == 1) echo "<td>"."Paid"."</td>"; else echo "<td>"."Unpaid"."</td>";
+                                                        // echo "<td>".$row['fulfillment_status']."</td>";
+                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:14px'>".'$'.$row['total_price']."</td>";
+                                                        echo "</tr>";
+                                                        $i ++;
+                                                    } else {
+                                                        break;
+                                                    }
+                                                    
                                                 }
                                                 mysqli_close($con);
                                                 ?>
@@ -319,11 +340,51 @@
                             <!-- Illustrations -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Popular Products</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary"><a href="product.php">Latest Products</a></h6>
+                                    
                                 </div>
-                                <div class="card-body">
+                             
 
-                                </div>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:10%"></th>
+                                            <th style="font-family: DM Sans; color:#06152B;">Product</th>
+                                            <th style="font-family: DM Sans; color:#06152B;">Price</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $style = '<tr style="font-family: DM Sans; color:#06152B; height:100px; vertical-align: middle;">';
+                                        $textStyle = '<td style="font-family: DM Sans; color:#06152B; vertical-align: middle;">';
+                                        
+
+                                        $con = mysqli_connect("localhost", "root", "", "can302");
+                                        $sql = "select * from product order by product_id desc limit 3;";
+                                        $query = mysqli_query($con,$sql);
+
+                                        while($row=$query->fetch_array()){
+
+                                    
+                                        
+                                            $image= "<img width='80' height='80' style='margin-right:100px; margin-left:50px' src='images/".$row['product_image']."'>";     
+                                           
+                                            
+                                            echo $style;
+                                            echo "<td>".$image."</td>";
+                                            echo $textStyle.$row['product_name']."</td>";
+                                            echo $textStyle.'$'.$row['price']."</td>";
+                                     
+     
+                                        
+                                        }
+                                        mysqli_close($con);
+                                        ?>
+                                    </tbody>
+                                </table>
+
+                              
                             </div>
 
                         </div>
