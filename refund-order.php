@@ -101,6 +101,56 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                         </form>
                      </div>
                   </div>
+                  <!-- Function for Search Button-->
+               <?php
+               if (isset($_POST["submit"])) {
+                  $search = $_POST["data"];
+                  $sql = "SELECT * FROM refund_order WHERE order_id LIKE '%$search%'";
+                  $result = mysqli_query($con, $sql);
+                  $query_result = mysqli_num_rows($result);
+
+                  if ($query_result > 0) {
+                     echo "
+                     <div class='card shadow mb-4'>
+                           <div class='card-body'>
+                              <h3>Search Result:</h1>
+                              <table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
+                                 <thead>
+                                       <tr>
+                                          <th>Invoice Number</th>
+                                          <th>Order ID</th>
+                                          <th>Time of Refund</th>
+                                          <th>Refund Status</th>
+                                       </tr>
+                                 </thead>
+                                 <tbody>";
+                     while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>
+                                       <td>" . $row['refund_order_id'] . "</td>
+                                       <td>" . $row['order_id'] . "</td>
+                                       <td>" . $row['refund_at'] . "</td>
+                                       <td>";
+                        if ($row['refund_status'] == 0) {
+                           echo "Processing";
+                        } else {
+                           echo "Completed";
+                        }
+                        echo "</td>
+                              </tr>";
+                     }
+                     echo "</tbody></table>
+                           </div>
+                     </div>";
+                  } else {
+                     echo " <div class='card shadow mb-4'>
+                     <div class='card-body'>
+                     <h3>There are no results matching your search!</h3>
+                     </div>
+                     </div>
+                     ";
+                  }
+               }
+               ?>
                   <!-- Order List -->
                   <div class="card shadow mb-4">
                      <div class="card-body">
