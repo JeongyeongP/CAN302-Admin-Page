@@ -35,47 +35,56 @@
       <div id="wrapper">
          <!-- Sidebar -->
          <ul class="navbar-nav sidebar sidebar" id="accordionSidebar">
+
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" style="height:150px" href="index.html" >
-               <div class="sidebar-brand-icon rotate-n-15">
-                  <i class="fas fa-laugh-wink"></i>
-               </div>
-               <div class="sidebar-brand-text mx-3"><img src="images/supermarket.png" width="150px" /></div>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" style="height:150px" href="dashboard.php" >
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3"><img src="images/supermarket.png" width="120px" /></div>
             </a>
+
+
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-               <a class="nav-link" href="dashboard.php" style="background-color: #ebf0f4">
-               <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/dashboard_icon.png" width="20px" height="20px;"></i>
-               <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Dashboard</span></a>
+                <a class="nav-link" href="dashboard.php" style="background-color: #ebf0f4">
+                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/dashboard_icon.png" width="20px" height="20px;"></i>
+                    <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Dashboard</span></a>
             </li>
+
             <li class="nav-item">
-               <a class="nav-link" href="product.php">
-               <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/product_icon.png" width="20px" height="20px"></i>
-               <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Product</span></a>
+                <a class="nav-link" href="product.php">
+                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/product_icon.png" width="20px" height="20px"></i>
+                    <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Product</span></a>
             </li>
+
             <li class="nav-item">
-               <a class="nav-link" href="order.php">
-               <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/order_icon.png" width="20px" height="20px"></i>
-               <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Order</span></a>
+                <a class="nav-link" href="order.php">
+                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/order_icon.png" width="20px" height="20px"></i>
+                    <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Order</span></a>
             </li>
+
             <li class="nav-item">
-               <a class="nav-link" href="user.php">
-               <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/user_icon.png" width="20px" height="20px"></i>
-               <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">User</span></a>
+                <a class="nav-link" href="user.php">
+                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/user_icon.png" width="20px" height="20px"></i>
+                    <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">User</span></a>
             </li>
+
             <li class="nav-item">
-               <a class="nav-link" href="coupon.php">
-               <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/coupon_icon.png" width="20px" height="20px"></i>
-               <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Coupon</span></a>
+                <a class="nav-link" href="coupon.php">
+                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/coupon_icon.png" width="20px" height="20px"></i>
+                    <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Coupon</span></a>
             </li>
-            <!-- Admin Profile -->
+
             <li class="nav-item mt-auto">
-               <a class="nav-link" href="admin_profile.php">
-               <i class="fas fa-fw fa-user" style="margin-left: 30px;"><img src="admin.jpeg" width="30px" height="30px"></i>
-               <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Admin Profile</span>
-               </a>
+                <a class="nav-link" href="admin_profile.php">
+                    <i class="fas fa-fw fa-user" style="margin-left: 30px;"><img src="admin.jpeg" width="30px" height="30px"></i>
+                    <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Admin Profile</span>
+                </a>
             </li>
-         </ul>
+    
+
+        </ul>
          <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -101,7 +110,7 @@
                             <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
-                                <div class="row no-gutters align-items-center">
+                                <div class="row no-gutters align-items-center" style="float:left; margin-left:10px">
                                     <div class="col mr-2">
                                     <div style="font-family: DM Sans; color: #828a95;">
                                         Total Sales (Monthly)
@@ -116,7 +125,7 @@
                                         $row = $query_total->fetch_array();
                                         $total_price_sum = $row['total_price_sum'];
 
-                                        $img = "<img width=50 height=50 style='margin-right:10px' src='images/total_sales.png'/>";
+                                        $img = "<img width=50 height=50 style='margin-right:10px; margin-left:-20px' src='images/total_sales.png'/>";
                                         echo "<td>".$img."</td>";
                                         echo "<td>".'$'.$total_price_sum."</td>";
                                         mysqli_close($con);
@@ -133,7 +142,7 @@
                             <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
-                                <div class="row no-gutters align-items-center">
+                                <div class="row no-gutters align-items-center" style="float:left; margin-left:10px">
                                     <div class="col mr-2">
                                     <div style="font-family: DM Sans; color: #828a95;">
                                         Total Orders (Monthly)
@@ -146,7 +155,7 @@
                                                 WHERE `is_cancelled` != 1";
                                         $query_order = mysqli_query($con,$sql);
                                         $num_orders = mysqli_num_rows($query_order);
-                                        $img = "<img width=50 height=50 style='margin-right:10px' src='images/cart.png'/>";
+                                        $img = "<img width=50 height=50 style='margin-right:10px; margin-left:-60px' src='images/cart.png'/>";
                                         echo "<td>".$img."</td>";
                                         echo "<td>".$num_orders."</td>";
                                         mysqli_close($con);
@@ -163,7 +172,7 @@
                             <div class="col-xl-4 col-md-12 col-sm-12 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
-                                <div class="row no-gutters align-items-center">
+                                <div class="row no-gutters align-items-center" style="float:left; margin-left:10px">
                                     <div class="col mr-2">
                                     <div style="font-family: DM Sans; color: #828a95;">New Users</div>
                                     <div class="row no-gutters align-items-center">
@@ -176,7 +185,7 @@
                                                 WHERE `is_admin` != 1";
                                         $query_user = mysqli_query($con,$sql);
                                         $num_users = mysqli_num_rows($query_user);
-                                        $img = "<img width=50 height=50 style='margin-right:10px' src='images/new_users.png'/>";
+                                        $img = "<img width=50 height=50 style='margin-right:10px; margin-left:20px' src='images/new_users.png'/>";
                                         echo "<td>".$img."</td>";
                                         echo "<td>".$num_users."</td>";
                                         mysqli_close($con);
@@ -210,7 +219,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Orders Reports</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary" style="font-family: DM Sans;">Orders Reports</h6>
                                     <!-- <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -257,7 +266,7 @@
                                         <div class="container">
                                             <!-- <h2>Total Orders per Month</h2> -->
                                             <div>
-                                                <canvas id="myChart"></canvas>
+                                                <canvas id="myChart" ></canvas>
                                             </div>
                                         </div>
                                     </body>
@@ -318,41 +327,66 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Sales Analytics</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
+                                    <h6 class="m-0 font-weight-bold text-primary" style="font-family: DM Sans;">Total Products per Category</h6>
+                                    
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart" ></canvas>
+                                <div class="phppot-container">
+                                    <div>
+                                        <canvas id="chartjs-doughnut" height="61" width="70" style="margin-top:-30px"></canvas>
                                     </div>
-                                    <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Fruits
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Vegetables
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Dairy
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Snacks
-                                        </span>
-                                    </div>
+                                </div>
+
+                                <script>
+                                        $(document).ready(function(){
+                                            $.ajax({
+                                                url: "pieData.php",
+                                                method: "GET",
+                                                success: function(data) {
+                                                    console.log(data);
+                                                    var category = [];
+                                                    var product_count = [];
+                                                    let array = JSON.parse(data, true);
+                                                    console.log(array);
+                                                    console.log(array[0].category_name);
+
+                                                    for(let i = 0; i < array.length; i++) {
+                                                        console.log("Data Check");
+                                                        category.push(array[i].category_name);
+                                                        product_count.push(array[i].num);
+                                                        console.log(array[i].category_name);
+                                                    }
+
+                                                    new Chart(document.getElementById("chartjs-doughnut"), {
+                                                        type: 'doughnut',
+                                                        data: {
+                                                            labels: category,
+                                                            datasets: [{
+                                                                backgroundColor: ["#04BFDA", "#9B88ED",
+                                                                    "#FFB169", "#FF69B4", "#69FFA5"],
+                                                                data: product_count
+                                                            }]
+                                                        },
+                                                        options: {
+                                                            title: {
+                                                                display: true
+                                                            },
+                                                            cutout: '60%', // the portion of the doughnut that is the cutout in the middle
+                                                            radius: 200
+                                                        }
+                                                    });    
+                                                },
+                                                error: function(data) {
+                                                    console.log(data);
+                                                }
+                                            });
+                                        });
+                                    </script>
+
+                                
+                               
+                                        
                                 </div>
                             </div>
                         </div>
@@ -367,7 +401,7 @@
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary"><a href="order.php">Recent Orders</a></h6>
+                                    <h6 class="m-0 font-weight-bold text-primary" style="float:left; font-family: DM Sans;"><a href="order.php">Recent Orders</a></h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -389,17 +423,19 @@
                                 
                                                 $i = 0;
                                                 while($row = $query->fetch_array()){
+
                                                     if ($i < 6){
-                                            
+                                        
+                                                  
                                                         // echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '\';">';
                                                         echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '&user_id=' . $row['user_id'] . '\';">';
                                                         // echo "<tr>";
-                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:14px'>".'#'.$row['order_id']."</td>";
-                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:14px'>".$row['ordered_at']."</td>";
-                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:14px'>".'#'.$row['user_id']."</td>";
+                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:14px; text-align:left'>".'#'.$row['order_id']."</td>";
+                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:14px; text-align:left'>".$row['ordered_at']."</td>";
+                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:14px; text-align:left'>".'#'.$row['user_id']."</td>";
                                                         // if($row['payment_status'] == 1) echo "<td>"."Paid"."</td>"; else echo "<td>"."Unpaid"."</td>";
                                                         // echo "<td>".$row['fulfillment_status']."</td>";
-                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:14px'>".'$'.$row['total_price']."</td>";
+                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:14px; text-align:left'>".'$'.$row['total_price']."</td>";
                                                         echo "</tr>";
                                                         $i ++;
                                                     } else {
@@ -418,12 +454,12 @@
                         </div>
 
                         <!-- Content Column 2 -->
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-6 mb-4" >
 
                             <!-- Illustrations -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary"><a href="product.php">Latest Products</a></h6>
+                                    <h6 class="m-0 font-weight-bold text-primary" style="float:left; font-family: DM Sans;" ><a href="product.php">Latest Products</a></h6>
                                     
                                 </div>
                              
@@ -439,8 +475,8 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $style = '<tr style="font-family: DM Sans; color:#06152B; height:100px; vertical-align: middle;">';
-                                        $textStyle = '<td style="font-family: DM Sans; color:#06152B; vertical-align: middle;">';
+                                        $style = '<tr style="font-family: DM Sans; color:#06152B; height:80px; vertical-align: middle;">';
+                                        $textStyle = '<td style="font-family: DM Sans; color:#06152B; vertical-align: middle; text-align:left">';
                                         
 
                                         $con = mysqli_connect("localhost", "root", "", "can302");
@@ -451,7 +487,7 @@
 
                                     
                                         
-                                            $image= "<img width='80' height='80' style='margin-right:100px; margin-left:50px' src='images/".$row['product_image']."'>";     
+                                            $image= "<img width='60' height='60' style='margin-right:100px; margin-left:50px' src='images/".$row['product_image']."'>";     
                                            
                                             
                                             echo $style;
