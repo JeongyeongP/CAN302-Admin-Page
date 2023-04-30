@@ -20,7 +20,6 @@
     <!-- Custom styles for this template-->
     <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
 
 </head>
 
