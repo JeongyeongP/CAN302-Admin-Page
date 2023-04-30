@@ -110,7 +110,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                 <!-- Begin Page Content -->
                 <div class="container-fluid" style="background-color: #E2E5FF;">
 
-                    <h1 class="h3 mb-3 text-gray-800 mt-4" style="margin-bottom: 1rem;">Coupon</h1>
+                <h1 class="h3 mb-3 text-gray-800 mt-4" style="margin-bottom: 1rem;">Coupon</h1>
 
 
 
@@ -162,9 +162,8 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                         </br>
 
                                         <button type="submit"
-                                            style="float:right; position:abosulte; border-radius:10px; margin-left:450px; width: 10%; border: 0px; height: 44px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal"
-                                            class="button" id="add" name="submit" value="add"> Add
-                                            Coupon</button>
+                                            style="position:abosulte; margin-left:45%; border-radius:10px;  width:10%; border: 0px; height: 44px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal"
+                                            class="button" id="add" name="submit" value="add">Add Coupon</button>
                                         </br></br>
 
                                     </form>
@@ -204,7 +203,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
 
                     <div class="container-fluid"
                         style="background-color:white; border-radius:10px; display: inline-block">
-                        <h5 style="font-family: DM Sans; color:#06152B; margin-top:20px"><b>View Coupon</h3>
+                                </br>
 
                                 <?php
                                 $i = 0;
@@ -291,11 +290,12 @@ $con = mysqli_connect("localhost", "root", "", "can302");
 
                                         div.coupon-percentage {
 
-                                            padding: 20px 30px;
+                                            padding: 30px 30px;
                                             background-color: #E7DEF1;
                                             font-size: 20px;
                                             color: #5E63FF;
                                             text-align: center;
+                                            vertical-align: middle;
                                         }
 
                                         
@@ -309,6 +309,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                             margin-left: 30px;
                                             font-size: 10px;
                                             text-align: justify;
+                                            width:80%;
                                          
                                         }
 
@@ -318,9 +319,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                     
                                         }
 
-                                        div.coupon-delete{
-                                            margin-left:auto;
-                                        }
+                                       
 
                                         div.discount-text,hr{
                                             font-size:20px;
@@ -343,7 +342,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                             display: inline-block;
                                             border:none;
                                             border-radius: 5px;
-                                            background-color:#ECE9F0;
+                                            background-color:#d9d9d9;
                                 
                                         }
                                       
@@ -354,9 +353,11 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                         <div class="card-body">
                                             <div class="coupon-layout" >
 
-                                                <div class="coupon-percentage">
-                                                    <text>
-                                                        <?php echo $discount; ?>%
+                                                <div class="coupon-percentage" >
+                                                    <text style="font-size:40px;">
+                                                        <?php 
+                                                        echo $discount; 
+                                                        ?>%
                                                     </text>
                                                     <br>OFF</br>
                                                 </div>
@@ -374,7 +375,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                                     </div>
                                                     
                                                     <div class="minimum-amount">
-                                                        <text>Minimum Purchase = <?php echo "$min_purchase"; ?></text>
+                                                        <text>Minimum Purchase: $<?php echo "$min_purchase"; ?></text>
                                                     </div>
                                                     
                                                     
@@ -403,7 +404,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                                                 // red-deactivate
                                                                 // green- activate
                                                                 echo
-                                                                    "<a href=deactivate_coupon.php?coupon_id=" . $row_coupons['coupon_id'] . " class='btn red'>Deactivate</a>";
+                                                                    "<a href=deactivate_coupon.php?coupon_id=" . $row_coupons['coupon_id'] . " class='btn red' style='width: 120px;  background-color: #D2042D; border: 0px; font-family: DM Sans; color: white; font-weight: normal'>Deactivate</a>";
                                                             else
                                                                 echo
                                                                     "<a href=active_coupon.php?coupon_id=" . $row_coupons['coupon_id'] . " class='btn green'>Activate</a>";
@@ -412,7 +413,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
 
                                                         <div class ="coupon-delete">
                                                         <a href="remove_coupon.php?coupon_id=<?php echo $coupon_id; ?>" class="btn-delete"
-                                                            onclick="return confirm('Are you sure you want to delete this coupon?');" >
+                                                        style="width: 120px;  border: 0px; background-color:#E0E0E0; font-family: DM Sans; color: #333333; font-weight: normal" onclick="return confirm('Are you sure you want to delete this coupon?');" >
                                                             Delete
                                                         </a>
                                                         </div>

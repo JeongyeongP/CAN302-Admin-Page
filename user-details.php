@@ -289,7 +289,7 @@
                                     echo "<td>".$row['coupon_name']."</td>";
                                     echo "<td>".$row['discount']."</td>";
                                     echo "<td>".$row['expired_at']."</td>";
-                                    if($row['is_used'] == 1) echo "<td>"."Used"."</td>"; else echo "<td>"."Available"."</td>";
+                                    if($row['is_used'] == 1) echo "<td style='color: #FF2D00;'>"."Used"."</td>"; else echo "<td>"."Available"."</td>";
                                     echo "</tr>";
                                     }
                                     $query5->data_seek(0);
