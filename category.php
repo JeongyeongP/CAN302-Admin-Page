@@ -42,7 +42,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="dashboard.php">
                     <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/dashboard_icon.png" width="20px" height="20px;"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Dashboard</span></a>
             </li>
@@ -66,7 +66,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="coupon.php">
                     <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/coupon_icon.png" width="20px" height="20px"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Coupon</span></a>
             </li>
@@ -87,12 +87,11 @@
         <div id="content-wrapper" class="d-flex flex-column" style="background-color: #E2E5FF;">
 
             <!-- Main Content -->
-            <div id="content" style="margin-left:20px">
+            <div id="content">
                 <!-- Begin Page Content -->
                 <div class="container-fluid" style="background-color: #E2E5FF;">
 
-                 <h2 style="font-family: DM Sans; color:#06152B; margin-top:30px"><b> Product </h2>
-                    <br/>
+                 <h1 class="h3 mb-3 text-gray-800 mt-4" style="margin-bottom: 1rem;">Product</h1>
               
                     <button style='width: 120px; height: 44px; border-radius: 10px; border: 0px; font-family: DM Sans; font-weight: normal; background-color: white' role="button"><a href="product.php" style="color: #06152B">Product List</a></button>
                     <button style='width: 120px; height: 44px; border-radius: 10px; border: 0px; font-family: DM Sans; font-weight: normal; background-color: white' role="button"><a href="add-product.php" style="color: #06152B">Add Product</a></button>
@@ -106,13 +105,13 @@
                             <form class="form-inline" role="form" action="" method="post">
                                 
                                 <label for="category" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Category Name </label>
-                                <input class="text-box.css" style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="category" name="category">
+                                <input class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="category" name="category">
                                 </br></br>
                             
                                 <label for="description" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Category Description </label>
-                                <input class="text-box.css" style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" name="description">         
+                                <input class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" name="description">         
                                 </br></br>
-                                <button type="submit" style="width:80px; border: 0px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="add-category" name="add-category" value="add-category"> Add </button>
+                                <button type="submit" style="width:80px; border: 0px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal; margin-left:450px;" class="btn btn-primary" id="add-category" name="add-category" value="add-category"> Add </button>
                                 <button type="submit" style="margin-left:10px; width:80px; border: 0px; background-color:#E0E0E0; font-family: DM Sans; color: #333333; font-weight: normal" class="btn btn-primary" id="search-category" name="search-category" value="search-category"> Search</button>
                                 </br></br>
                             </form>
