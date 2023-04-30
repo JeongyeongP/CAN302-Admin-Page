@@ -110,18 +110,18 @@
                                     <tr>
                                         <td style="width:45%; float:left">
                                             <label for="name" style="font-family: DM Sans; color:#06152B;"> Product
-                                            <input class="text-box.css" style='margin-left:10px; width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="name" name="name">
+                                            <input class="text-box.css" style='border: 1px solid gray; margin-left:10px; width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="name" name="name">
                                             </label>
                                         </td>
 
                                         <td style="width:45%; float:right">
                                             <label for="category" style="font-family: DM Sans; color:#06152B;"> Category 
-                                            <input class="text-box.css" style='margin-left:10px; width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="category" name="category">
+                                            <input class="text-box.css" style='border: 1px solid gray; margin-left:10px; width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="category" name="category">
                                             </label>
                                         </td>
 
                                         <td style="width:10%">
-                                            <button type="submit" style="width:120px; margin-left:30px; border: 0px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="search" name="search" value="search"> Search</button>
+                                            <button type="submit" style="border: 1px solid gray; width:120px; margin-left:30px; border: 0px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="search" name="search" value="search"> Search</button>
                                         </td>
 
                                    
@@ -130,18 +130,18 @@
                                     <tr>
                                         <td style="width:45%; float:left">
                                             <label for="stock" style="font-family: DM Sans; color:#06152B; text-align:left"> Stock 
-                                            <input class="text-box.css" style='margin-left:27px; width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="number" id="stock" name="stock">
+                                            <input class="text-box.css" style='border: 1px solid gray; margin-left:27px; width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="number" id="stock" name="stock">
                                             <label for="stock2" style="font-family: DM Sans; color:#06152B; padding:10px"> - </label>
-                                            <input class="text-box.css" style='width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="number" id="stock2" name="stock2">
+                                            <input class="text-box.css" style='border: 1px solid gray; width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="number" id="stock2" name="stock2">
                                             </label>
                                         </td>
 
                                         <td style="width:45%; float:right">
                                         
                                             <label for="price" style="font-family: DM Sans; color:#06152B; text-align:left"> Price 
-                                            <input class="text-box.css" style='margin-left:40px; width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="number" id="price" name="price">
+                                            <input class="text-box.css" style='border: 1px solid gray; margin-left:40px; width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="number" id="price" name="price">
                                             <label for="price2" style="font-family: DM Sans; color:#06152B; padding:10px"> - </label>
-                                            <input class="text-box.css" style='width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="number" id="price2" name="price2">    
+                                            <input class="text-box.css" style='border: 1px solid gray; width:100%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="number" id="price2" name="price2">    
                                             </label>
                                             
                                         </td>

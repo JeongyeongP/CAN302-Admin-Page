@@ -110,19 +110,19 @@
                             <form class="form-inline" role="form" action="product.php" method="post" enctype="multipart/form-data">
 
                             <label for="name" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Product Name </label>
-                            <input class="text-box.css" style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="name" name="name">
+                            <input class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="name" name="name">
                             </br></br>
 
                             <label for="description" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Description </label>
-                            <input class="text-box.css" style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" name="description">         
+                            <input class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" name="description">         
                             </br></br>
                         
                             <label for="price" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Price ($)</label>
-                            <input class="text-box.css" style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="price" name="price">         
+                            <input class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="price" name="price">         
                             </br></br>
 
                             <label for="stock" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Stock </label>
-                            <input class="text-box.css" style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="stock" name="stock">         
+                            <input class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="stock" name="stock">         
                             </br></br>
 
                         </div>

@@ -92,7 +92,7 @@
         <div id="content-wrapper" class="d-flex flex-column" style="background-color: #E2E5FF;">
 
             <!-- Main Content -->
-            <div id="content" style="margin-left:20px">
+            <div id="content">
                 <!-- Begin Page Content -->
                 <div class="container-fluid" style="background-color: #E2E5FF;">
 
@@ -127,24 +127,24 @@
                             <form class="form-inline" role="form" action="" method="post" enctype="multipart/form-data">
 
                                 <label for="product_id" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Product ID </label>
-                                <input readonly class='text-box.css' style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type='number' id='product_id' name='product_id' value="<?= $product_id ?>">
+                                <input readonly class='text-box.css' style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type='number' id='product_id' name='product_id' value="<?= $product_id ?>">
                                 </br></br>
 
                                 <label for="name" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Product Name </label>
-                                <input class='text-box.css' style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type='text' id='name' name='name' value="<?= $name ?>">
+                                <input class='text-box.css' style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type='text' id='name' name='name' value="<?= $name ?>">
                                 
                                 </br></br>
 
                                 <label for="description" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Description </label>
-                                <input class="text-box.css" style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" name="description" value="<?= $description ?>">         
+                                <input class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" name="description" value="<?= $description ?>">         
                                 </br></br>
                             
                                 <label for="price" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Price ($)</label>
-                                <input class="text-box.css" style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="price" name="price" value="<?= $price ?>">         
+                                <input class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="price" name="price" value="<?= $price ?>">         
                                 </br></br>
 
                                 <label for="stock" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Stock </label>
-                                <input class="text-box.css" style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="stock" name="stock" value="<?= $stock ?>">         
+                                <input class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="stock" name="stock" value="<?= $stock ?>">         
                                 </br></br>
                         </div>
 
