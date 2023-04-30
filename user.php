@@ -57,7 +57,7 @@
                <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">User</span></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="index.php">
+               <a class="nav-link" href="coupon.php">
                <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/coupon_icon.png" width="20px" height="20px"></i>
                <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Coupon</span></a>
             </li>
@@ -80,82 +80,72 @@
                 <div class="container-fluid" style="background-color: #E2E5FF;">
 
                     <!-- Page Heading -->
-                    <h2 style="font-family: DM Sans; color:#06152B; margin-top:30px"><b> Users </b> </h2>
-                    
+                    <h1 class="h3 mb-3 text-gray-800 mt-4" style="margin-bottom: 1rem;">User</h1>
 
-                    
-                    <!-- User -->   
-                    <!-- Filter & Search -->    
+
+                    <!-- User -->
+                    <!-- Filter & Search -->
                     <div class="card shadow mb-4">
                         <div class="card-body">
-                            <!-- HTML form for search bar -->
-                            <!-- <form class="form-inline mb-1" action="orderData.php" method="get">
-                                <label class="form-control" for="order number" style="background-color: #E0E0E0;"> Order Number </label>
-                                <input type="text" class="form-control" id="search" placeholder="Search for..." name="order number">
-                                <button class="button-12" type="submit" name="search">Search</button>
-                                <button class="button-12" type="submit" name="reset">Reset</button>
-                            </form> -->
-                                <form class="form-inline" method="POST" action="">
-                                    <div class="form-group col-mb-3">
-                                        <input type="text" name="user_id" id="user_id" class="form-control" placeholder="User ID">
-                                    </div>
-                                    <div class="form-group col-mb-3">
-                                        <input type="text" name="user_email" id="user_email" class="form-control"  placeholder="User Email">
-                                    </div>
-                                    <div class="form-group col-mb-3">
-                                        <input type="date" name="created_at" id="created_at" class="form-control" placeholder="Created At">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="button-16" id="submit_search" name="submit_search" value="submit_search">Search</button>
-                                    </div>
+                            <form class="form-inline" method="POST" action="">
+                                <div class="form-group col-mb-3">
+                                    <input type="text" name="user_id" id="user_id" class="form-control" placeholder="User ID">
                                 </div>
-                            </form>
+                                <div class="form-group col-mb-3">
+                                    <input type="text" name="user_email" id="user_email" class="form-control"  placeholder="User Email">
+                                </div>
+                                <div class="form-group col-mb-3">
+                                    <input type="date" name="created_at" id="created_at" class="form-control" placeholder="Created At">
+                                <div class="input-group-append">
+                                    <button type="submit" class="button-16" id="submit_search" name="submit_search" value="submit_search">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card shadow mb-4">
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary">User Database</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>User Number</th>
+                                        <th>Profile</th>
+                                        <th>Name</th>
+                                        <th>User ID</th>
+                                        <th>Registered Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                        include("userData.php");
+                                            while($row = $result->fetch_array()){
+                                            echo '<tr onclick="window.location=\'user-details.php?user_id=' . $row['user_id'] . '&user_id=' . $row['user_id'] . '\';">';
+                                            echo "<td>"."#".$row['user_id']."</td>";
+
+                                            $imageBlob = $row['profile_image'];
+                                            $profilepic = '<img style="border-radius:5px" width=50 height=50 src="data:image/jpeg;base64,'.base64_encode($imageBlob).'">';
+                                            echo "<td>".$profilepic."</td>";
+                                            echo "<td>".$row['first_name'].' '.$row['last_name']."</td>";
+                                            echo "<td>".$row['user_email']."</td>";
+                                            echo "<td>".$row['created_at']."</td>";
+                                            echo "</tr>";
+                                        }
+                                        mysqli_close($con);
+                                    ?>
+                                </tbody>
+                            </table>
+
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="container-fluid">
-                    <!-- Order List -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">User Database</h6>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>User Number</th>
-                                    <th>Profile</th>
-                                    <th>Name</th>
-                                    <th>User ID</th>
-                                    <th>Registered Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                    include("userData.php");
-                                        while($row = $result->fetch_array()){
-                                        echo '<tr onclick="window.location=\'user-details.php?user_id=' . $row['user_id'] . '&user_id=' . $row['user_id'] . '\';">';
-                                        echo "<td>"."#".$row['user_id']."</td>";
-                                        
-                                        $imageBlob = $row['profile_image'];
-                                        $profilepic = '<img style="border-radius:5px" width=50 height=50 src="data:image/jpeg;base64,'.base64_encode($imageBlob).'">';
-                                        echo "<td>".$profilepic."</td>";
-                                        echo "<td>".$row['first_name'].' '.$row['last_name']."</td>";
-                                        echo "<td>".$row['user_email']."</td>";
-                                        echo "<td>".$row['created_at']."</td>";
-                                        echo "</tr>";
-                                    }
-                                    mysqli_close($con);
-                                ?>
-                            </tbody>
-                        </table>
-                             
-                    </div>
-                </div>
-            </div>
 
-        </div>
+            </div>
+            </div>
         <!-- /.container-fluid -->
                                 </div>
     </div>

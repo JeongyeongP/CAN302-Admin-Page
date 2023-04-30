@@ -96,7 +96,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid" style="background-color: #E2E5FF;">
 
-                    <h2 style="font-family: DM Sans; color:#06152B; margin-top:30px"><b> Product </h2>
+                    <h1 class="h3 mb-3 text-gray-800 mt-4" style="margin-bottom: 1rem;">Product</h1>
                     <br/>
               
                     <a href="product.php" style="font-family: DM Sans; color: #06152B; font-weight:normal"> 🡨 Back to Product List</a>

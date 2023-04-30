@@ -91,12 +91,11 @@
         <div id="content-wrapper" class="d-flex flex-column" style="background-color: #E2E5FF;">
 
             <!-- Main Content -->
-            <div id="content" style="margin-left:20px">
+            <div id="content">
                 <!-- Begin Page Content -->
                 <div class="container-fluid" style="background-color: #E2E5FF;">
 
-                    <h2 style="font-family: DM Sans; color:#06152B; margin-top:30px"><b> Product </h2>
-                    <br/>
+                    <h1 class="h3 mb-3 text-gray-800 mt-4" style="margin-bottom: 1rem;">Product</h1>
               
                     <button style='width: 120px; height: 44px; border-radius: 10px; border: 0px; font-family: DM Sans; font-weight: normal; background-color: white' role="button"><a href="product.php" style="color: #06152B">Product List</a></button>
                     <button style='width: 120px; height: 44px; border-radius: 10px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal' role="button">Add Product</button>

@@ -80,17 +80,12 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                <!-- Begin Page Content -->
                <div class="container-fluid" style="background-color: #E2E5FF;">
                   <!-- Page Heading -->
-                  <h2 style="font-family: DM Sans; color:#06152B; margin-top:30px"><b> Order</h2>
-                  <br />
+                  <h1 class="h3 mb-3 text-gray-800 mt-4" style="margin-bottom: 1rem;">Order</h1>
+                   <div class="button-container" style="margin-bottom: 1rem;">
+                     <button class="button-16" role="button" onclick="window.location.href='order.php';">Order List</button>
+                     <button class="button-16" role="button" onclick="window.location.href='refund-order.php';">Refund List</button>    
+                  </div>
                   
-                  <button
-                        style='width: 120px; height: 44px; border-radius: 10px; background-color:white; font-family: DM Sans; color: black; font-weight: normal'
-                        role="button">Order List</button>
-                    <button
-                        style='width: 120px; height: 44px; border-radius: 10px; background-color:#333333; border: 0px; font-family: DM Sans; font-weight: normal; '
-                        role="button"><a href="index.php" style="color: white">Refund List</a></button>
-                    <br />
-                    <br />   
                   
                   <!-- Order -->   
                   <!-- Filter & Search -->    
