@@ -91,6 +91,13 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                         style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Coupon</span></a>
             </li>
 
+            <li class="nav-item mt-auto">
+                <a class="nav-link" href="admin_profile.php">
+                    <i class="fas fa-fw fa-user" style="margin-left: 30px;"><img src="admin.jpeg" width="30px" height="30px"></i>
+                    <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Admin Profile</span>
+                </a>
+            </li>
+
 
         </ul>
         <!-- End of Sidebar -->
