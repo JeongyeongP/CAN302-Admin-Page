@@ -35,11 +35,11 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_image`, `descripti
 (9, 'Haagen Dazs', 0x68616167656e64617a732e706e67, 'Vanilla Bean Ice Cream', '9.00', 200, 4, '2023-04-28 11:03:39', 0),
 (10, 'Doritos', 0x646f7269746f732e706e67, 'Nacho Cheese Flavour', '1.40', 400, 3, '2023-04-28 11:05:21', 0);
 
-INSERT INTO `Coupon` (coupon_name, discount, min_purchase, created_at, expired_at, is_active)
-VALUES ('SPRING20', 20, 50.00, NOW(), '2023-05-31', 1),
-       ('SUMMER15', 15, 100.00, NOW(), '2023-08-31', 1),
-       ('FALL10', 10, 0.00, NOW(), '2023-11-30', 1),
-       ('WINTER25', 25, 200.00, NOW(), '2024-02-28', 0);
+INSERT INTO `Coupon` (coupon_name, discount, min_purchase, created_at, expired_at, is_active,coupon_desc)
+VALUES ('SPRING20', 20, 50.00, NOW(), '2023-05-31', 1, Welcome Spring with a bang! Use coupon code SPRING20 at checkout and get 20% off your purchase when you spend $50 or more. Enjoy savings on our wide selection of products and get ready to embrace the new season in style. Hurry, this limited-time offer ends soon! Shop now and don't miss out on the chance to save big.),
+       ('SUMMER15', 15, 100.00, NOW(), '2023-08-31', 1, Get ready for the hottest season of the year with our exclusive Summer Sale! Use coupon code SUMMER15 at checkout and get 15% off your purchase when you spend $100 or more. Stock up on all your seasonal favorites, from stylish swimwear to breathable cotton tees, and save big on everything you need to beat the heat. Don't wait - this offer won't last forever! Shop now and take advantage of the savings while you can.),
+       ('FALL10', 10, 0.00, NOW(), '2023-11-30', 1, Fall is finally here, and so are the savings! Use coupon code FALL10 at checkout and get 10% off your purchase - no minimum required. Shop our latest collection of cozy sweaters, stylish boots, and other fall favorites and save on everything you need to look your best this season. Don't miss out on this limited-time offer! Shop now and take advantage of the savings while you can.),
+       ('WINTER25', 25, 200.00, NOW(), '2024-02-28', 0, Baby, it's cold outside - but our Winter Sale is just heating up! Use coupon code WINTER25 at checkout and get 25% off your purchase when you spend $200 or more. Shop our cozy collection of winter essentials, from warm jackets to soft scarves, and save big on everything you need to stay stylish and snug all season long. Hurry - this offer won't last forever! Shop now and take advantage of the savings while you can.);
 
 INSERT INTO `User_Coupon` (coupon_id, user_id, is_used, obtained_at)
 VALUES (1, 1, 0, NOW()),
