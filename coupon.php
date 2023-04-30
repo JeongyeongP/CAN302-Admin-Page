@@ -106,16 +106,6 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                     <h2 style="font-family: DM Sans; color:#06152B; margin-top:30px"><b> Coupon</h2>
                     <br />
 
-                   
-                    <button
-                        style='width: 120px; height: 44px; border-radius: 10px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal'
-                        role="button">Add Coupon</button>
-                    <button
-                        style='width: 120px; height: 44px; border-radius: 10px; border: 0px; font-family: DM Sans; font-weight: normal; background-color: white'
-                        role="button"><a href="index.php" style="color: #06152B">View Coupon</a></button>
-                    <br />
-                    <br />
-
 
                     <div class="card shadow mb-4">
                         <div class="card-body">
