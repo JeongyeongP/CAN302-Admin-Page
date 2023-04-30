@@ -52,7 +52,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="dashboard.php">
                     <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img
                             src="images/dashboard_icon.png" width="20px" height="20px;"></i>
                     <span
@@ -68,7 +68,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="refund-order.php">
+                <a class="nav-link" href="order.php">
                     <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/order_icon.png"
                             width="20px" height="20px"></i>
                     <span
@@ -106,12 +106,12 @@ $con = mysqli_connect("localhost", "root", "", "can302");
         <div id="content-wrapper" class="d-flex flex-column" style="background-color: #E2E5FF;">
 
             <!-- Main Content -->
-            <div id="content" style="margin-left:20px">
+            <div id="content">
                 <!-- Begin Page Content -->
                 <div class="container-fluid" style="background-color: #E2E5FF;">
 
-                    <h2 style="font-family: DM Sans; color:#06152B; margin-top:30px"><b> Coupon</h2>
-                    <br />
+                    <h1 class="h3 mb-3 text-gray-800 mt-4" style="margin-bottom: 1rem;">Coupon</h1>
+
 
 
                     <div class="card shadow mb-4">
@@ -124,7 +124,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                             style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%">
                                             Coupon Name </label>
                                         <input class="text-box.css"
-                                            style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
+                                            style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
                                             type="text" id="name" name="coupon_name">
                                         </br></br>
 
@@ -132,7 +132,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                             style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%">
                                             Discount (%)</label>
                                         <input class="text-box.css"
-                                            style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
+                                            style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
                                             type="text" id="discount" name="discount">
                                         </br></br>
 
@@ -140,7 +140,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                             style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%">
                                             Min. Purchase ($)</label>
                                         <input class="text-box.css"
-                                            style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
+                                            style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
                                             type="text" id="min_purchase" name="min_purchase">
                                         </br></br>
 
@@ -148,21 +148,21 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                             style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%">
                                             Expiration Date</label>
                                         <input class="text-box.css"
-                                            style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
+                                            style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
                                             type="date" id="expired_at" name="expired_at">
 
                                             <label for="coupon_desc"
                                             style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%">
                                             Coupon Description</label>
                                         <input class="text-box.css"
-                                            style='width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
+                                            style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
                                             type="text" id="coupon_decsc" name="coupon_desc">
                                         </br>
                                         </br>
                                         </br>
 
                                         <button type="submit"
-                                            style="font-family: DM Sans; color:#06152B background-color:#333333;"
+                                            style="float:right; position:abosulte; border-radius:10px; margin-left:450px; width: 10%; border: 0px; height: 44px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal"
                                             class="button" id="add" name="submit" value="add"> Add
                                             Coupon</button>
                                         </br></br>
@@ -243,6 +243,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
 
                                     <style> /* Style for view Coupon */
                                         .btn {
+                                            float: right;
                                             background-color: red;
                                             border: none;
                                             color: white;
@@ -253,12 +254,13 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                             font-size: 20px;
                                             margin: 4px 2px;
                                             cursor: pointer;
-                                            border-radius: 20px;
+                                            border-radius: 10px;
                                             font-size:15px;
                                         }
 
                                         .btn-delete{
-                                            background-color: blue;
+                                            float: right;
+                                            background-color: #EE9CB1;
                                             border: none;
                                             color: white;
                                             padding: 10px 10px;
@@ -268,16 +270,18 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                             font-size: 20px;
                                             margin: 4px 2px;
                                             cursor: pointer;
-                                            border-radius: 20px;
+                                            border-radius: 10px;
                                             font-size:15px; 
                                         }
 
                                         .green {
-                                            background-color: #199319;
+                                            float: right;
+                                            background-color: #00AE31;
                                         }
 
                                         .red {
-                                            background-color: red;
+                                            float: right;
+                                            background-color: #A01818;
                                         }
 
                                         div.coupon-layout {
@@ -288,9 +292,9 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                         div.coupon-percentage {
 
                                             padding: 20px 30px;
-                                            background-color: #E7C0F0;
+                                            background-color: #E7DEF1;
                                             font-size: 20px;
-                                            color: #D233FF;
+                                            color: #5E63FF;
                                             text-align: center;
                                         }
 
@@ -339,7 +343,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                             display: inline-block;
                                             border:none;
                                             border-radius: 5px;
-                                            background-color:#9AEC8E;
+                                            background-color:#ECE9F0;
                                 
                                         }
                                       
