@@ -342,7 +342,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                             display: inline-block;
                                             border:none;
                                             border-radius: 5px;
-                                            background-color:#90EE90;
+                                            background-color:#d9d9d9;
                                 
                                         }
                                       
@@ -404,7 +404,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                                                 // red-deactivate
                                                                 // green- activate
                                                                 echo
-                                                                    "<a href=deactivate_coupon.php?coupon_id=" . $row_coupons['coupon_id'] . " class='btn red' style='width: 120px;  border: 0px; font-family: DM Sans; color: white; font-weight: normal'>Deactivate</a>";
+                                                                    "<a href=deactivate_coupon.php?coupon_id=" . $row_coupons['coupon_id'] . " class='btn red' style='width: 120px;  background-color: #D2042D; border: 0px; font-family: DM Sans; color: white; font-weight: normal'>Deactivate</a>";
                                                             else
                                                                 echo
                                                                     "<a href=active_coupon.php?coupon_id=" . $row_coupons['coupon_id'] . " class='btn green'>Activate</a>";
