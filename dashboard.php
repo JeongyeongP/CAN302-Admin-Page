@@ -21,6 +21,12 @@
     <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- Chart -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -83,7 +89,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h2 style="font-family: DM Sans; color:#06152B; margin-top:30px"><b> Dashboard </h2>
+                    <h1 class="h3 mb-3 text-gray-800 mt-4" style="margin-bottom: 1rem;">Dashboard</h1>
                     <br/>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
@@ -205,7 +211,7 @@
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Orders Reports</h6>
-                                    <div class="dropdown no-arrow">
+                                    <!-- <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -218,12 +224,89 @@
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="#">Something else here</a>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
+                                    <div class="line-chart">
+                                        <!-- <title>Total Orders per Month</title> -->
+                                        <style>
+                                            .container {
+                                                width: 70%;
+                                                margin: -2px auto;
+                                                margin-left: -20px auto;
+                                            }
+
+                                            body {
+                                                text-align: center;
+                                                color: #9B88ED;
+                                            }
+
+                                            h2 {
+                                                text-align: center;
+                                                font-family: "Verdana", sans-serif;
+                                                font-size: 30px;
+                                            }
+                                            #myChart {
+                                                width: 100px;
+                                                height: 300px; /* Adjust this value to your desired height */
+                                            }  
+                                            
+                                        </style>
+                                    <body>
+                                        <div class="container">
+                                            <!-- <h2>Total Orders per Month</h2> -->
+                                            <div>
+                                                <canvas id="myChart"></canvas>
+                                            </div>
+                                        </div>
+                                    </body>
+
+                                    <script>
+                                        $(document).ready(function(){
+                                            $.ajax({
+                                                url: "graphData.php",
+                                                method: "GET",
+                                                success: function(data) {
+                                                    console.log(data);
+                                                    var month = [];
+                                                    var order_count = [];
+                                                    let array = JSON.parse(data, true);
+                                                    console.log(array);
+                                                    console.log(array[0].month);
+                                                    
+
+                                                    for(let i = 0; i < array.length; i++) {
+                                                        console.log("Data Check");
+                                                        month.push(array[i].month);
+                                                        order_count.push(array[i].order_count);
+                                                        console.log(array[i].month);
+                                                    }
+
+                                                    var chartdata = {
+                                                        labels: month,
+                                                        datasets : [
+                                                            {
+                                                                label: "Total Orders",
+                                                                data: order_count,
+                                                                backgroundColor: "rgba(103,78,167,0.5)",
+                                                            }
+                                                        ]
+                                                    };
+
+                                                    var ctx = $("#myChart");
+
+                                                    var barGraph = new Chart(ctx, {
+                                                        type: 'line',
+                                                        data: chartdata
+                                                    });
+                                                },
+                                                error: function(data) {
+                                                    console.log(data);
+                                                }
+                                            });
+                                        });
+                                    </script>
                                     </div>
                                 </div>
                             </div>
