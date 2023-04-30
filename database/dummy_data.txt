@@ -1,0 +1,86 @@
+INSERT INTO `user` (user_email, password, profile_image, first_name, last_name, phone_number, created_at, is_admin)
+VALUES ('john.doe@example.com', 'password123', NULL, 'John', 'Doe', '1234567890', NOW(), 1),
+       ('jane.doe@example.com', 'password456', NULL, 'Jane', 'Doe', '9876543210', NOW(), 0),
+       ('mark.smith@example.com', 'password789', NULL, 'Mark', 'Smith', '5678901234', NOW(), 0),
+       ('susan.johnson@example.com', 'passwordabc', NULL, 'Susan', 'Johnson', '3456789012', NOW(), 0),
+       ('jack.sparrow@example.com', 'Password123', NULL, 'Jack', 'Sparrow', '1029384756', NOW(), 0),
+       ('fiona.shrek@example.com', 'Password456', NULL, 'Fiona', 'Shrek', '1324576890', NOW(), 0),
+       ('marco.polo@example.com', 'Password789', NULL, 'Marco', 'Polo', '54756879246', NOW(), 0),
+       ('michael.jackson@example.com', 'Passwordabc', NULL, 'Michael', 'Jackson', '74867548261', NOW(), 0),
+       ('mary.jane@example.com', 'PassworD123', NULL, 'Mary', 'Jane', '481958946', NOW(), 0),
+       ('peter.parker@example.com', 'PassworD456', NULL, 'Peter', 'Parker', '6542765893', NOW(), 0),
+       ('jett.dash@example.com', 'PassworD789', NULL, 'Jett', 'Dash', '76879737272', NOW(), 0),
+       ('sonic.boom@example.com', 'PassworDabc', NULL, 'Sonic', 'Boom', '74867548261', NOW(), 0),
+       ('humpty.dumpty@example.com', 'passworD123', NULL, 'Humpty', 'Dumpty', '5741857461', NOW(), 0),
+       ('dora.rado@example.com', 'passworD456', NULL, 'Dora', 'Rado', '6271175883', NOW(), 0),
+       ('diego.mapper@example.com', 'passworD789', NULL, 'Diego', 'Mapper', '25728292940', NOW(), 0);
+
+INSERT INTO `Order` (user_id, ordered_at, payment_method_id, shipping_address_id, total_price, coupon_id, payment_status, paid_at, fulfillment_status, is_cancelled)
+VALUES (1, NOW(), 1, 1, 1000.00, 1, 1, NOW(), 'Shipped', 0),
+       (2, NOW(), 2, 2, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
+       (3, NOW(), 3, 3, 50.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
+       (4, NOW(), 4, 4, 150.00, NULL, 0, NULL, 'In Delivery', 0),
+       (5, NOW(), 1, 1, 1000.00, 1, 1, NOW(), 'Shipped', 0),
+       (6, NOW(), 2, 2, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
+       (7, NOW(), 3, 3, 50.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
+       (8, NOW(), 4, 4, 150.00, NULL, 0, NULL, 'In Delivery', 0),
+       (9, NOW(), 1, 1, 1000.00, 1, 1, NOW(), 'Shipped', 0),
+       (10, NOW(), 2, 2, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
+       (11, NOW(), 3, 3, 50.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
+       (12, NOW(), 4, 4, 150.00, NULL, 0, NULL, 'In Delivery', 0),
+       (13, NOW(), 1, 1, 1000.00, 1, 1, NOW(), 'Shipped', 0),
+       (14, NOW(), 2, 2, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
+       (15, NOW(), 3, 3, 50.00, NULL, 0, NULL, 'Awaits fulfillment', 0);
+
+INSERT INTO `Payment_method` (user_id, card_number, card_type, expired_at)
+VALUES (1, '1234567812345678', 'Visa', '2024-06-30'),
+       (2, '2345678923456789', 'Mastercard', '2023-09-30'),
+       (3, '3456789034567890', 'Visa', '2025-12-31'),
+       (4, '4567890145678901', 'Mastercard', '2023-07-31'),
+       (5, '5415435134514543', 'Visa', '2024-05-29'),
+       (6, '5686798759057742', 'Mastercard', '2023-08-29'),
+       (7, '9764265247563897', 'Visa', '2025-11-28'),
+       (8, '2576531669764974', 'Mastercard', '2023-06-22'),
+       (9, '0193405684968250', 'Visa', '2024-04-04'),
+       (10, '1943572389674180', 'Mastercard', '2025-07-07'),
+       (11, '5104591746901674', 'Visa', '2025-01-01'),
+       (12, '1094574831069147', 'Mastercard', '2023-06-08'),
+       (13, '0129573910594310', 'Visa', '2027-09-09'),
+       (14, '1029457941305941', 'Mastercard', '2023-02-02'),
+       (15, '7819345784193578', 'Mastercard', '2023-04-05');
+
+INSERT INTO `Shipping_address` (user_id, address_line1, address_line2, postal_code, city, state, country)
+VALUES (1, '1234 Elm St', 'Apt 567', '12345', 'New York', 'NY', 'USA'),
+       (2, '5678 Oak St', 'Apt 890', '67890', 'Los Angeles', 'CA', 'USA'),
+       (3, '7890 Maple St', NULL, '45678', 'Chicago', 'IL', 'USA'),
+       (4, '2345 Cherry St', 'Apt 123', '78901', 'Houston', 'TX', 'USA'),
+       (5, '1234 Apple St', 'Apt 141', '54321', 'Jakarta', 'JKT', 'IDA'),
+       (6, '5678 Orange St', 'Apt 333', '09876', 'Bandung', 'BDG', 'IDA'),
+       (7, '7890 Banana St', NULL, '87654', 'Jogjakarta', 'JJK', 'IDA'),
+       (8, '2345 Lemon St', 'Apt 211', '10987', 'Bali', 'DPS', 'IDA'),
+       (9, '1234 Blueberry St', 'Apt 566', '35765', 'Singapore', 'SG', 'SGA'),
+       (10, '5678 Strawberry St', 'Apt 911', '98679', 'Kuala Lumpur', 'KL', 'MLY'),
+       (11, '7890 Peach St', NULL, '41542', 'Hanoi', 'HNI', 'VIE'),
+       (12, '2345 Lime St', 'Apt 098', '35685', 'Bangkok', 'BKK', 'THA'),
+       (13, '1234 Milk St', 'Apt 445', '12782', 'Tokyo', 'TKY', 'JPN'),
+       (14, '5678 Rose St', 'Apt 832', '76487', 'Kyoto', 'KYT', 'JPN'),
+       (15, '2345 Daisy St', 'Apt 515', '87443', 'Shanghai', 'SHA', 'DRC');
+
+INSERT INTO `Order` (user_id, ordered_at, payment_method_id, shipping_address_id, total_price, coupon_id, payment_status, paid_at, fulfillment_status, is_cancelled)
+VALUES (1, NOW(), 1, 1, 1000.00, 1, 1, NOW(), 'Shipped', 0),
+       (2, NOW(), 2, 2, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
+       (3, NOW(), 3, 3, 50.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
+       (4, NOW(), 4, 4, 150.00, NULL, 0, NULL, 'In Delivery', 0),
+       (5, NOW(), 5, 5, 1000.00, 1, 1, NOW(), 'Shipped', 0),
+       (6, NOW(), 6, 6, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
+       (7, NOW(), 7, 7, 50.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
+       (8, NOW(), 8, 8, 150.00, NULL, 0, NULL, 'In Delivery', 0),
+       (9, NOW(), 9, 9, 1000.00, 1, 1, NOW(), 'Shipped', 0),
+       (10, NOW(), 10, 10, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
+       (11, NOW(), 11, 11, 50.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
+       (12, NOW(), 12, 12, 150.00, NULL, 0, NULL, 'In Delivery', 0),
+       (13, NOW(), 13, 13, 1000.00, 1, 1, NOW(), 'Shipped', 0),
+       (14, NOW(), 14, 14, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
+       (15, NOW(), 15, 15, 150.00, NULL, 0, NULL, 'In Delivery', 0);
+
+
