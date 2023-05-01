@@ -86,7 +86,7 @@ if (isset($_POST['login_user'])) {
       $is_admin = $row['is_admin'];
       $_SESSION['is_admin'] = $is_admin;
       if ($is_admin == 1) {
-        header('location: admin_profile.php');
+        header('location: dashboard.php');
       } else {
         array_push($errors, "You are a User, not an Admin!");
       }
