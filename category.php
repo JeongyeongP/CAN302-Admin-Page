@@ -32,7 +32,7 @@
         <ul class="navbar-nav sidebar sidebar" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" style="height:150px" href="index.html" >
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" style="height:150px" href="dashboard.php" >
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -134,7 +134,7 @@
                                 <?php
                                 
                                 $style = '<tr style="height:80px;">';
-                                $textStyle = '<td style="font-family: DM Sans; color:#06152B; vertical-align: middle;">';
+                                $textStyle = '<td style="font-family: DM Sans; color:#06152B; vertical-align: middle; font-weight:normal">';
                                 $imageStyle = '<td style="color:#06152B; vertical-align: middle; padding-bottom:25px">';
                                 include("index-category.php");
                                 while($row = $query->fetch_array()){

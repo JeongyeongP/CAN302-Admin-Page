@@ -42,7 +42,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" style="height:150px"
-                href="index.html">
+                href="dashboard.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
