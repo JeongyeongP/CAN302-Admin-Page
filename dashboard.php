@@ -115,7 +115,7 @@
                                     <div style="font-family: DM Sans; color: #828a95;">
                                         Total Sales (Annual)
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" style='font-family: DM Sans; color: #828a95;'>
                                         <?php
                                         $con = mysqli_connect("localhost", "root", "", "can302");
                                         $sql = "SELECT SUM(total_price) AS total_price_sum 
@@ -147,7 +147,7 @@
                                     <div style="font-family: DM Sans; color: #828a95;">
                                         Total Orders (Annual)
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" style='font-family: DM Sans; color: #828a95;'>
                                         <?php
                                         $con = mysqli_connect("localhost", "root", "", "can302");
                                         $sql = "SELECT *
@@ -177,7 +177,7 @@
                                     <div style="font-family: DM Sans; color: #828a95;">New Users</div>
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800" style='font-family: DM Sans; color: #828a95;'>
                                             <?php
                                         $con = mysqli_connect("localhost", "root", "", "can302");
                                         $sql = "SELECT *
@@ -327,14 +327,14 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary" style="font-family: DM Sans;">Total Products per Category</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary" style="font-family: DM Sans;">Products per Category</h6>
                                     
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                 <div class="phppot-container">
                                     <div>
-                                        <canvas id="chartjs-doughnut" height="61" width="70" style="margin-top:-30px"></canvas>
+                                        <canvas id="chartjs-doughnut" height="61" width="70" style="margin-top:-30px; font-family:DM Sans"></canvas>
                                     </div>
                                 </div>
 
@@ -375,7 +375,9 @@
                                                             cutout: '60%', // the portion of the doughnut that is the cutout in the middle
                                                             radius: 200
                                                         }
+                                                        
                                                     });    
+                                                    Chart.defaults.global.defaultFontFamily = "DM Sans";
                                                 },
                                                 error: function(data) {
                                                     console.log(data);
