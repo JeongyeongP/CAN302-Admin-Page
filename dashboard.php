@@ -78,7 +78,7 @@
 
             <li class="nav-item mt-auto">
                 <a class="nav-link" href="admin_profile.php">
-                    <i class="fas fa-fw fa-user" style="margin-left: 30px;"><img src="admin.jpeg" width="30px" height="30px"></i>
+                    <i class="fas fa-fw fa-user" style="margin-left: 30px;"><img src="admin.jpeg" width="20px" height="20px"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Admin Profile</span>
                 </a>
             </li>
@@ -402,16 +402,16 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table" id="dataTable" width="100%" cellspacing="0" style="font-size: 9px;">
+                                        <table class="table" id="dataTable" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr>
                                                     <!-- <th></th> -->
-                                                    <th style='font-family: DM Sans; color:#06152B; font-size:14px'>Order Number</th>
-                                                    <th style='font-family: DM Sans; color:#06152B; font-size:14px'>Date</th>
-                                                    <th style='font-family: DM Sans; color:#06152B; font-size:14px'>User ID</th>
+                                                    <th style='font-family: DM Sans; color:#06152B;'>Order Number</th>
+                                                    <th style='font-family: DM Sans; color:#06152B;'>Date</th>
+                                                    <th style='font-family: DM Sans; color:#06152B;'>User ID</th>
                                                     <!-- <th>Payment Status</th>
                                                     <th>Fulfillment Status</th> -->
-                                                    <th style='font-family: DM Sans; color:#06152B; font-size:14px'>Total</th>
+                                                    <th style='font-family: DM Sans; color:#06152B; font-size:12px'>Total</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -427,12 +427,12 @@
                                                         // echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '\';">';
                                                         echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '&user_id=' . $row['user_id'] . '\';">';
                                                         // echo "<tr>";
-                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:14px; text-align:left'>".'#'.$row['order_id']."</td>";
-                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:14px; text-align:left'>".$row['ordered_at']."</td>";
-                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:14px; text-align:left'>".'#'.$row['user_id']."</td>";
+                                                        echo "<td style='font-family: DM Sans; color:#06152B; text-align:left'>".'#'.$row['order_id']."</td>";
+                                                        echo "<td style='font-family: DM Sans; color:#06152B; text-align:left'>".$row['ordered_at']."</td>";
+                                                        echo "<td style='font-family: DM Sans; color:#06152B; text-align:left'>".'#'.$row['user_id']."</td>";
                                                         // if($row['payment_status'] == 1) echo "<td>"."Paid"."</td>"; else echo "<td>"."Unpaid"."</td>";
                                                         // echo "<td>".$row['fulfillment_status']."</td>";
-                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:14px; text-align:left'>".'$'.$row['total_price']."</td>";
+                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:13px; text-align:left'>".'$'.$row['total_price']."</td>";
                                                         echo "</tr>";
                                                         $i ++;
                                                     } else {
