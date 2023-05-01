@@ -12,7 +12,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="">
       <meta name="author" content="">
-      <title>Order List</title>
+      <title>Super Market</title>
       <!-- Custom fonts for this template -->
       <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
       <link
@@ -60,7 +60,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">User</span></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="coupon-copy.php">
+               <a class="nav-link" href="coupon.php">
                <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/coupon_icon.png" width="20px" height="20px"></i>
                <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Coupon</span></a>
             </li>

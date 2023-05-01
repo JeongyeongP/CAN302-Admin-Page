@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="">
       <meta name="author" content="">
-      <title>SuperMarket Users</title>
+      <title>Super Market</title>
       <!-- Custom fonts for this template -->
       <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
       <link
@@ -89,15 +89,15 @@
                         <div class="card-body">
                             <form class="form-inline" method="POST" action="">
                                 <div class="form-group col-mb-3">
-                                    <input type="text" name="user_id" id="user_id" class="form-control" placeholder="User ID">
+                                    <input type="text" name="user_id" id="user_id" class="form-control" placeholder="User ID" >
                                 </div>
-                                <div class="form-group col-mb-3">
-                                    <input type="text" name="user_email" id="user_email" class="form-control"  placeholder="User Email">
+                                <div class="form-group col-mb-3" style='margin-left:30px;'>
+                                    <input type="text" name="user_email" id="user_email" class="form-control"  placeholder="User Email" style="width:600px;">
                                 </div>
-                                <div class="form-group col-mb-3">
+                                <div class="form-group col-mb-3" style='margin-left:30px;'>
                                     <input type="date" name="created_at" id="created_at" class="form-control" placeholder="Created At">
                                 <div class="input-group-append">
-                                    <button type="submit" class="button-16" id="submit_search" name="submit_search" value="submit_search">Search</button>
+                                    <button type="submit" class="button-16" id="submit_search" name="submit_search" value="submit_search" style='margin-left: 200px; width:120px; border: 0px; background-color:#E0E0E0; font-family: DM Sans; color: #333333; font-weight: normal'>Search</button>
                                 </div>
                             </div>
                         </form>
@@ -105,19 +105,17 @@
                 </div>
 
                 <div class="card shadow mb-4">
-                    <div class="card-header">
-                        <h6 class="m-0 font-weight-bold text-primary">User Database</h6>
-                    </div>
+             
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>User Number</th>
-                                        <th>Profile</th>
-                                        <th>Name</th>
-                                        <th>User ID</th>
-                                        <th>Registered Date</th>
+                                        <th style='font-family: DM Sans;'>User Number</th>
+                                        <th style='font-family: DM Sans;'>Profile</th>
+                                        <th></th>
+                                        <th style='font-family: DM Sans;'>User ID</th>
+                                        <th style='font-family: DM Sans;'>Registered Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -125,14 +123,13 @@
                                         include("userData.php");
                                             while($row = $result->fetch_array()){
                                             echo '<tr onclick="window.location=\'user-details.php?user_id=' . $row['user_id'] . '&user_id=' . $row['user_id'] . '\';">';
-                                            echo "<td>"."#".$row['user_id']."</td>";
-
+                                            echo "<td style='width:180px; vertical-align: middle; font-family: DM Sans;'>"."#".$row['user_id']."</td>";
                                             $imageBlob = $row['profile_image'];
                                             $profilepic = '<img style="border-radius:5px" width=50 height=50 src="data:image/jpeg;base64,'.base64_encode($imageBlob).'">';
-                                            echo "<td>".$profilepic."</td>";
-                                            echo "<td>".$row['first_name'].' '.$row['last_name']."</td>";
-                                            echo "<td>".$row['user_email']."</td>";
-                                            echo "<td>".$row['created_at']."</td>";
+                                            echo "<td style='width:50px'>".$profilepic."</td>";
+                                            echo "<td style='width:400px; vertical-align: middle; font-family: DM Sans;'>".$row['first_name'].' '.$row['last_name']."</td>";
+                                            echo "<td style='vertical-align: middle; font-family: DM Sans;'>".$row['user_email']."</td>";
+                                            echo "<td style='vertical-align: middle; font-family: DM Sans;'>".$row['created_at']."</td>";
                                             echo "</tr>";
                                         }
                                         mysqli_close($con);
@@ -181,15 +178,6 @@
             </div>
         </div>
     </div>
-    <!-- Footer -->
-    <footer class="sticky-footer bg-white">
-               <div class="container my-auto">
-                  <div class="copyright text-center my-auto">
-                     <span>Copyright &copy; Your Website 2020</span>
-                  </div>
-               </div>
-            </footer>
-            <!-- End of Footer -->
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
