@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `Category` (
 CREATE TABLE IF NOT EXISTS `Product` (
   product_id INT PRIMARY KEY AUTO_INCREMENT,
   product_name VARCHAR(255) NOT NULL,
-  product_image VARBINARY(65535),
+  product_image VARBINARY(5535),
   description VARCHAR(255),
   price DECIMAL(10, 2) NOT NULL,
   stock_quantity INT DEFAULT 0,

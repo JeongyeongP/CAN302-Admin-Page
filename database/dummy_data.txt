@@ -15,23 +15,6 @@ VALUES ('john.doe@example.com', 'password123', NULL, 'John', 'Doe', '1234567890'
        ('dora.rado@example.com', 'passworD456', NULL, 'Dora', 'Rado', '6271175883', NOW(), 0),
        ('diego.mapper@example.com', 'passworD789', NULL, 'Diego', 'Mapper', '25728292940', NOW(), 0);
 
-INSERT INTO `Order` (user_id, ordered_at, payment_method_id, shipping_address_id, total_price, coupon_id, payment_status, paid_at, fulfillment_status, is_cancelled)
-VALUES (1, NOW(), 1, 1, 1000.00, 1, 1, NOW(), 'Shipped', 0),
-       (2, NOW(), 2, 2, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
-       (3, NOW(), 3, 3, 50.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
-       (4, NOW(), 4, 4, 150.00, NULL, 0, NULL, 'In Delivery', 0),
-       (5, NOW(), 1, 1, 1000.00, 1, 1, NOW(), 'Shipped', 0),
-       (6, NOW(), 2, 2, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
-       (7, NOW(), 3, 3, 50.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
-       (8, NOW(), 4, 4, 150.00, NULL, 0, NULL, 'In Delivery', 0),
-       (9, NOW(), 1, 1, 1000.00, 1, 1, NOW(), 'Shipped', 0),
-       (10, NOW(), 2, 2, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
-       (11, NOW(), 3, 3, 50.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
-       (12, NOW(), 4, 4, 150.00, NULL, 0, NULL, 'In Delivery', 0),
-       (13, NOW(), 1, 1, 1000.00, 1, 1, NOW(), 'Shipped', 0),
-       (14, NOW(), 2, 2, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
-       (15, NOW(), 3, 3, 50.00, NULL, 0, NULL, 'Awaits fulfillment', 0);
-
 INSERT INTO `Payment_method` (user_id, card_number, card_type, expired_at)
 VALUES (1, '1234567812345678', 'Visa', '2024-06-30'),
        (2, '2345678923456789', 'Mastercard', '2023-09-30'),
@@ -47,7 +30,9 @@ VALUES (1, '1234567812345678', 'Visa', '2024-06-30'),
        (12, '1094574831069147', 'Mastercard', '2023-06-08'),
        (13, '0129573910594310', 'Visa', '2027-09-09'),
        (14, '1029457941305941', 'Mastercard', '2023-02-02'),
-       (15, '7819345784193578', 'Mastercard', '2023-04-05');
+       (15, '7819345784193578', 'Mastercard', '2028-04-05'),
+       (1, '1029384762518273', 'Mastercard', '2026-12-05'),
+       (2, '1502938471823928', 'Mastercard', '2027-01-25');
 
 INSERT INTO `Shipping_address` (user_id, address_line1, address_line2, postal_code, city, state, country)
 VALUES (1, '1234 Elm St', 'Apt 567', '12345', 'New York', 'NY', 'USA'),
@@ -62,26 +47,31 @@ VALUES (1, '1234 Elm St', 'Apt 567', '12345', 'New York', 'NY', 'USA'),
        (10, '5678 Strawberry St', 'Apt 911', '98679', 'Kuala Lumpur', 'KL', 'MLY'),
        (11, '7890 Peach St', NULL, '41542', 'Hanoi', 'HNI', 'VIE'),
        (12, '2345 Lime St', 'Apt 098', '35685', 'Bangkok', 'BKK', 'THA'),
-       (13, '1234 Milk St', 'Apt 445', '12782', 'Tokyo', 'TKY', 'JPN'),
+       (13, '1234 Milk St', NULL, '12782', 'Tokyo', 'TKY', 'JPN'),
        (14, '5678 Rose St', 'Apt 832', '76487', 'Kyoto', 'KYT', 'JPN'),
-       (15, '2345 Daisy St', 'Apt 515', '87443', 'Shanghai', 'SHA', 'DRC');
+       (15, '2345 Daisy St', 'Apt 515', '87443', 'Shanghai', 'SHA', 'DRC'),
+       (1, '2222 Abc St',NULL, '12345', 'Calgary', 'AB', 'CA'),
+       (2, '1114 Hill St', 'Apt 110', '12345', 'New York', 'NY', 'USA');
 
-INSERT INTO `Order` (user_id, ordered_at, payment_method_id, shipping_address_id, total_price, coupon_id, payment_status, paid_at, fulfillment_status, is_cancelled)
-VALUES (1, NOW(), 1, 1, 1000.00, 1, 1, NOW(), 'Shipped', 0),
-       (2, NOW(), 2, 2, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
-       (3, NOW(), 3, 3, 50.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
-       (4, NOW(), 4, 4, 150.00, NULL, 0, NULL, 'In Delivery', 0),
-       (5, NOW(), 5, 5, 1000.00, 1, 1, NOW(), 'Shipped', 0),
-       (6, NOW(), 6, 6, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
-       (7, NOW(), 7, 7, 50.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
-       (8, NOW(), 8, 8, 150.00, NULL, 0, NULL, 'In Delivery', 0),
-       (9, NOW(), 9, 9, 1000.00, 1, 1, NOW(), 'Shipped', 0),
-       (10, NOW(), 10, 10, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
-       (11, NOW(), 11, 11, 50.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
-       (12, NOW(), 12, 12, 150.00, NULL, 0, NULL, 'In Delivery', 0),
-       (13, NOW(), 13, 13, 1000.00, 1, 1, NOW(), 'Shipped', 0),
-       (14, NOW(), 14, 14, 800.00, NULL, 0, NULL, 'Awaits fulfillment', 0),
-       (15, NOW(), 15, 15, 150.00, NULL, 0, NULL, 'In Delivery', 0);
+INSERT INTO `Category` (category_name, description, created_at, is_deleted)
+VALUES ('Fruits', 'Description for fruits', NOW(), 0),
+       ('Vegetables', 'Description for vege', NOW(), 0),
+       ('Snacks', 'Description for snack', NOW(), 0),
+       ('Dairy', 'Description for dairy', NOW(), 0),
+       ('Drinks', 'Description for drinks', NOW(), 0);
+
+
+INSERT INTO `product` (`product_id`, `product_name`, `product_image`, `description`, `price`, `stock_quantity`, `category_id`, `created_at`, `is_deleted`) VALUES
+(1, 'Pokka Green Tea', 0x706f6b6b612e706e67, 'Sweet Green Tea Drink', '2.30', 300, 5, '2023-04-26 23:56:19', 5),
+(2, 'Grapes', 0x6772617065732e706e67, 'Freshly picked', '1.50', 400, 1, '2023-04-23 06:57:36', 1),
+(3, 'Oatside Oat Milk', 0x6f6174736964652e706e67, 'Perfect mix with coffee', '6.70', 200, 4, '2023-04-23 06:57:56', 5),
+(4, 'Spinach', 0x7370696e6163682e706e67, 'Eat your greens', '1.20', 500, 2, '2023-04-23 06:58:18', 2),
+(5, 'Pringles', 0x7072696e676c65732e706e67, 'Potato chips in a tube', '1.10', 0, 3, '2023-04-23 06:58:39', 3),
+(6, 'Korean Strawberry', 0x737472617762657272792e6a706567, 'Sweeter than others', '15.00', 100, 1, '2023-04-26 03:48:17', 1),
+(7, 'Oranges', 0x6f72616e6765732e6a7067, 'Rich in vitamin C', '3.00', 300, 1, '2023-04-27 00:11:57', 1),
+(8, 'Oreo', 0x6f72656f2e706e67, 'Best dipped in milk!', '2.80', 200, 3, '2023-04-26 04:00:29', 3),
+(9, 'Haagen Dazs', 0x68616167656e64617a732e706e67, 'Vanilla Bean Ice Cream', '9.00', 200, 4, '2023-04-28 11:03:39', 4),
+(10, 'Doritos', 0x646f7269746f732e706e67, 'Nacho Cheese Flavour', '1.40', 400, 3, '2023-04-28 11:05:21', 3);
 
 INSERT INTO `coupon` (`coupon_id`, `coupon_name`, `discount`, `min_purchase`, `created_at`, `expired_at`, `is_active`, `coupon_desc`) VALUES
 (1, 'SPRING20', 20, '50.00', '2023-05-01 02:35:38', '2023-05-30 16:00:00', 1, 'Welcome Spring with a bang! Use coupon code SPRING20 at checkout and get 20% off your purchase when you spend $50 or more. Enjoy savings on our wide selection of products and get ready to embrace the new season in style. Hurry, this limited-time offer ends soon! Shop now and don\'t miss out on the chance to save big.'),
@@ -107,9 +97,56 @@ INSERT INTO `user_coupon` (`user_coupon_id`, `coupon_id`, `user_id`, `is_used`, 
 (14, NULL, 14, 0, '2023-05-01 03:00:53'),
 (15, NULL, 15, 0, '2023-05-01 02:54:31');
 
-CREATE TABLE `refund_order` (
-  `refund_order_id` int(11) NOT NULL,
-  `order_id` int(11) DEFAULT NULL,
-  `refund_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `refund_status` int(11) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `Order` (user_id, ordered_at, payment_method_id, shipping_address_id, total_price, coupon_id, payment_status, paid_at, fulfillment_status, is_cancelled)
+VALUES 
+(1, '2023-02-28 10:30:00', 1, 1, 95, NULL, 1, '2023-02-28 10:45:00', 'Delivered', 0),
+(2, '2023-03-04 11:00:00', 2, 2, 4.5, NULL, 1, '2023-03-04 11:12:00', 'Delivered', 0),
+(3, '2023-03-05 12:30:05', 3, 3, 15.4, NULL, 1, '2023-05-01 12:45:00', 'Delivered', 0),
+(4, '2023-03-06 13:00:00', 4, 4, 25.3, NULL, 1, '2023-05-01 13:15:00', 'Delivered', 0),
+(5, '2023-03-12 14:30:20', 5, 5, 140, NULL, 1,'2023-03-12 14:34:20', 'Delivered', 1),
+(6, '2023-03-16 15:00:00', 6, 6, 5.6, NULL, 1, '2023-03-16 15:15:00', 'Delivered', 0),
+(7, '2023-04-01 16:30:00', 7, 7, 150, NULL, 1, '2023-04-01 16:35:00', 'Delivered', 0),
+(8, '2023-04-12 17:00:40', 8, 8, 6.8, NULL, 1, '2023-04-12 17:00:40', 'Delivered', 0),
+(9, '2023-04-12 13:30:00', 9, 9, 360, NULL, 1, '2023-04-12 13:35:00', 'Delivered', 0),
+(10, '2023-04-13 19:00:00', 10, 10, 3.4, NULL, 1, '2023-04-14 19:00:00', 'Delivered', 0),
+(11, '2023-04-21 20:30:10', 11, 11, 21, NULL, 1,'2023-04-22 20:30:10', 'In Delivery', 0),
+(12, '2023-04-25 21:00:00', 12, 12, 59, NULL, 1, '2023-04-28 21:15:00', 'In Delivery', 0),
+(13, '2023-04-27 22:30:00', 13, 13, 6, NULL, 1, '2023-04-28 20:30:10', 'Shipped', 0),
+(14, '2023-05-01 02:30:20', 14, 14, 150, NULL, 0, NULL, 'Awaits fulfillment', 0),
+(15, '2023-05-01 13:30:00', 15, 15, 75.1, NULL, 0, NULL, 'Awaits fulfillment', 0),
+(1, '2023-05-01 14:30:00', 16, 16, 128, 1, 0, NULL, 'Awaits fulfillment', 0),
+(2, '2023-05-01 15:30:00', 17, 17, 36.4, 2, 0, NULL, 'Awaits fulfillment', 0);
+
+INSERT INTO `Order_item` (order_id, product_id, quantity)
+VALUES (1, 3, 14),
+       (1, 4, 1),
+       (2, 2, 3),
+       (3, 1, 2),
+       (3, 2, 2),
+       (3, 3, 1),
+       (3, 5, 1),
+       (4,5,23),
+       (5,10,100),
+       (6,8,2),
+       (7,6,10),
+       (8,1,1),
+       (8,2,3),
+       (9,9,40),
+       (10,8,3),
+       (11,7,14),
+       (12,1,10),
+       (12,7,12),
+       (13,4,5),
+       (14,6,10),
+       (15,2,15),
+       (15,1,2),
+       (15,7,16),
+       (16, 3, 14),
+       (16, 4, 1),
+       (16,6,2),
+       (16,2,2),
+       (17, 1, 2),
+       (17, 2, 2),
+       (17, 3, 1),
+       (17, 5, 1),
+       (17,7,10);
