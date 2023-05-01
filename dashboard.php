@@ -41,44 +41,44 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3"><img src="images/supermarket.png" width="120px" /></div>
+                <div class="sidebar-brand-text mx-3"><img src="images/supermarket.png" width="120px" style="padding:10px; margin-top:-30px"/></div>
             </a>
 
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
+            <li class="nav-item" style="margin-top:-30px">
                 <a class="nav-link" href="dashboard.php" style="background-color: #ebf0f4">
-                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/dashboard_icon.png" width="20px" height="20px;"></i>
+                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:20px;"><img src="images/dashboard_icon.png" width="20px" height="20px;"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Dashboard</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="product.php">
-                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/product_icon.png" width="20px" height="20px"></i>
+                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:20px;"><img src="images/product_icon.png" width="20px" height="20px"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Product</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="order.php">
-                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/order_icon.png" width="20px" height="20px"></i>
+                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:20px;"><img src="images/order_icon.png" width="20px" height="20px"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Order</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="user.php">
-                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/user_icon.png" width="20px" height="20px"></i>
+                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:20px;"><img src="images/user_icon.png" width="20px" height="20px"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">User</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="coupon.php">
-                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/coupon_icon.png" width="20px" height="20px"></i>
+                    <i class="fas fa-fw fa-tachometer-alt" style="margin-left:20px;"><img src="images/coupon_icon.png" width="20px" height="20px"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Coupon</span></a>
             </li>
 
             <li class="nav-item mt-auto">
                 <a class="nav-link" href="admin_profile.php">
-                    <i class="fas fa-fw fa-user" style="margin-left: 30px;"><img src="admin.jpeg" width="20px" height="20px"></i>
+                    <i class="fas fa-fw fa-user" style="margin-left: 20px;"><img src="admin.jpeg" width="20px" height="20px"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Admin Profile</span>
                 </a>
             </li>
@@ -106,8 +106,8 @@
 
                     <!-- Content Row -->
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
+                        <div class="row" style="margin-left:-30px; margin-right:-30px">
+                            <div class="col-xl-4 col-md-6 col-sm-12 mb-4" >
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                 <div class="row no-gutters align-items-center" style="float:left; margin-left:10px">
@@ -170,7 +170,7 @@
                             </div>
                             </div>
                             <div class="col-xl-4 col-md-12 col-sm-12 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card border-left-info shadow h-100 py-2" >
                                 <div class="card-body">
                                 <div class="row no-gutters align-items-center" style="float:left; margin-left:10px">
                                     <div class="col mr-2">
@@ -220,20 +220,7 @@
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary" style="font-family: DM Sans;">Orders Reports</h6>
-                                    <!-- <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div> -->
+                 
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
@@ -266,7 +253,7 @@
                                         <div class="container">
                                             <!-- <h2>Total Orders per Month</h2> -->
                                             <div>
-                                                <canvas id="myChart" ></canvas>
+                                                <canvas id="myChart" height="52%"></canvas>
                                             </div>
                                         </div>
                                         </div>
@@ -334,7 +321,7 @@
                                 <div class="card-body">
                                 <div class="phppot-container">
                                     <div>
-                                        <canvas id="chartjs-doughnut" height="61" width="70" style="margin-top:-30px; font-family:DM Sans"></canvas>
+                                        <canvas id="chartjs-doughnut" height="62" width="70" style="margin-top:-30px;"></canvas>
                                     </div>
                                 </div>
 
@@ -413,7 +400,7 @@
                                                     <th style='font-family: DM Sans; color:#06152B;'>User ID</th>
                                                     <!-- <th>Payment Status</th>
                                                     <th>Fulfillment Status</th> -->
-                                                    <th style='font-family: DM Sans; color:#06152B; font-size:12px'>Total</th>
+                                                    <th style='font-family: DM Sans; color:#06152B;'>Total</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -434,7 +421,7 @@
                                                         echo "<td style='font-family: DM Sans; color:#06152B; text-align:left'>".'#'.$row['user_id']."</td>";
                                                         // if($row['payment_status'] == 1) echo "<td>"."Paid"."</td>"; else echo "<td>"."Unpaid"."</td>";
                                                         // echo "<td>".$row['fulfillment_status']."</td>";
-                                                        echo "<td style='font-family: DM Sans; color:#06152B; font-size:13px; text-align:left'>".'$'.$row['total_price']."</td>";
+                                                        echo "<td style='font-family: DM Sans; color:#06152B; text-align:left'>".'$'.$row['total_price']."</td>";
                                                         echo "</tr>";
                                                         $i ++;
                                                     } else {

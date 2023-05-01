@@ -134,7 +134,7 @@
                                 <?php
                                 
                                 $style = '<tr style="height:80px;">';
-                                $textStyle = '<td style="font-family: DM Sans; color:#06152B; vertical-align: middle;">';
+                                $textStyle = '<td style="font-family: DM Sans; color:#06152B; vertical-align: middle; font-weight:normal">';
                                 $imageStyle = '<td style="color:#06152B; vertical-align: middle; padding-bottom:25px">';
                                 include("index-category.php");
                                 while($row = $query->fetch_array()){
