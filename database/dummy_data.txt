@@ -89,3 +89,27 @@ INSERT INTO `coupon` (`coupon_id`, `coupon_name`, `discount`, `min_purchase`, `c
 (3, 'FALL10', 10, '0.00', '2023-05-01 02:35:38', '2023-11-29 16:00:00', 1, 'Fall is finally here, and so are the savings! Use coupon code FALL10 at checkout and get 10% off your purchase - no minimum required. Shop our latest collection of cozy sweaters, stylish boots, and other fall favorites and save on everything you need to look your best this season. Don\'t miss out on this limited-time offer! Shop now and take advantage of the savings while you can.'),
 (4, 'WINTER25', 25, '200.00', '2023-05-01 02:35:38', '2024-02-27 16:00:00', 0, 'Baby, it\'s cold outside - but our Winter Sale is just heating up! Use coupon code WINTER25 at checkout and get 25% off your purchase when you spend $200 or more. Shop our cozy collection of winter essentials, from warm jackets to soft scarves, and save big on everything you need to stay stylish and snug all season long. Hurry - this offer won\'t last forever! Shop now and take advantage of the savings while you can.'),
 (5, 'FIRST10', 10, '0.00', '2023-05-01 02:35:38', '2024-12-31 16:00:00', 1, 'Welcome to our community! Use coupon code FIRST10 at checkout and get 10% off your first purchase. Whether you\'re looking for stylish apparel or trendy accessories, our online store has everything you need to elevate your style. Don\'t miss out on this exclusive offer - shop now and take advantage of the savings.');
+
+INSERT INTO `user_coupon` (`user_coupon_id`, `coupon_id`, `user_id`, `is_used`, `obtained_at`) VALUES
+(1, 1, 1, 1, '2023-05-01 02:56:56'),
+(2, NULL, 2, 0, '2023-05-01 02:59:43'),
+(3, NULL, 3, 0, '2023-05-01 03:00:17'),
+(4, NULL, 4, 0, '2023-05-01 03:00:21'),
+(5, 4, 5, 1, '2023-05-01 02:57:21'),
+(6, NULL, 6, 0, '2023-05-01 03:00:29'),
+(7, NULL, 7, 0, '2023-05-01 03:00:36'),
+(8, NULL, 8, 0, '2023-05-01 02:54:31'),
+(9, 2, 9, 1, '2023-05-01 02:57:47'),
+(10, NULL, 10, 0, '2023-05-01 03:00:41'),
+(11, NULL, 11, 0, '2023-05-01 03:00:47'),
+(12, NULL, 12, 0, '2023-05-01 02:54:31'),
+(13, 5, 13, 1, '2023-05-01 02:58:11'),
+(14, NULL, 14, 0, '2023-05-01 03:00:53'),
+(15, NULL, 15, 0, '2023-05-01 02:54:31');
+
+CREATE TABLE `refund_order` (
+  `refund_order_id` int(11) NOT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  `refund_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `refund_status` int(11) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
