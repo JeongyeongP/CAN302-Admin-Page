@@ -150,3 +150,10 @@ VALUES (1, 3, 14),
        (17, 3, 1),
        (17, 5, 1),
        (17,7,10);
+       
+INSERT INTO `user_regist` (`user_id`, `first_name`, `last_name`, `email`, `password`, `is_admin`) VALUES
+(1, 'John', 'Doe', 'john.doe@example.com', '482c811da5d5b4bc6d497ffa98491e38', 1),
+(2, 'Jane', 'Doe', 'jane.doe@example.com', 'b29d2953c56077a5ef8b2ad193ec240f', 0),
+(3, 'Mark', 'Smith', 'mark.smith@example.com', '7d347cf0ee68174a3588f6cba31b8a67', 0),
+(4, 'Tinker', 'Bell', 'tinker.bell@example.com', '7c6a180b36896a0a8c02787eeafb0e4c', 1),
+(5, 'Jack', 'Sparrow', 'jack.sparrow@example.com', '482c811da5d5b4bc6d497ffa98491e38', 0);
