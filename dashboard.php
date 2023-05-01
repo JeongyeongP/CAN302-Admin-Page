@@ -100,8 +100,8 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-3 text-gray-800 mt-4" style="margin-bottom: 1rem;">Dashboard</h1>
                     <br/>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
                     </div>
 
                     <!-- Content Row -->
@@ -113,7 +113,7 @@
                                 <div class="row no-gutters align-items-center" style="float:left; margin-left:10px">
                                     <div class="col mr-2">
                                     <div style="font-family: DM Sans; color: #828a95;">
-                                        Total Sales (Monthly)
+                                        Total Sales (Annual)
                                     </div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
                                         <?php
@@ -145,7 +145,7 @@
                                 <div class="row no-gutters align-items-center" style="float:left; margin-left:10px">
                                     <div class="col mr-2">
                                     <div style="font-family: DM Sans; color: #828a95;">
-                                        Total Orders (Monthly)
+                                        Total Orders (Annual)
                                     </div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
                                         <?php
@@ -241,7 +241,7 @@
                                         <!-- <title>Total Orders per Month</title> -->
                                         <style>
                                             .container {
-                                                width: 70%;
+                                                width: 78%;
                                                 margin: -2px auto;
                                                 margin-left: -20px auto;
                                             }
@@ -258,18 +258,18 @@
                                             }
                                             #myChart {
                                                 width: 100px;
-                                                height: 300px; /* Adjust this value to your desired height */
+                                                height: 300px;
                                             }  
                                             
                                         </style>
-                                    <body>
+                                    <div>
                                         <div class="container">
                                             <!-- <h2>Total Orders per Month</h2> -->
                                             <div>
                                                 <canvas id="myChart" ></canvas>
                                             </div>
                                         </div>
-                                    </body>
+                                        </div>
 
                                     <script>
                                         $(document).ready(function(){
@@ -383,9 +383,6 @@
                                             });
                                         });
                                     </script>
-
-                                
-                               
                                         
                                 </div>
                             </div>
