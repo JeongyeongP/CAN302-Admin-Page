@@ -38,29 +38,28 @@
           
             <div class="d-flex align-items-center px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
-              <form class="width: 23rem; user justify-content-center" action="config.php" method="POST">
+              <form class="width: 23rem; user justify-content-center" action="" method="POST">
     
                   <h1 class="h4 text-gray-900 mb-4 font-weight-bold">Register an Account!</h1>
     
-                  <div class="form-group mb-4">
-                    <input type="first_name" id="first_name" name="first_name" placeholder="First Name" class="form-control form-control-lg" />
-                  </div>
+          
+                    <input type="first_name" id="first_name" name="first_name" required placeholder="First Name" class="form-control form-control-lg" />
+             
 
-                  <div class="form-group mb-4">
-                    <input type="last_name" id="last_name" name="last_name" placeholder="Last Name" class="form-control form-control-lg" />
-                  </div>
+          
+                    <input type="last_name" id="last_name" name="last_name" required placeholder="Last Name" class="form-control form-control-lg" />
+               
 
-                  <div class="form-group mb-4">
-                    <input type="email" id="email" name="email" placeholder="Email Address" class="form-control form-control-lg" />
-                  </div>
+     
+                    <input type="email" id="email" name="email"  required placeholder="Email Address" class="form-control form-control-lg" />
+    
+                      <input type="password" id="password" name="password" required placeholder="Password" class="form-control form-control-lg" />
+          
 
-                  <div class="form-group mb-4">
-                      <input type="password" id="password" name="password" placeholder="Password" class="form-control form-control-lg" />
-                  </div>
-
-                  <div class="form-group mb-4">
-                    <input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password" class="form-control form-control-lg" />
-                  </div>
+         
+                    <input type="password" id="cpassword" name="cpassword" required placeholder="Confirm Password" class="form-control form-control-lg" />
+                    <input type="tel" id="phone" name="phone" required placeholder="Phone Number" class="form-control form-control-lg" />
+            
 
                   <!--Select type of user-->
                   <div>
@@ -70,13 +69,13 @@
                     </select>
                   </div>
       
-                  <div class="pt-1 mb-4">
-                      <button class="btn btn-info btn-lg btn-block" name="reg_user" type="button">Register</button>
-                  </div>
+              
+                      <button class="btn btn-info btn-lg btn-block" name="reg_user" id="reg_user" type="submit">Register</button>
+                
 
                   <div class="text-center">
                       Already have an account?
-                      <a href="login_page.php" class="register-link"> Login here! </a>
+                      <a href="login.php" class="register-link"> Login here! </a>
                   </div>
     
               </form>

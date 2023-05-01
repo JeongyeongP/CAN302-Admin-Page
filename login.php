@@ -35,28 +35,32 @@
 
           <!-- Right -->
             <div class="d-flex align-items-center px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
-              <form class="width: 23rem; user justify-content-center">
+              <form class="width: 23rem; user justify-content-center"  method="POST">
                   <h1 class="h4 text-gray-900 mb-4 font-weight-bold">Welcome!</h1>
                   
                   <!-- Email -->
                   <div class="form-group mb-4">
-                      <input type="email" id="email" placeholder="Email Address" class="form-control form-control-lg" />
+                      <input type="email" id="email" required placeholder="Email Address" class="form-control form-control-lg" />
                   </div>
                   <!-- Password -->
                   <div class="form-group mb-4">
-                      <input type="password" id="password" placeholder="Password" class="form-control form-control-lg" />
+                      <input type="password" id="password" required placeholder="Password" class="form-control form-control-lg" />
                   </div>
                   <p class="small text-right"><a class="text-muted" href="#">Forgot password?</a></p>
                   <!-- Login Button -->
                   <div class="pt-1 mb-4">
-                    <a href="#" class="btn btn-info btn-lg btn-block" name="login_user" >
+                    <!-- <a href="#" class="btn btn-info btn-lg btn-block" name="login_user" >
                       Login
-                  </a>
+
+
+                  </a> -->
+
+                  <button class="btn btn-info btn-lg btn-block" name="login_user" id="login_user" type="submit"><a href="dashboard.php">Login</a></button>
                   </div>
                   <!-- Register Account -->
                   <div class="text-center">
                       You don't have an account?
-                      <a href="register_page.php" class="register-link"> Register here! </a>
+                      <a href="register.php" class="register-link"> Register here! </a>
                   </div>
               </form>
             </div>    
