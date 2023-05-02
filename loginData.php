@@ -84,19 +84,31 @@ if (isset($_POST['reg_user'])) {
 
 // LOGIN USER
 if (isset($_POST['login_user'])) {
+    session_start();
 
-
-  $password = md5($password);
-  $query = "select * from user where user_email='$email' and password='$password'";
-  $results = mysqli_query($conn, $query);
-  if (mysqli_num_rows($results) == 1) {
-    $_SESSION['email'] = $email;
-    $_SESSION['success'] = "You are now logged in";
-    header('location: dashboard.php');
-  } else {
-    $error = "Your Login Name or Password is invalid";
-  }
-
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $query = "SELECT * FROM user WHERE user_email='$email'";
+    $result = mysqli_query($conn, $query);
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        if ($row['password']==$password && $row['is_admin']==1) {
+            print("password check");
+            $_SESSION['email'] = $email;
+            $_SESSION['success'] = "You are now logged in";
+            header('location: dashboard.php');
+        } elseif($row['password']==$password && $row['is_admin']==0){
+            $error = "You have no right to access admin page!";
+            print($error);
+        }
+        else {
+            $error = "Your Password is incorrect!";
+            print($error);
+        }
+    } else {
+    $error = "Your Email doesn't exist! Please Register first!";
+    print($error);
+    }
   
 
   // $email = mysqli_real_escape_string($conn, $_POST['email']);

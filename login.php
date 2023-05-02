@@ -38,16 +38,16 @@
               <h1 class="h4 text-gray-900 mb-4 font-weight-bold" style="text-align:center">Welcome!</h1>
               <!-- Email -->
               <div class="form-group mb-4">
-                <input type="email" id="email" required placeholder="Email Address" class="form-control form-control-lg" />
+                <input type="email" name="email" id="email" required placeholder="Email Address" class="form-control form-control-lg" />
               </div>
               <!-- Password -->
               <div class="form-group mb-4">
-                <input type="password" id="password" required placeholder="Password" class="form-control form-control-lg" />
+                <input type="password" name="password" id="password" required placeholder="Password" class="form-control form-control-lg" />
               </div>
               <p class="small text-right"><a class="text-muted" href="#">Forgot password?</a></p>
               <!-- Login Button -->
               <div class="pt-1 mb-4">
-                <button class="btn btn-info btn-lg btn-block" style="background-color: #96A1FE; color: white;" name="login_user" id="login_user" type="submit"><a href="dashboard.php">Login</a></button>
+                <button class="btn btn-info btn-lg btn-block" style="background-color: #96A1FE; color: white;" name="login_user" id="login_user" type="submit">Login</button>
               </div>
               <!-- Register Account -->
               <div class="text-center">
