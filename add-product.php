@@ -110,19 +110,19 @@
                             <form class="form-inline" role="form" action="product.php" method="post" enctype="multipart/form-data">
 
                             <label for="name" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Product Name </label>
-                            <input class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="name" name="name">
+                            <input required class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="name" name="name">
                             </br></br>
 
                             <label for="description" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Description </label>
-                            <input class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" name="description">         
+                            <input required class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" name="description">         
                             </br></br>
                         
                             <label for="price" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Price ($)</label>
-                            <input class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="price" name="price">         
+                            <input required class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="price" name="price">         
                             </br></br>
 
                             <label for="stock" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Stock </label>
-                            <input class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="stock" name="stock">         
+                            <input required class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="stock" name="stock">         
                             </br></br>
 
                         </div>
@@ -141,7 +141,7 @@
                                 $style = " style='font-family: DM Sans; color:#06152B; padding:12px'> ";
                                 $sql = "select category_id, category_name from category";
                                 $result = $con->query($sql);
-                                echo "<select multiple name='category' id='category' style='font-family: DM Sans; color:#06152B; width:100%; height:300px; padding: 10px; background-color:#f7f6f8; border-radius:10px; border: 0px;'>";
+                                echo "<select multiple name='category' id='category' style='font-family: DM Sans; color:#06152B; width:100%; height:300px; padding: 10px; background-color:#f7f6f8; border-radius:10px; border: 0px;' required>";
                                 if ($result->num_rows > 0) {
                                     while($row = $result->fetch_assoc()) {
                                         echo "<option value='' disabled selected hidden>Select Product Category</option>";
@@ -160,7 +160,7 @@
 
                         <div style="float:right;width:70%;">
 
-                            <input type="file" accept="image/*" onchange="loadFile(event)" id="uploadfile" name="uploadfile" value="<?= $uploadfile ?>" style="margin-left:100px; vertical-align:top;">
+                            <input required type="file" accept="image/*" onchange="loadFile(event)" id="uploadfile" name="uploadfile" value="<?= $uploadfile ?>" style="margin-left:100px; vertical-align:top;">
                                 
                                 <img id="output" style="width=250px; height:250px; margin-left:-300px; margin-top:50px" src="images/add_image.png"/>
                                 <script>
