@@ -58,7 +58,7 @@
             </li>
             <!-- Admin Profile -->
             <li class="nav-item mt-auto">
-               <a class="nav-link" href="admin_profile.php">
+               <a class="nav-link" href="profile.html">
                <i class="fas fa-fw fa-user" style="margin-left: 30px;"><img src="admin.jpeg" width="30px" height="30px"></i>
                <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Admin Profile</span>
                </a>
@@ -152,6 +152,7 @@
       <a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
       </a>
+<<<<<<< HEAD
       <!-- Logout Modal-->
       <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
@@ -171,5 +172,8 @@
             </div>
          </div>
       </div>
+=======
+      
+>>>>>>> 3c27fbc5ae513fae8d1403108a31e625332791d3
    </body>
 </html>

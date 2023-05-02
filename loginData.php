@@ -21,7 +21,8 @@ $email = mypost('email');
 $password = mypost('password');
 $cpassword = mypost('cpassword');
 $phone = mypost('phone');
-// REGISTER USER
+
+// User Registration
 if (isset($_POST['reg_user'])) {
 
   
@@ -44,45 +45,9 @@ if (isset($_POST['reg_user'])) {
   
   }
 
-  // form validation: ensure that the form is correctly filled ...
-  // by adding (array_push()) corresponding error unto $errors array
-  // if (empty($first_name)) { array_push($errors, "First name is required");}
-  // if (empty($last_name)) { array_push($errors, "Last name is required"); }
-  // if (empty($email)) { array_push($errors, "Email is required"); }
-  // if (empty($password)) { array_push($errors, "Password is required"); }
-  // if ($password != $cpassword) {
-	//   array_push($errors, "The two passwords do not match");
-  // }
-
-  // // first check the database to make sure 
-  // // a user does not already exist with the same email
-  // $user_check_query = "SELECT * FROM user WHERE email='$email' LIMIT 1";
-  // $result = mysqli_query($conn, $user_check_query);
-  // $user = mysqli_fetch_assoc($result);
-  
-  // if ($user) { // if user exists
-  //   if ($user['email'] === $email) {
-  //     array_push($errors, "Email already exists");
-  //   }
-  // }
-
-  // // Finally, register user if there are no errors in the form
-  // if (count($errors) == 0) {
-  // 	$password = md5($password);//encrypt the password before saving in the database
-
-  // 	$query = "insert into user (`user_id`, `user_email`, `first_name`, `last_name`, `password`) values('0', '$email', '$first_name', '$last_name', '$password')";
-  //   mysqli_query($conn, $query);
-  // 	// if (mysqli_query($conn, $query)){
-  //   //   $_SESSION['email'] = $email;
-  //   //   $_SESSION['success'] = "Please Log In!";
-  //   //   header('location: login_page.php');
-  //   // }
-
-
-  // }
 }
 
-// LOGIN USER
+// User Login
 if (isset($_POST['login_user'])) {
     session_start();
 
@@ -110,30 +75,6 @@ if (isset($_POST['login_user'])) {
     $error = "Your Email doesn't exist! Please Register first!";
     print($error);
     }
-  
-
-  // $email = mysqli_real_escape_string($conn, $_POST['email']);
-  // $password = mysqli_real_escape_string($conn, $_POST['password']);
-
-  // if (empty($email)) {
-  // 	array_push($errors, "Email is required");
-  // }
-  // if (empty($password)) {
-  // 	array_push($errors, "Password is required");
-  // }
-
-  // if (count($errors) == 0) {
-  // 	$password = md5($password);
-  // 	$query = "SELECT * FROM user_regist WHERE email='$email' AND password='$password'";
-  // 	$results = mysqli_query($conn, $query);
-  // 	if (mysqli_num_rows($results) == 1) {
-  // 	  $_SESSION['email'] = $email;
-  // 	  $_SESSION['success'] = "You are now logged in";
-  // 	  header('location: dashboard.php');
-  // 	}else {
-  // 		array_push($errors, "Wrong username/password combination");
-  // 	}
-  // }
 }
 
 ?>

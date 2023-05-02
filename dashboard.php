@@ -77,7 +77,7 @@
             </li>
 
             <li class="nav-item mt-auto">
-                <a class="nav-link" href="admin_profile.php">
+                <a class="nav-link" href="profile.html">
                     <i class="fas fa-fw fa-user" style="margin-left: 20px;"><img src="admin.jpeg" width="20px" height="20px"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Admin Profile</span>
                 </a>
@@ -100,8 +100,7 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-3 text-gray-800 mt-4" style="margin-bottom: 1rem;">Dashboard</h1>
                     <br/>
-                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+ 
                     </div>
 
                     <!-- Content Row -->
@@ -191,12 +190,7 @@
                                         mysqli_close($con);
                                         ?>   </div>
                                         </div>
-                                        <!-- <div class="col">
-                                        <div class="progress progress-sm mr-2">
-                                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        </div> -->
+                                   
                                     </div>
                                     </div>
                                     <div class="col-auto">
@@ -412,15 +406,10 @@
 
                                                     if ($i < 6){
                                         
-                                                  
-                                                        // echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '\';">';
                                                         echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '&user_id=' . $row['user_id'] . '\';">';
-                                                        // echo "<tr>";
                                                         echo "<td style='font-family: DM Sans; color:#06152B; text-align:left'>".'#'.$row['order_id']."</td>";
                                                         echo "<td style='font-family: DM Sans; color:#06152B; text-align:left'>".$row['ordered_at']."</td>";
                                                         echo "<td style='font-family: DM Sans; color:#06152B; text-align:left'>".'#'.$row['user_id']."</td>";
-                                                        // if($row['payment_status'] == 1) echo "<td>"."Paid"."</td>"; else echo "<td>"."Unpaid"."</td>";
-                                                        // echo "<td>".$row['fulfillment_status']."</td>";
                                                         echo "<td style='font-family: DM Sans; color:#06152B; text-align:left'>".'$'.$row['total_price']."</td>";
                                                         echo "</tr>";
                                                         $i ++;
