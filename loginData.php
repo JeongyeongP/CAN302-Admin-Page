@@ -88,6 +88,7 @@ if (isset($_POST['login_user'])) {
 
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = md5($password);
     $query = "SELECT * FROM user WHERE user_email='$email'";
     $result = mysqli_query($conn, $query);
     if (mysqli_num_rows($result) == 1) {
