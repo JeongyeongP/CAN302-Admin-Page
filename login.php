@@ -1,4 +1,4 @@
-<?php include('config.php')?>
+<?php include('loginData.php')?>
 
 <!DOCTYPE html>
 <html lang="en">
