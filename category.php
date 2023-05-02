@@ -74,7 +74,7 @@
             <!-- Admin Profile -->
             <li class="nav-item mt-auto">
                 <a class="nav-link" href="profile.html">
-                    <i class="fas fa-fw fa-user" style="margin-left: 30px;"><img src="admin.jpeg" width="30px" height="30px"></i>
+                    <i class="fas fa-fw fa-user" style="margin-left: 30px;"><img src="images/admin.jpeg" width="20px" height="20px"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Admin Profile</span>
                 </a>
             </li>
@@ -141,8 +141,8 @@
 
                                     $category_id = $row['category_id'];
                             
-                                    $edit='<a target="_blank" href="edit-category.php?category_id='.urlencode($category_id).'"> <img src="edit.png" width="15" height="15" id="edit" name="edit"/></a>';
-                                    $delete='<a href="index-category.php?id='.urlencode($category_id).'" name="id" id="id" value="id" > <img src="delete.png" width="15" height="15"/> </a>';
+                                    $edit='<a target="_blank" href="edit-category.php?category_id='.urlencode($category_id).'"> <img src="images/edit.png" width="15" height="15" id="edit" name="edit"/></a>';
+                                    $delete='<a href="index-category.php?id='.urlencode($category_id).'" name="id" id="id" value="id" > <img src="images/delete.png" width="15" height="15"/> </a>';
                                     echo $style;
                                     echo "<td>";
                                     echo $textStyle.'#  '.$row['category_id']."</td>";

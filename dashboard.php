@@ -77,8 +77,8 @@
             </li>
 
             <li class="nav-item mt-auto">
-                <a class="nav-link" href="profile.html">
-                    <i class="fas fa-fw fa-user" style="margin-left: 20px;"><img src="admin.jpeg" width="20px" height="20px"></i>
+                <a class="nav-link" href="admin_profile.php">
+                    <i class="fas fa-fw fa-user" style="margin-left: 20px;"><img src="images/admin.jpeg" width="20px" height="20px"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Admin Profile</span>
                 </a>
             </li>
@@ -190,7 +190,7 @@
                                         mysqli_close($con);
                                         ?>   </div>
                                         </div>
-                                   
+                              
                                     </div>
                                     </div>
                                     <div class="col-auto">
@@ -247,7 +247,7 @@
                                         <div class="container">
                                             <!-- <h2>Total Orders per Month</h2> -->
                                             <div>
-                                                <canvas id="myChart" height="52%"></canvas>
+                                                <canvas id="myChart" height="154"></canvas>
                                             </div>
                                         </div>
                                         </div>
@@ -406,10 +406,15 @@
 
                                                     if ($i < 6){
                                         
+                                                  
+                                                        // echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '\';">';
                                                         echo '<tr onclick="window.location=\'order-details.php?order_id=' . $row['order_id'] . '&user_id=' . $row['user_id'] . '\';">';
+                                                        // echo "<tr>";
                                                         echo "<td style='font-family: DM Sans; color:#06152B; text-align:left'>".'#'.$row['order_id']."</td>";
                                                         echo "<td style='font-family: DM Sans; color:#06152B; text-align:left'>".$row['ordered_at']."</td>";
                                                         echo "<td style='font-family: DM Sans; color:#06152B; text-align:left'>".'#'.$row['user_id']."</td>";
+                                                        // if($row['payment_status'] == 1) echo "<td>"."Paid"."</td>"; else echo "<td>"."Unpaid"."</td>";
+                                                        // echo "<td>".$row['fulfillment_status']."</td>";
                                                         echo "<td style='font-family: DM Sans; color:#06152B; text-align:left'>".'$'.$row['total_price']."</td>";
                                                         echo "</tr>";
                                                         $i ++;
@@ -520,13 +525,13 @@
             </div>
         </div>
     </div>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
+    
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
 
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 
