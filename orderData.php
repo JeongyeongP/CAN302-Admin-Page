@@ -30,6 +30,12 @@ if (isset($_POST['search_order'])) {
             WHERE `order_id` = $order_id and `is_cancelled` != 1
             ORDER BY ordered_at DESC";
     $query = mysqli_query($con,$sql);
+    if (empty($order_id)){
+        $sql = "SELECT * FROM `Order` 
+        WHERE `is_cancelled` != 1
+        ORDER BY ordered_at DESC";
+        $query = mysqli_query($con,$sql);       
+    }
 }
 else {
     $sql = "SELECT * FROM `Order` 
