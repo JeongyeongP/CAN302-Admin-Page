@@ -54,6 +54,12 @@
   outline: none;
 }
 
+.button-16:active {
+  background-color: #333333;
+  border-color: #cccccc;
+  color: #ffffff;
+}
+
 /* CSS for style button Delete*/
 .button-17 {
   background-color: #f8ebeb;

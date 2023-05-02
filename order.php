@@ -74,7 +74,7 @@
                   <!-- Page Heading -->
                   <h1 class="h3 mb-3 text-gray-800 mt-4" style="margin-bottom: 1rem;">Order</h1>
                   <div class="button-container" style="margin-bottom: 1rem;">
-                     <button class="button-16" role="button" onclick="window.location.href='order.php';">Order List</button>
+                     <button class="button-16" style="background-color: #333333; color: white;" role="button" onclick="window.location.href='order.php';">Order List</button>
                      <button class="button-16" role="button" onclick="window.location.href='refund-order.php';">Refund List</button>    
                   </div>
                   <!-- Order -->   
