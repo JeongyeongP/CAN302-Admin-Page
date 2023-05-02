@@ -98,6 +98,123 @@ if (isset($_POST['cancel'])) {
     }
 }
 
+// Edit Payment Method
+// if (isset($_POST['edit_pay'])) {
+//     $user_id = $_GET['user_id'];
+//     $sql = "SELECT * FROM Payment_Method WHERE user_id = $user_id";
+//     $query_pay = mysqli_query($con,$sql); 
+//     if (mysqli_num_rows($query_pay) == 1){
+//         echo "<script>alert('User only has one payment method!.')</script>";
+//     } 
+   
+// }
+
+// if (isset($_POST['edit_pay'])) {
+//     $user_id = $_GET['user_id'];
+//     $sql = "SELECT * FROM Payment_method WHERE user_id = $user_id";
+//     $query_pay = mysqli_query($con,$sql); 
+//     if (mysqli_num_rows($query_pay) == 0){
+//         echo "<script>alert('User has no payment methods!')</script>";
+//     } else if (mysqli_num_rows($query_pay) == 1){
+//         echo "<script>alert('User only has one payment method!')</script>";
+//     } else{
+//         echo "<div class='floating-pop-up'>";
+//         echo "<form method='post' action='process_payment.php'>";
+//         while ($row = mysqli_fetch_assoc($query_pay)) {
+//             $payment_method_id = $row['payment_method_id'];
+//             $card_number = $row['card_number'];
+//             $card_type = $row['card_type'];
+//             $expired_at = $row['expired_at'];
+//             echo "<label><input type='radio' name='payment_method_id' value='$payment_method_id' required> $card_type ending in **** **** **** " . substr($card_number, -4) . ", expires on " . date('m/Y', strtotime($expired_at)) . "</label><br>";
+//         }
+//         echo "<button type='submit' id='new_pay' name='new_pay' value='new_pay'>Select Payment Method</button>";
+//         echo "</form>";
+//         echo "</div>";
+//     }
+// }
+
+
+
+//Edit Payment Method
+if (isset($_POST['edit_pay'])) {
+     $user_id = $_GET['user_id'];
+    $order_id = $_GET['order_id'];
+    $sql = "SELECT * FROM Payment_method WHERE user_id = $user_id";
+    $query_pay = mysqli_query($con,$sql); 
+   
+
+        echo "<div class='floating-pop-up'>";
+        echo "<form method='post' action='order-details.php?order_id=$order_id&user_id=$user_id'>";
+        while ($row = mysqli_fetch_assoc($query_pay)) {
+            $payment_method_id = $row['payment_method_id'];
+            $card_number = $row['card_number'];
+            $card_type = $row['card_type'];
+            $expired_at = $row['expired_at'];
+            echo "<label><input type='radio' name='payment_method_id' value='$payment_method_id' required> $card_type ending in **** **** **** " . substr($card_number, -4) . ", expires on " . date('m/Y', strtotime($expired_at)) . "</label><br>";
+        }
+        echo "<button class='button-16' type='submit' id='new_pay' name='new_pay' value='new_pay'>Select Payment Method</button>";
+        echo "</form>";
+        echo "</div>";
+    
+}
+
+//Update Payment Info
+if (isset($_POST['new_pay'])) {
+    $user_id = $_GET['user_id'];
+    $payment_method_id = $_POST['payment_method_id'];
+    
+    // Update the Order table
+    $order_id = $_GET['order_id'];
+    $sql = "UPDATE `Order` SET `payment_method_id` = $payment_method_id WHERE `order_id` = $order_id";
+    $result = mysqli_query($con, $sql);
+}
+
+//Edit Shipping Address 
+if (isset($_POST['edit_add'])) {
+   
+    $user_id = $_GET['user_id'];
+    $order_id = $_GET['order_id'];
+    $sql = "SELECT * FROM Shipping_Address WHERE user_id = $user_id";
+    $query_pay = mysqli_query($con,$sql); 
+    
+        echo "<div class='floating-pop-up'>";
+        echo "<form method='post' action='order-details.php?order_id=$order_id&user_id=$user_id'>";
+       while ($row = mysqli_fetch_assoc($query_pay)) {
+    $shipping_address_id = $row['shipping_address_id'];
+    $address_line1 = $row['address_line1'];
+    $address_line2 = $row['address_line2'];
+    $postal_code = $row['postal_code'];
+    $city = $row['city'];
+    $state = $row['state'];
+    $country = $row['country'];
+    
+    $label_text = "Shipping to: $address_line1";
+    if (!empty($address_line2)) {
+        $label_text .= ", $address_line2";
+    }
+    $label_text .= ", $city, $state $postal_code, $country";
+
+    echo "<label><input type='radio' name='shipping_address_id' value='$shipping_address_id' required> $label_text</label><br>";
+}
+        echo "<button class='button-16' type='submit' id='new_add' name='new_add' value='new_add'>Select Shipping Address</button>";
+        echo "</form>";
+        echo "</div>";
+ 
+}
+
+//Update Address Info
+if (isset($_POST['new_add'])) {
+    $user_id = $_GET['user_id'];
+    $shipping_address_id= $_POST['shipping_address_id'];
+    
+    // Update the Order table
+    $order_id = $_GET['order_id'];
+    $sql = "UPDATE `Order` SET `shipping_address_id` = $shipping_address_id WHERE `order_id` = $order_id";
+    $result = mysqli_query($con, $sql);
+}
+
+
+
 if (isset($_GET['order_id'])){
     $order_id = $_GET['order_id'];
     $sql = "SELECT o.*, pm.*, sa.*

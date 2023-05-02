@@ -171,13 +171,6 @@
                                  
                                  $image= "<img width='80' height='80' src='images/".$row['product_image']."'>";   
                                  echo "<tr>";
-                                 // $imageBlob = $row['product_image'];
-                                 
-                                 // // Convert the binary data to base64 encoding
-                                 // $imageBase64 = base64_encode($imageBlob);
-                                 
-                                 // // Create the data URI for the PNG image
-                                 // $imageDataURI = 'data:image/png;base64,' . $imageBase64;
                                  
                                  // Output the div element with the background image
                                  echo "<td>";
@@ -322,7 +315,31 @@
                               $query1->data_seek(0);
                                  ?>
                         </div>
-                        <button class="button-18" style="margin-right: 10px;" type="submit" id="delete" name="delete" value="delted"> <span class="button-icon"></span>   Edit</button>
+                        <?php
+                           $order_id = $_GET['order_id'];
+                           $user_id = $_GET['user_id'];
+
+                           // Check payment status
+                           $sql_order = "SELECT * FROM `Order` WHERE `order_id` = $order_id";
+                           $result_order = mysqli_query($con, $sql_order);
+                           if ($row_order = mysqli_fetch_assoc($result_order)) {
+                              if ($row_order['payment_status'] == 0) {
+                                 // Check number of payment methods for the user
+                                 $sql_payment = "SELECT COUNT(*) as num_methods FROM Payment_method WHERE `user_id` = $user_id";
+                                 $result_payment = mysqli_query($con, $sql_payment);
+                                 $row_payment = mysqli_fetch_assoc($result_payment);
+                                 if ($row_payment['num_methods'] > 1) {
+                                       // Display the Edit Payment button
+                                       echo "<form action='edit-payment.php?" . http_build_query(array('user_id' => $user_id, 'order_id' => $order_id)) . "' method='post'>";
+                                       echo "<button class='button-18' style='margin-right: 10px;' type='submit' id='edit_pay' name='edit_pay' value='edit_pay'>";
+                                       echo "<span class='button-icon'></span> <span style='margin-left: 5px;'>Edit</span>";
+                                       echo "</button>";
+                                       echo "</form>";
+                                 } 
+
+                              } 
+                           }
+                           ?>
                      </div>
                      <div class="card-body">
                         <table>
@@ -333,35 +350,29 @@
                                        echo "<span style='margin-right: 450px;'>".$row['payment_method_id']."</span>";   
                                     }
                                     $query1->data_seek(0);
-                                    ?>
+                                  ?>
                               </td>
                               <td>
                                  <?php
+                                 
                                     while($row = $query1->fetch_array()){
                                        echo "<span style='margin-right: 10px;'>".$row['card_type'] . "[ **" . substr($row['card_number'], -4)  . " ]" ."</span>";   
                                        
                                     }
                                     $query1->data_seek(0);
+                                 
                                     ?>
                               </td>
                               <td>
                                  <?php 
-                                    if (mysqli_num_rows($query5) > 0) {
-                                       while($row = $query5->fetch_array()){
-                                          
-                                          $discount_amount = $row['discount']*0.01*$row['total_price'];
-                                          $totalAmount = $row['total_price']-$discount_amount;
-                                          echo "<span style='margin-right: 10px; '>".'$ '.number_format($totalAmount, 2)."</span>";
-                                       }
-                                       $query5->data_seek(0);
-                                    }else{
+                  
                                        while($row = $query1->fetch_array()){
                                           
                                     
                                           echo "<span style='margin-right: 10px;'>".'$ '.number_format($row['total_price'], 2)."</span>";
                                        }
                                     $query1->data_seek(0);
-                                    }
+      
                                        
                                        
                                        ?>
@@ -406,8 +417,6 @@
                                        }
                                     $query1->data_seek(0);
                                     }
-                                       
-                                       
                                        ?>
                               </td>
                            </tr>
@@ -416,8 +425,38 @@
                   </div>
                   <!-- Order Shipping Address -->   
                   <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
-                     <div class="title" style="margin-top: 1.5rem; margin-left: 1rem; margin-right: 1rem;">
+                     <!-- <div class="title" style="margin-top: 1.5rem; margin-left: 1rem; margin-right: 1rem;">
                         <h6 class="m-0" style="color: black; font-size: 20px;">Shipping Address</h6>
+                     </div> -->
+                     <div class="title" style="display: flex; align-items: center; margin-top: 1.5rem; margin-left: 1rem; margin-right: 1rem;">
+                        <h6 class="m-0" style="color: black; font-size: 20px;">Shipping Address</h6>
+                     <div class="button-edit" style="margin-left: auto;">
+                     <?php
+                        $order_id = $_GET['order_id'];
+                        $user_id = $_GET['user_id'];
+
+                        // Check payment status
+                        $sql_order = "SELECT * FROM `Order` WHERE `order_id` = $order_id";
+                        $result_order = mysqli_query($con, $sql_order);
+                        if ($row_order = mysqli_fetch_assoc($result_order)) {
+                           if ($row_order['fulfillment_status'] == "Awaits fulfillment" || $row_order['fulfillment_status'] == "Shipped") {
+                              // Check number of payment methods for the user
+                              $sql_payment = "SELECT COUNT(*) as num_address FROM Shipping_address WHERE `user_id` = $user_id";
+                              $result_payment = mysqli_query($con, $sql_payment);
+                              $row_payment = mysqli_fetch_assoc($result_payment);
+                              if ($row_payment['num_address'] > 1) {
+                                    // Display the Edit Payment button
+                                    echo "<form action='edit-address.php?" . http_build_query(array('user_id' => $user_id, 'order_id' => $order_id)) . "' method='post'>";
+                                    echo "<button class='button-18' style='margin-right: 10px;' type='submit' id='edit_add' name='edit_add' value='edit_add'>";
+                                    echo "<span class='button-icon'></span> <span style='margin-left: 5px;'>Edit</span>";
+                                    echo "</button>";
+                                    echo "</form>";
+                              } 
+
+                           } 
+                        }
+                        ?>
+                     </div>
                      </div>
                      <div class="card-body">
                         <table>
@@ -426,10 +465,12 @@
                                  Address Line 1
                                  <div class="textcontainer" style="margin-right: 10px;">
                                     <?php
+                                    
                                        while($row = $query1->fetch_array()){
                                            echo "<span style='margin-right: 10px;'>".$row['address_line1']."</span>";
                                        }
                                        $query1->data_seek(0); 
+                                    
                                        ?>
                                  </div>
                               </td>
@@ -437,10 +478,12 @@
                                  Address Line 2
                                  <div class="textcontainer" style="margin-right: 10px;">
                                     <?php
+                                  
                                        while($row = $query1->fetch_array()){
                                            echo "<span style='margin-right: 10px;'>".$row['address_line2']."</span>";
                                        }
                                        $query1->data_seek(0); 
+                                    
                                        ?>
                                  </div>
                               </td>
@@ -450,10 +493,12 @@
                                  Postal Code
                                  <div class="textcontainer" style="margin-right: 10px;">
                                     <?php
+                                    
                                        while($row = $query1->fetch_array()){
                                            echo "<span style='margin-right: 10px;'>".$row['postal_code']."</span>";
                                        }
                                        $query1->data_seek(0); 
+                                    
                                        ?>
                                  </div>
                               </td>
@@ -462,10 +507,12 @@
                      City<div>
                      <div class="textcontainer" style="margin-right: 10px;">
                      <?php
+                    
                         while($row = $query1->fetch_array()){
                             echo "<span style='margin-right: 10px;'>".$row['city']."</span>";
                         }
                         $query1->data_seek(0); 
+                     
                         ?>
                      </div>
                      </td>
@@ -475,10 +522,12 @@
                      Province
                      <div class="textcontainer" style="margin-right: 10px;">
                      <?php
+                    
                         while($row = $query1->fetch_array()){
                             echo "<span style='margin-right: 10px;'>".$row['state']."</span>";
                         }
                         $query1->data_seek(0);
+                     
                         ?>
                      </div>
                      </td>
@@ -486,6 +535,7 @@
                      Country
                      <div class="textcontainer" style="margin-right: 10px;">
                      <?php
+                     
                         while($row = $query1->fetch_array()){
                             echo "<span style='margin-right: 10px;'>".$row['country']."</span>";
                         }
