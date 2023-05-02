@@ -430,7 +430,16 @@
                      </div> -->
                      <div class="title" style="display: flex; align-items: center; margin-top: 1.5rem; margin-left: 1rem; margin-right: 1rem;">
                         <h6 class="m-0" style="color: black; font-size: 20px;">Shipping Address</h6>
-                     <div class="button-edit" style="margin-left: auto;">
+                        <!-- Fulfillment Status -->
+                           <div class="status" style="margin-left: auto; margin-right: 10px;">
+                              <?php
+                                 while($row = $query1->fetch_array()){
+                                    echo "<span style='margin-left: auto; margin-right: 10px; font-size: 12px;'>".$row['fulfillment_status']."</span>";
+                                 }
+                                 $query1->data_seek(0);
+                                    ?>
+                           </div>
+                     
                      <?php
                         $order_id = $_GET['order_id'];
                         $user_id = $_GET['user_id'];
@@ -457,7 +466,7 @@
                         }
                         ?>
                      </div>
-                     </div>
+                     
                      <div class="card-body">
                         <table>
                            <tr>
