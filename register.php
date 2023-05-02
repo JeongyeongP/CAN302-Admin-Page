@@ -58,12 +58,12 @@
             
 
                   <!--Select type of user-->
-                  <div>
+                  <!-- <div>
                     <select name="is_admin" id="is_admin" style="width: 522px; margin-bottom: 5px;">
                         <option value="user">user</option>
                         <option value="admin">admin</option>
                     </select>
-                  </div>
+                  </div> -->
       
               
                       <button class="btn btn-info btn-lg btn-block"  style="background-color: #96A1FE; color: white; margin-bottom: 5px;" name="reg_user" id="reg_user" type="submit">Register</button>
