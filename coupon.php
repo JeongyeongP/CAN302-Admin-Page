@@ -123,7 +123,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                         <label for="name"
                                             style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%">
                                             Coupon Name </label>
-                                        <input class="text-box.css"
+                                        <input class="css/text-box.css"
                                             style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
                                             type="text" id="name" name="coupon_name">
                                         </br></br>
@@ -131,7 +131,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                         <label for="discount"
                                             style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%">
                                             Discount (%)</label>
-                                        <input class="text-box.css"
+                                        <input class="css/text-box.css"
                                             style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
                                             type="text" id="discount" name="discount">
                                         </br></br>
@@ -139,7 +139,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                         <label for="min_purchase"
                                             style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%">
                                             Min. Purchase ($)</label>
-                                        <input class="text-box.css"
+                                        <input class="css/text-box.css"
                                             style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
                                             type="text" id="min_purchase" name="min_purchase">
                                         </br></br>
@@ -147,14 +147,14 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                         <label for="expired_at"
                                             style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%">
                                             Expiration Date</label>
-                                        <input class="text-box.css"
+                                        <input class="css/text-box.css"
                                             style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
                                             type="date" id="expired_at" name="expired_at">
 
                                             <label for="coupon_desc"
                                             style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%">
                                             Coupon Description</label>
-                                        <input class="text-box.css"
+                                        <input class="css/text-box.css"
                                             style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;'
                                             type="text" id="coupon_decsc" name="coupon_desc">
                                         </br>

@@ -120,15 +120,15 @@
                             <form class="form-inline" role="form" action="" method="post">
 
                                 <label for="category_id" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Category ID </label>
-                                <input readonly class='text-box.css' style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type='number' id='pcategory_id' name='category_id' value="<?= $category_id ?>">
+                                <input readonly class='css/text-box.css' style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type='number' id='pcategory_id' name='category_id' value="<?= $category_id ?>">
                                 </br></br>
                                 
                                 <label for="category" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Category Name </label>
-                                <input class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="category" name="category" value="<?= $category ?>">
+                                <input class="css/text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="category" name="category" value="<?= $category ?>">
                                 </br></br>
                             
                                 <label for="description" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Category Description </label>
-                                <input class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" name="description" value="<?= $description ?>">         
+                                <input class="css/text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" name="description" value="<?= $description ?>">         
                                 </br></br>
                                 <button type="submit" style="border: 1px solid gray; width:160px; border: 0px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal" class="btn btn-primary" id="edit-category" name="edit-category" value="edit-category"> Save Changes </button>
                                 </br></br>
