@@ -23,7 +23,7 @@ if (isset($_POST['reg_user'])) {
   $email = mysqli_real_escape_string($conn, $_POST['email']);
   $password = mysqli_real_escape_string($conn, $_POST['password']);
   $cpassword= mysqli_real_escape_string($conn, $_POST['cpassword']);
-  $is_admin = (int)mysqli_real_escape_string($conn, $_POST['is_admin']);
+  // $is_admin = (int)mysqli_real_escape_string($conn, $_POST['is_admin']);
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
@@ -50,8 +50,8 @@ if (isset($_POST['reg_user'])) {
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
   	$password = md5($password);//encrypt the password before saving in the database
-  	$query = "INSERT INTO user_regist (first_name, last_name, email, password, is_admin) 
-  			  VALUES('$first_name', '$last_name', '$email', '$password', '$is_admin')";
+  	$query = "INSERT INTO user_regist (first_name, last_name, email, `password`, is_admin) 
+  			  VALUES('$first_name', '$last_name', '$email', '$password', 0)";
 
   	mysqli_query($conn, $query);
   	#$_SESSION['email'] = $email;

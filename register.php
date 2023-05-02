@@ -32,29 +32,30 @@
           
           <!-- Right -->   
           
-            <div class="d-flex align-items-center px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5" style="margin-left: 180px;">
+          <div class="col-sm-4 px-50 d-none d-sm-block" style="width:50%; margin:auto">
+
 
               <form class="width: 23rem; user justify-content-center" action="" method="POST">
     
-                  <h1 class="h4 text-gray-900 mb-4 font-weight-bold">Register an Account!</h1>
+                  <h1 class="h4 text-gray-900 mb-4 font-weight-bold" style="text-align:center">Register an Account!</h1>
     
           
-                    <input type="first_name" id="first_name" name="first_name" style="width: 522px; margin-bottom: 5px;" required placeholder="First Name" class="form-control form-control-lg" />
+                    <input type="first_name" id="first_name" name="first_name" style="margin-bottom: 10px;" required placeholder="First Name" class="form-control form-control-lg" />
              
 
           
-                    <input type="last_name" id="last_name" name="last_name" style="width: 522px; margin-bottom: 5px;" required placeholder="Last Name" class="form-control form-control-lg" />
+                    <input type="last_name" id="last_name" name="last_name" style="margin-bottom: 10px;" required placeholder="Last Name" class="form-control form-control-lg" />
                
 
      
-                    <input type="email" id="email" name="email" style="width: 522px; margin-bottom: 5px;" required placeholder="Email Address" class="form-control form-control-lg" />
+                    <input type="email" id="email" name="email" style="margin-bottom: 10px;" required placeholder="Email Address" class="form-control form-control-lg" />
     
-                      <input type="password" id="password" name="password" style="width: 522px; margin-bottom: 5px;" required placeholder="Password" class="form-control form-control-lg" />
+                      <input type="password" id="password" name="password" style="margin-bottom: 10px;" required placeholder="Password" class="form-control form-control-lg" />
           
 
          
-                    <input type="password" id="cpassword" name="cpassword" style="width: 522px; margin-bottom: 5px;" required placeholder="Confirm Password" class="form-control form-control-lg" />
-                    <input type="tel" id="phone" name="phone" style="width: 522px; margin-bottom: 5px;" required placeholder="Phone Number" class="form-control form-control-lg" />
+                    <input type="password" id="cpassword" name="cpassword" style="margin-bottom: 10px;" required placeholder="Confirm Password" class="form-control form-control-lg" />
+                    <input type="tel" id="phone" name="phone" style=" margin-bottom: 10px;" required placeholder="Phone Number" class="form-control form-control-lg" />
             
 
                   <!--Select type of user-->
