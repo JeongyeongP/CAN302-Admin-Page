@@ -74,14 +74,28 @@ if (isset($_POST['delivered'])){
     $query = mysqli_query($con,$sql);
 }
 
-//Cancel Order
-if (isset($_POST['cancel'])){
+// Cancel Order
+if (isset($_POST['cancel'])) {
     $order_id = $_GET['order_id'];
     $sql = "UPDATE `Order`
             SET is_cancelled = 1
             WHERE order_id = $order_id;";
-    $query = mysqli_query($con,$sql);
-    echo "<script>location.href='order.php'</script>";
+    $query = mysqli_query($con, $sql);
+
+    // Insert cancelled order data into Refund_order table
+    $refund_at = date('Y-m-d H:i:s');
+    $refund_status = 0;
+    $sql2 = "INSERT INTO `Refund_order` (order_id, refund_at, refund_status)
+             VALUES ('$order_id', '$refund_at', '$refund_status')";
+    $query2 = mysqli_query($con, $sql2);
+
+    if ($query && $query2) {
+        echo "<script>alert('Order cancelled successfully.')</script>";
+        echo "<script>location.href='order.php'</script>";
+    } else {
+        echo "<script>alert('Error cancelling order.')</script>";
+        echo "<script>location.href='order.php'</script>";
+    }
 }
 
 if (isset($_GET['order_id'])){
