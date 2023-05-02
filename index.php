@@ -26,9 +26,15 @@ if (isset($_POST['upload'])) {
     $tempname = $_FILES["uploadfile"]["tmp_name"];
     $folder = "./images/" . $filename;
 
+    if (empty($category)){
+        echo '<script language="javascript">';
+        echo 'alert("Please select a category")';
+        echo '</script>';
+    } else {
     $sql = "INSERT INTO `product` (`product_id`, `product_name`, `product_image`, `description`, `price`, `stock_quantity`, `category_id`) VALUES ('0', '$name', '$filename', '$description', '$price', '$stock', '$category')";
     $query = mysqli_query($con,$sql);
     move_uploaded_file($tempname, $folder);
+    }
     
 }
 
