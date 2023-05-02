@@ -77,7 +77,7 @@
             </li>
 
             <li class="nav-item mt-auto">
-                <a class="nav-link" href="admin_profile.php">
+                <a class="nav-link" href="profile.html">
                     <i class="fas fa-fw fa-user" style="margin-left: 20px;"><img src="images/admin.jpeg" width="20px" height="20px"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Admin Profile</span>
                 </a>

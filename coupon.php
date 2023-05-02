@@ -407,7 +407,7 @@ $con = mysqli_connect("localhost", "root", "", "can302");
                                                                     "<a href=deactivate_coupon.php?coupon_id=" . $row_coupons['coupon_id'] . " class='btn red' style='width: 120px;  background-color: #D2042D; border: 0px; font-family: DM Sans; color: white; font-weight: normal'>Deactivate</a>";
                                                             else
                                                                 echo
-                                                                    "<a href=active_coupon.php?coupon_id=" . $row_coupons['coupon_id'] . " class='btn green'>Activate</a>";
+                                                                    "<a href=active_coupon.php?coupon_id=" . $row_coupons['coupon_id'] . " class='btn green' style='width: 120px;  border: 0px; font-family: DM Sans; color: white; font-weight: normal'>Activate</a>";
                                                             ?>
                                                         </div>
 
