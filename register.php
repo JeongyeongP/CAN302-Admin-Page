@@ -41,33 +41,12 @@
     
           
                     <input type="first_name" id="first_name" name="first_name" style="margin-bottom: 10px;" required placeholder="First Name" class="form-control form-control-lg" />
-             
-
-          
                     <input type="last_name" id="last_name" name="last_name" style="margin-bottom: 10px;" required placeholder="Last Name" class="form-control form-control-lg" />
-               
-
-     
                     <input type="email" id="email" name="email" style="margin-bottom: 10px;" required placeholder="Email Address" class="form-control form-control-lg" />
-    
-                      <input type="password" id="password" name="password" style="margin-bottom: 10px;" required placeholder="Password" class="form-control form-control-lg" />
-          
-
-         
+                    <input type="password" id="password" name="password" style="margin-bottom: 10px;" required placeholder="Password" class="form-control form-control-lg" />
                     <input type="password" id="cpassword" name="cpassword" style="margin-bottom: 10px;" required placeholder="Confirm Password" class="form-control form-control-lg" />
-                    <input type="tel" id="phone" name="phone" style=" margin-bottom: 10px;" required placeholder="Phone Number" class="form-control form-control-lg" />
-            
-
-                  <!--Select type of user-->
-                  <!-- <div>
-                    <select name="is_admin" id="is_admin" style="width: 522px; margin-bottom: 5px;">
-                        <option value="user">user</option>
-                        <option value="admin">admin</option>
-                    </select>
-                  </div> -->
-      
-              
-                      <button class="btn btn-info btn-lg btn-block"  style="background-color: #96A1FE; color: white; margin-bottom: 5px;" name="reg_user" id="reg_user" type="submit">Register</button>
+                    <input type="tel" id="phone" name="phone" style=" margin-bottom: 10px;" required placeholder="Phone Number" class="form-control form-control-lg" />      
+                    <button class="btn btn-info btn-lg btn-block"  style="background-color: #96A1FE; color: white; margin-bottom: 5px;" name="reg_user" id="reg_user" type="submit">Register</button>
                 
 
                   <div class="text-center">

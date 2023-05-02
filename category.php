@@ -73,7 +73,7 @@
 
             <!-- Admin Profile -->
             <li class="nav-item mt-auto">
-                <a class="nav-link" href="admin_profile.php">
+                <a class="nav-link" href="profile.html">
                     <i class="fas fa-fw fa-user" style="margin-left: 30px;"><img src="admin.jpeg" width="30px" height="30px"></i>
                     <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Admin Profile</span>
                 </a>
@@ -111,7 +111,7 @@
                                 <label for="description" style="font-family: DM Sans; color:#06152B; display:inline-block; width:14%"> Category Description </label>
                                 <input required class="text-box.css" style='border: 1px solid gray; width:86%; height: 36px; border-radius:10px; font-family: DM Sans; color:#06152B;' type="text" id="description" name="description">         
                                 </br></br>
-                                <button type="submit" style="width:80px; border: 0px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal; margin-left:450px;" class="btn btn-primary" id="add-category" name="add-category" value="add-category"> Add </button>
+                                <button type="submit" style="width:80px; border: 0px; background-color:#333333; font-family: DM Sans; color: white; font-weight: normal; " class="btn btn-primary" id="add-category" name="add-category" value="add-category"> Add </button>
                                 <button type="submit" style="margin-left:10px; width:80px; border: 0px; background-color:#E0E0E0; font-family: DM Sans; color: #333333; font-weight: normal" class="btn btn-primary" id="search-category" name="search-category" value="search-category"> Search</button>
                                 </br></br>
                             </form>
