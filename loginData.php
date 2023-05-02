@@ -99,7 +99,7 @@ if (isset($_POST['login_user'])) {
             header('location: dashboard.php');
         } elseif($row['password']==$password && $row['is_admin']==0){
             $error = "You have no right to access admin page!";
-            print($error);
+            header('location: user-page.html');
         }
         else {
             $error = "Your Password is incorrect!";
