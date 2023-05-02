@@ -24,11 +24,6 @@
 
 </head>
 
-<header>
-    <!--Logo-->
-    <div class="sidebar-brand-text mx-3"><img src="images/supermarket.png" width="150px" style=""></div>    
-</header>
-
 <section class="vh-100">
     <div class="container-fluid" >
 
