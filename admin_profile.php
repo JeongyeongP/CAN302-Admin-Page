@@ -27,7 +27,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body style="background-color: #e2e5ff;">
    
    <div class="container-fluid" id="intro" style="margin-top: 20px;background-attachment: fixed;">
         <header>
@@ -66,6 +66,8 @@
     #intro {
       background-image: url(images/background.png);
       height: 100vh;
+      margin-top: 20px;
+      background-attachment: fixed;
     }
 
     /* Height for devices larger than 576px */
@@ -94,7 +96,7 @@
 
     .header {
         width: 100%;
-        min-height: calc(75px + 15vw);
+        min-height: 75vh;
 
     }
     .container{
@@ -104,6 +106,7 @@
         position: relative;
         margin: 0 auto;
         background: white;
+        height: 75vh;
     }
 
 
@@ -133,6 +136,9 @@
         font-size: 0.75rem;
         margin-top: 1.5rem;
         margin-bottom: 1rem;
+        background-color: #e2e5ff;
+        border-color: #e2e5ff;
+        color: #000000;
     }
     /* Align the button to the center */
     .btn-edit-profile {
@@ -140,10 +146,11 @@
         margin: 0 auto;
         text-align: center;
     }
-    .bg-gradient-primary {
-    background-color: #E2E5FF;
+    .btn:hover {
+        background-color: #b8bdff;
+        border-color: #b8bdff;
+        color: #000000;
     }
-
   </style>
 
 
