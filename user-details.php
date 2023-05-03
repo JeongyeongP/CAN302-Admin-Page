@@ -289,7 +289,7 @@
                                     echo "<td style='font-family: DM Sans;'>".$row['coupon_name']."</td>";
                                     echo "<td style='font-family: DM Sans;'>".$row['discount']."</td>";
                                     echo "<td style='font-family: DM Sans;'>".$row['expired_at']."</td>";
-                                    if($row['is_used'] == 1) echo "<td style='color: #FF2D00; style='font-family: DM Sans;'>"."Used"."</td>"; else echo "<td style='font-family: DM Sans;>"."Available"."</td>";
+                                    if($row['is_used'] == 1) echo "<td style='color: #FF2D00; style='font-family: DM Sans;'>"."Used"."</td>"; else echo "<td>"."Available"."</td>";
                                     echo "</tr>";
                                     }
                                     $query5->data_seek(0);
