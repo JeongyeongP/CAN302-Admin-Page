@@ -101,7 +101,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-body">
                         <h5 style="font-family: DM Sans; color:#06152B; padding-top:5px">Search Filters</h5> 
-                        <img src="search.png" width=15px; height=15px style="margin-left:140px; margin-top:-70px; overflow:hidden"/>
+                        <img src="images/search.png" width=15px; height=15px style="margin-left:140px; margin-top:-70px; overflow:hidden"/>
                         <form class="form-inline" role="form" action="" method="post">
 
                             <table style="width:100%;" >

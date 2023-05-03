@@ -86,16 +86,16 @@
                                        echo "<tr>";
                                        echo "<td rowspan=3>".$profilepic."</td>";
                                        echo "<td>&nbsp;</td>";
-                                       echo "<b><td style='margin-right: 220px; font-size: 50px; font-family: DM Sans;'>".$row['first_name'].' '.$row['last_name']."</td></b>";
+                                       echo "<b><td style='margin-right: 220px; font-size: 24px; font-family: DM Sans; color:#06152B; font-weight:bold'>".$row['first_name'].' '.$row['last_name']."</td></b>";
                                        echo "<td>&nbsp;</td>";
                                        echo "</tr>";
                                        echo "<tr>";
                                        echo "<td>&nbsp;</td>";
-                                       echo "<td style='margin-right: 220px; font-size: 20px; font-family: DM Sans;'>".'User Number #'.$row['user_id']."</td>";
+                                       echo "<td style='margin-right: 220px; font-family: DM Sans;'>".'User Number #'.$row['user_id']."</td>";
                                        echo "</tr>";
                                        echo "<tr>";
                                        echo "<td>&nbsp;</td>";
-                                       echo "<td style='margin-right: 220px; font-size: 20px; font-family: DM Sans;'>".'Created at '.$row['created_at']."</td>";
+                                       echo "<td style='margin-right: 220px; font-family: DM Sans;'>".'Created at '.$row['created_at']."</td>";
                                        echo "</tr>";
                                        echo "</table>";
                                  }
@@ -106,7 +106,7 @@
                   <!--Contact Information Start -->
                   <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
                      <div class="title" style="margin-top: 1.5rem; margin-left: 1rem; margin-right: 1rem;">
-                        <h6 class="m-0" style="color: black; font-size: 35px; font-family: DM Sans;">Contact Information</h6>
+                     <h5 class="m-0" style="font-family: DM Sans; color:#06152B; font-weight:bold">Contact Information</h5>
                      </div>
                      <div class="card-body">
                         <div class="container">
@@ -114,7 +114,7 @@
                               while($row = $query1->fetch_array()){
                                  echo "<table>";
                                  echo "<tr>";
-                                 echo "<td style='margin-right: 220px; font-size: 20px; font-family: DM Sans;'><img src='images/email.png' style='border-radius:5px' width=25 height=25 margin= 100px><b>Email</b></td>";
+                                 echo "<td style='margin-right: 220px; font-family: DM Sans;'><img src='images/email.png' style='border-radius:5px' width=25 height=25 margin= 100px><b>Email</b></td>";
                                  echo "<td>&nbsp;</td>";
                                  echo "<td>&nbsp;</td>";
                                  echo "<td>&nbsp;</td>";
@@ -125,10 +125,10 @@
                                  echo "<td>&nbsp;</td>";
                                  echo "<td>&nbsp;</td>";
                                  echo "<td>&nbsp;</td>";
-                                 echo "<td style='margin-right: 220px; font-size: 20px;'>". $row['user_email'] . "</td>";
+                                 echo "<td style='margin-right: 220px; font-family: DM Sans'>". $row['user_email'] . "</td>";
                                  echo "</tr>";
                                  echo "<tr>";
-                                 echo "<td style='margin-right: 220px; font-size: 20px; font-family: DM Sans;'><img src='images/phone.png' style='border-radius:5px' width=25 height=25 margin= 100px><b>Phone No.          </b></td>";
+                                 echo "<td style='margin-right: 220px; font-family: DM Sans;'><img src='images/phone.png' style='border-radius:5px' width=25 height=25 margin= 100px><b>Phone No.          </b></td>";
                                  echo "<td>&nbsp;</td>";
                                  echo "<td>&nbsp;</td>";
                                  echo "<td>&nbsp;</td>";
@@ -139,7 +139,7 @@
                                  echo "<td>&nbsp;</td>";
                                  echo "<td>&nbsp;</td>";
                                  echo "<td>&nbsp;</td>";
-                                 echo "<td style='margin-right: 220px; font-size: 20px; font-family: DM Sans;'>". $row['phone_number'] . "</td>";
+                                 echo "<td style='margin-right: 220px; font-family: DM Sans;'>". $row['phone_number'] . "</td>";
                                  echo "</table>";
                               }
                               $query1->data_seek(0); // Reset the internal pointer of the result set
@@ -151,7 +151,7 @@
                 <!-- Order History Start -->
                 <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
                      <div class="title" style="margin-top: 1.5rem; margin-left: 1rem; margin-right: 1rem;">
-                        <h6 class="m-0" style="color: black; font-size: 35px; font-family: DM Sans;">Order History</h6>
+                     <h5 class="m-0" style="font-family: DM Sans; color:#06152B; font-weight:bold">Order History</h5>
                      </div>
                      <div class="card-body">
                         <div class="table-responsive">
@@ -188,7 +188,7 @@
                   <!-- Shipping Address Start -->
                 <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
                      <div class="title" style="margin-top: 1.5rem; margin-left: 1rem; margin-right: 1rem;">
-                        <h6 class="m-0" style="color: black; font-size: 35px; font-family: DM Sans;">Shipping Address</h6>
+                     <h5 class="m-0" style="font-family: DM Sans; color:#06152B; font-weight:bold">Shipping Address</h5>
                      </div>
                      <div class="card-body">
                         <div class="table-responsive">
@@ -230,7 +230,7 @@
                   <!-- Payment Method Start -->
                 <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
                      <div class="title" style="margin-top: 1.5rem; margin-left: 1rem; margin-right: 1rem;">
-                        <h6 class="m-0" style="color: black; font-size: 35px; font-family: DM Sans;">Payment Method</h6>
+                     <h5 class="m-0" style="font-family: DM Sans; color:#06152B; font-weight:bold">Payment Method</h5>
                      </div>
                      <div class="card-body">
                         <div class="table-responsive">
@@ -265,7 +265,7 @@
                  <!-- Coupon Start -->
                 <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
                      <div class="title" style="margin-top: 1.5rem; margin-left: 1rem; margin-right: 1rem;">
-                        <h6 class="m-0" style="color: black; font-size: 35px; font-family: DM Sans;">Coupon</h6>
+                     <h5 class="m-0" style="font-family: DM Sans; color:#06152B; font-weight:bold">Coupon</h5>
                      </div>
                      <div class="card-body">
                         <div class="table-responsive">
