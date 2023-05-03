@@ -86,16 +86,16 @@
                                        echo "<tr>";
                                        echo "<td rowspan=3>".$profilepic."</td>";
                                        echo "<td>&nbsp;</td>";
-                                       echo "<td style='margin-right: 220px; font-size: 20px;'>".$row['first_name'].' '.$row['last_name']."</td>";
+                                       echo "<b><td style='margin-right: 220px; font-size: 50px; font-family: DM Sans;'>".$row['first_name'].' '.$row['last_name']."</td></b>";
                                        echo "<td>&nbsp;</td>";
                                        echo "</tr>";
                                        echo "<tr>";
                                        echo "<td>&nbsp;</td>";
-                                       echo "<td style='margin-right: 220px; font-size: 20px;'>".'User Number #'.$row['user_id']."</td>";
+                                       echo "<td style='margin-right: 220px; font-size: 20px; font-family: DM Sans;'>".'User Number #'.$row['user_id']."</td>";
                                        echo "</tr>";
                                        echo "<tr>";
                                        echo "<td>&nbsp;</td>";
-                                       echo "<td style='margin-right: 220px; font-size: 20px;'>".'Created at '.$row['created_at']."</td>";
+                                       echo "<td style='margin-right: 220px; font-size: 20px; font-family: DM Sans;'>".'Created at '.$row['created_at']."</td>";
                                        echo "</tr>";
                                        echo "</table>";
                                  }
@@ -106,7 +106,7 @@
                   <!--Contact Information Start -->
                   <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
                      <div class="title" style="margin-top: 1.5rem; margin-left: 1rem; margin-right: 1rem;">
-                        <h6 class="m-0" style="color: black; font-size: 20px;">Contact Information</h6>
+                        <h6 class="m-0" style="color: black; font-size: 35px; font-family: DM Sans;">Contact Information</h6>
                      </div>
                      <div class="card-body">
                         <div class="container">
@@ -114,7 +114,7 @@
                               while($row = $query1->fetch_array()){
                                  echo "<table>";
                                  echo "<tr>";
-                                 echo "<td style='margin-right: 220px; font-size: 20px;'><img src='images/email.png' style='border-radius:5px' width=25 height=25 margin= 100px>Email</td>";
+                                 echo "<td style='margin-right: 220px; font-size: 20px; font-family: DM Sans;'><img src='images/email.png' style='border-radius:5px' width=25 height=25 margin= 100px><b>Email</b></td>";
                                  echo "<td>&nbsp;</td>";
                                  echo "<td>&nbsp;</td>";
                                  echo "<td>&nbsp;</td>";
@@ -128,7 +128,7 @@
                                  echo "<td style='margin-right: 220px; font-size: 20px;'>". $row['user_email'] . "</td>";
                                  echo "</tr>";
                                  echo "<tr>";
-                                 echo "<td style='margin-right: 220px; font-size: 20px;'><img src='images/phone.png' style='border-radius:5px' width=25 height=25 margin= 100px>Phone No.          </td>";
+                                 echo "<td style='margin-right: 220px; font-size: 20px; font-family: DM Sans;'><img src='images/phone.png' style='border-radius:5px' width=25 height=25 margin= 100px><b>Phone No.          </b></td>";
                                  echo "<td>&nbsp;</td>";
                                  echo "<td>&nbsp;</td>";
                                  echo "<td>&nbsp;</td>";
@@ -139,7 +139,7 @@
                                  echo "<td>&nbsp;</td>";
                                  echo "<td>&nbsp;</td>";
                                  echo "<td>&nbsp;</td>";
-                                 echo "<td style='margin-right: 220px; font-size: 20px;'>". $row['phone_number'] . "</td>";
+                                 echo "<td style='margin-right: 220px; font-size: 20px; font-family: DM Sans;'>". $row['phone_number'] . "</td>";
                                  echo "</table>";
                               }
                               $query1->data_seek(0); // Reset the internal pointer of the result set
@@ -151,7 +151,7 @@
                 <!-- Order History Start -->
                 <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
                      <div class="title" style="margin-top: 1.5rem; margin-left: 1rem; margin-right: 1rem;">
-                        <h6 class="m-0" style="color: black; font-size: 20px;">Order History</h6>
+                        <h6 class="m-0" style="color: black; font-size: 35px; font-family: DM Sans;">Order History</h6>
                      </div>
                      <div class="card-body">
                         <div class="table-responsive">
@@ -169,11 +169,11 @@
                                 <?php
                                     while($row = $query2->fetch_array()){
                                     echo "</tr>";
-                                    echo "<td>"."#".$row['order_id']."</td>";
-                                    echo "<td>".$row['ordered_at']."</td>";
-                                    echo "<td>".$row['payment_status']."</td>";
-                                    echo "<td>".$row['fulfillment_status']."</td>";
-                                    echo "<td>".$row['total_price']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>"."#".$row['order_id']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>".$row['ordered_at']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>".$row['payment_status']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>".$row['fulfillment_status']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>".$row['total_price']."</td>";
                                     echo "</tr>";
                                     }
                                     $query2->data_seek(0);
@@ -188,7 +188,7 @@
                   <!-- Shipping Address Start -->
                 <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
                      <div class="title" style="margin-top: 1.5rem; margin-left: 1rem; margin-right: 1rem;">
-                        <h6 class="m-0" style="color: black; font-size: 20px;">Shipping Address</h6>
+                        <h6 class="m-0" style="color: black; font-size: 35px; font-family: DM Sans;">Shipping Address</h6>
                      </div>
                      <div class="card-body">
                         <div class="table-responsive">
@@ -208,13 +208,13 @@
                                  <?php
                                     while($row = $query3->fetch_array()){
                                     echo "<tr>";
-                                    echo "<td>"."#".$row['shipping_address_id']."</td>";
-                                    echo "<td>".$row['address_line1']."</td>";
-                                    echo "<td>".$row['address_line2']."</td>";
-                                    echo "<td>".$row['postal_code']."</td>";
-                                    echo "<td>".$row['city']."</td>";
-                                    echo "<td>".$row['state']."</td>";
-                                    echo "<td>".$row['country']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>"."#".$row['shipping_address_id']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>".$row['address_line1']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>".$row['address_line2']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>".$row['postal_code']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>".$row['city']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>".$row['state']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>".$row['country']."</td>";
                                     echo "</tr>";
                                     }
                                     $query3->data_seek(0);
@@ -230,7 +230,7 @@
                   <!-- Payment Method Start -->
                 <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
                      <div class="title" style="margin-top: 1.5rem; margin-left: 1rem; margin-right: 1rem;">
-                        <h6 class="m-0" style="color: black; font-size: 20px;">Payment Method</h6>
+                        <h6 class="m-0" style="color: black; font-size: 35px; font-family: DM Sans;">Payment Method</h6>
                      </div>
                      <div class="card-body">
                         <div class="table-responsive">
@@ -247,10 +247,10 @@
                                 <?php
                                     while($row = $query4->fetch_array()){
                                     echo "<tr>";
-                                    echo "<td>"."#".$row['payment_method_id']."</td>";
-                                    echo "<td>".$row['card_type']."</td>";
-                                    echo "<td>". "[ **" . substr($row['card_number'], -4)  . " ]" ."</td>";
-                                    echo "<td>".$row['expired_at']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>"."#".$row['payment_method_id']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>".$row['card_type']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>". "[ **" . substr($row['card_number'], -4)  . " ]" ."</td>";
+                                    echo "<td style='font-family: DM Sans;'>".$row['expired_at']."</td>";
                                     echo "</tr>";
                                     }
                                     $query4->data_seek(0);
@@ -265,7 +265,7 @@
                  <!-- Coupon Start -->
                 <div class="card shadow mb-4 mt-4 col-md-8 offset-md-2">
                      <div class="title" style="margin-top: 1.5rem; margin-left: 1rem; margin-right: 1rem;">
-                        <h6 class="m-0" style="color: black; font-size: 20px;">Coupon</h6>
+                        <h6 class="m-0" style="color: black; font-size: 35px; font-family: DM Sans;">Coupon</h6>
                      </div>
                      <div class="card-body">
                         <div class="table-responsive">
@@ -284,12 +284,12 @@
                                 <?php
                                     while($row = $query5->fetch_array()){
                                     echo "<tr>";
-                                    echo "<td>".$row['user_coupon_id']."</td>";
-                                    echo "<td>"."#".$row['coupon_id']."</td>";
-                                    echo "<td>".$row['coupon_name']."</td>";
-                                    echo "<td>".$row['discount']."</td>";
-                                    echo "<td>".$row['expired_at']."</td>";
-                                    if($row['is_used'] == 1) echo "<td style='color: #FF2D00;'>"."Used"."</td>"; else echo "<td>"."Available"."</td>";
+                                    echo "<td style='font-family: DM Sans;'>".$row['user_coupon_id']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>"."#".$row['coupon_id']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>".$row['coupon_name']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>".$row['discount']."</td>";
+                                    echo "<td style='font-family: DM Sans;'>".$row['expired_at']."</td>";
+                                    if($row['is_used'] == 1) echo "<td style='color: #FF2D00; style='font-family: DM Sans;'>"."Used"."</td>"; else echo "<td style='font-family: DM Sans;>"."Available"."</td>";
                                     echo "</tr>";
                                     }
                                     $query5->data_seek(0);
