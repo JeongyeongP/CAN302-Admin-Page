@@ -31,11 +31,18 @@ if (isset($_POST['reg_user'])) {
     if ($password == $cpassword) {
       $password = md5($password);
       $query = "insert into `user` (`user_id`, `user_email`, `first_name`, `last_name`, `password`, `phone_number`) values('0', '$email', '$first_name', '$last_name', '$password', '$phone')";
-      mysqli_query($conn, $query);
-      echo '<script language="javascript">';
-      echo 'alert("Successfully Registered!")';
-      echo '</script>';
-      header('location: login.php');
+      $query = mysqli_query($conn, $query);
+      if ($query){
+        echo '<script language="javascript">';
+        echo 'alert("Successfully Registered!")';
+        echo '</script>';
+        header('location: login.php');
+      } else {
+        echo '<script language="javascript">';
+        echo 'alert("Email already exists. Please use another one.")';
+        echo '</script>';
+      }
+      
     } else {
       echo '<script language="javascript">';
       echo 'alert("Passwords do not match")';
