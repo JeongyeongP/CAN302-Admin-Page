@@ -218,7 +218,7 @@
                                        <?php 
                                           if (mysqli_num_rows($query5) > 0) {
                                              while($row = $query5->fetch_array()){
-                                                echo "<span style='margin-right: 10px; font-size: 11px;'>".$row['coupon_name']."</span>";
+                                                echo "<span style='margin-right: 10px; font-size: 10px;'>".$row['coupon_name']."</span>";
                                              }
                                              $query5->data_seek(0);
                                           }else{
