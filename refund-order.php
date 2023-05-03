@@ -15,8 +15,6 @@
       <!-- Custom styles for this template -->
       <link href="css/sb-admin-2.min.css" rel="stylesheet">
       <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
-      <!-- Custom styles for this page -->
-      <!-- <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
       <!-- Button Style -->
       <link href="css/buttonStyle.css" rel="stylesheet">
    </head>
@@ -44,7 +42,7 @@
                <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Product</span></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="refund-order.php" style="background-color: #ebf0f4">
+               <a class="nav-link" href="order.php" style="background-color: #ebf0f4">
                <i class="fas fa-fw fa-tachometer-alt" style="margin-left:30px;"><img src="images/order_icon.png" width="20px" height="20px"></i>
                <span style="font-family: DM Sans; color: #828a95; font-weight: medium; margin-left:10px">Order</span></a>
             </li>
@@ -75,27 +73,25 @@
                <div class="container-fluid" style="background-color: #E2E5FF;">
                   <!-- Page Heading -->
                   <h1 class="h3 mb-3 text-gray-800 mt-4" style="margin-bottom: 1rem;">Order</h1>
-                   <div class="button-container" style="margin-bottom: 1rem;">
-                     <button class="button-16" role="button" onclick="window.location.href='order.php';">Order List</button>
-                     <button class="button-16" style="background-color: #333333; color: white;" role="button" onclick="window.location.href='refund-order.php';">Refund List</button>    
+                  <div class="button-container" style="margin-bottom: 1rem;">
+                     <button class="button-16" onclick="window.location.href='order.php';">Order List</button>
+                     <button class="button-16" role="button" style="background-color: #333333; color: white;" role="button" onclick="window.location.href='order.php';">Refund List</button>    
                   </div>
-                  
-                  
                   <!-- Order -->   
                   <!-- Filter & Search -->    
                   <div class="card shadow mb-4">
                      <div class="card-body">
+                  
                         <form action="" method="post">
                            <div class="input-group mb-3">
-                              <input type="text" name="data_refund" id='data_refund' class="form-control" placeholder="Search Data" aria-label="Search data" >
+                              <input type="number" name="data" id='data' class="form-control" placeholder="Search with Invoice Number...." aria-label="Search data" >
                               <div class="input-group-append">
-                                 <button type="submit" class="button-16" id="search_refund" name="search_refund" value="search_refund">Search</button>
+                                 <button type="submit" class="button-16" id="search" name="search" value="search">Search</button>
                               </div>
                            </div>
                         </form>
                      </div>
                   </div>
-                  <!-- Function for Search Button-->
                   <!-- Order List -->
                   <div class="card shadow mb-4">
                      <div class="card-body">
@@ -108,22 +104,30 @@
                                     <th>Order ID</th>
                                     <th>Time of Refund</th>
                                     <th>Refund Status</th>
+        
                                  </tr>
                               </thead>
                               <tbody>
                                  <?php
                                     include("refundData.php");
+                                    
                                     while($row = $query->fetch_array()){
-                                       echo "<td>".'#'.$row['refund_order_id']."</td>";
-                                       echo "<td>".'#'.$row['order_id']."</td>";
-                                       echo "<td>".$row['refund_at']."</td>";
-                                       if($row['refund_status'] == 1) echo "<td>"."Completed"."</td>"; else echo "<td>"."Processing"."</td>";             
+                    
+                                    echo "<tr>";
+                                    echo "<td>".'#'.$row['refund_order_id']."</td>";
+                                    echo "<td>".'#'.$row['order_id']."</td>";
+                                    echo "<td>".$row['refund_at']."</td>";
+                                    if ($row['refund_status'] == 0) {
+                                       echo "<td>Processing</td>";
+                                    } else {
+                                       echo "<td>Completed</td>";
+                                    }
+                                    echo "</tr>";
                                     }
                                     mysqli_close($con);
                                     ?>
                               </tbody>
                            </table>
-                           
                         </div>
                      </div>
                   </div>
@@ -140,29 +144,5 @@
       <a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
       </a>
-<<<<<<< HEAD
-      <!-- Logout Modal-->
-      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                  </button>
-               </div>
-               <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-               <div class="modal-footer">
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                  <a class="btn btn-primary" href="login.html">Logout</a>
-               </div>
-            </div>
-         </div>
-      </div>
-      
-=======
- 
->>>>>>> 3c27fbc5ae513fae8d1403108a31e625332791d3
    </body>
 </html>
